@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITパスポート クイズDX（初心者向け・ヒント付き）</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .quiz-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .progress {
+            font-size: 14px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 16px;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+        }
+
+        .choices-grid {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn-choice {
+            padding: 12px 15px;
+            font-size: 15px;
+            border: 2px solid #007bff;
+            background-color: #ffffff;
+            color: #007bff;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        .btn-choice:hover:not(:disabled) {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .btn-choice:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        /* ヒント周りのデザイン */
+        .btn-hint {
+            background-color: #ffc107;
+            color: #333;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+        .btn-hint:hover {
+            background-color: #e0a800;
+        }
+
+        .hint-box {
+            background-color: #fff9db;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: #856404;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            line-height: 1.5;
+        }
+
+        .result-message {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            min-height: 27px;
+        }
+
+        .btn-action {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-action:hover {
+            background-color: #218838;
+        }
+
+        .btn-action:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-card">
+    <!-- タイトル画面 -->
+    <div id="screen-start">
+        <h1>ITパスポート クイズDX</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">
+            初心者・未経験者でも安心！ヒント機能付きのITパスポート重要問題（全30問）からランダムで10問出題されます。
+        </p>
+        <button class="btn-action" onclick="startQuiz()">クイズを始める</button>
+    </div>
+
+    <!-- クイズ画面 -->
+    <div id="screen-quiz" class="hidden">
+        <div id="lbl-progress" class="progress">第 1 問 / 全 10 問</div>
+        <div id="lbl-question" class="question-text"></div>
+        
+        <!-- ヒントボタン & ヒント表示エリア -->
+        <button class="btn-hint" onclick="showHint()">💡 ヒントを見る</button>
+        <div id="lbl-hint" class="hint-box hidden"></div>
+
+        <div class="choices-grid">
+            <button class="btn-choice" onclick="selectChoice(0)"></button>
+            <button class="btn-choice" onclick="selectChoice(1)"></button>
+            <button class="btn-choice" onclick="selectChoice(2)"></button>
+            <button class="btn-choice" onclick="selectChoice(3)"></button>
+        </div>
+
+        <div id="lbl-result" class="result-message"></div>
+        <button id="btn-next" class="btn-action" onclick="nextQuestion()" disabled>次の問題へ</button>
+    </div>
+
+    <!-- 終了画面 -->
+    <div id="screen-end" class="hidden">
+        <h1>クイズ終了！</h1>
+        <p id="lbl-final-score" class="question-text" style="text-align: center; font-size: 18px;"></p>
+        <button class="btn-action" onclick="showStartScreen()">タイトルに戻る</button>
+    </div>
+</div>
+
+<script>
+    // 💡 初心者向けヒント付き問題データ（全30問）
+    const quizList = [
+        {
+            question: "【ストラテジ】情報セキュリティの3要素（機密性・完全性・可用性）のうち、「許可された者だけが情報にアクセスできる状態を保つこと」はどれですか？",
+            choices: ["機密性（Confidentiality）", "完全性（Integrity）", "可用性（Availability）", "真正性（Authenticity）"],
+            correctIndex: 0,
+            hint: "「秘密にする」という意味の言葉を想像してみよう。部外者に見られないように鍵をかけるイメージだよ。"
+        },
+        {
+            question: "【ストラテジ】他人が作成した文章やイラスト、プログラムなどを無断で複製・転載して公開した場合、侵害するリスクが最も高い権利はどれですか？",
+            choices: ["特許権", "商標権", "著作権", "意匠権"],
+            correctIndex: 2,
+            hint: "「小説やイラスト、音楽などの作品（著作物）を守るための権利」だよ。"
+        },
+        {
+            question: "【ストラテジ】オープンソースソフトウェア（OSS）に関する記述として、適切なものはどれですか？",
+            choices: ["ソースコードが公開されており、利用や改変が自由に許可されている", "商用利用は一切禁止されている", "著作権が存在しないソフトウェアのことである", "個人利用であっても無断でダウンロードしてはならない"],
+            correctIndex: 0,
+            hint: "「みんなのオープンな設計図（ソースコード）」という意味が含まれているよ。"
+        },
+        {
+            question: "【ストラテジ】企業が保持する個人情報の取り扱いについて定めた日本の法律はどれですか？",
+            choices: ["不正アクセス禁止法", "個人情報保護法", "特定商取引法", "電子署名法"],
+            correctIndex: 1,
+            hint: "名前のとおり、「個人の情報」を「守る」ための法律だよ。"
+        },
+        {
+            question: "【ストラテジ】企業などの組織において、業務プロセスの不正や誤りを防ぐために内部で設定される仕組みや手続のことを何と呼びますか？",
+            choices: ["内部統制（インターナルコントロール）", "コーポレートガバナンス", "コンプライアンス", "BCP（事業継続計画）"],
+            correctIndex: 0,
+            hint: "社内（内部）でしっかりルールをコントロール・管理する仕組みのことだよ。"
+        },
+        {
+            question: "【ストラテジ】大規模災害などの緊急事態が発生した際に、損害を最小限に抑えつつ事業を継続・早期復旧させるための計画はどれですか？",
+            choices: ["BCP（事業継続計画）", "SLA（サービスレベル合意）", "RFP（提案依頼書）", "NDA（秘密保持契約）"],
+            correctIndex: 0,
+            hint: "Business Continuity Plan（ビジネスの継続）の略称だよ。"
+        },
+        {
+            question: "【ストラテジ】自社の強み（Strengths）、弱み（Weaknesses）、機会（Opportunities）、脅威（Threats）を分析する手法はどれですか？",
+            choices: ["SWOT分析", "3C分析", "PEST分析", "PPM分析"],
+            correctIndex: 0,
+            hint: "それぞれの頭文字をとった4文字の英単語（スウォット）だよ。"
+        },
+        {
+            question: "【ストラテジ】新規事業の契約締結時などに、業務上知り得た他社の秘密情報を第三者に漏洩しないことを約束する契約はどれですか？",
+            choices: ["NDA（秘密保持契約）", "SLA（サービスレベル合意）", "RFP（提案依頼書）", "基本売買契約"],
+            correctIndex: 0,
+            hint: "Non-Disclosure Agreement（秘密保持）の略だよ。"
+        },
+        {
+            question: "【ストラテジ】ソフトウェアの違法コピーや無断複製を禁止する法律として、著作権法のほかに当てはまるものはどれですか？",
+            choices: ["不正競争防止法", "労働者派遣法", "特定商取引法", "電気通信事業法"],
+            correctIndex: 0,
+            hint: "ビジネス上のズルい競争や違反を防ぐための法律だよ。"
+        },
+        {
+            question: "【ストラテジ】自社のコア事業に集中するため、業務プロセスの一部（情報システムの運用など）を外部の専門業者に委託することを何と呼びますか？",
+            choices: ["アウトソーシング", "インソーシング", "フランチャイズ", "クラウドファンディング"],
+            correctIndex: 0,
+            hint: "社内（イン）ではなく、社外（アウト）の専門家に任せることだよ。"
+        },
+        {
+            question: "【マネジメント】システム開発の手法のうち、小さな単位で設計・実装・テストを短期間で繰り返しながら開発を進めていく手法はどれですか？",
+            choices: ["ウォーターフォールモデル", "アジャイル開発", "プロトタイピング", "バッチ処理"],
+            correctIndex: 1,
+            hint: "「素早い、機敏な」という意味を持つ英語が名前の由来だよ。"
+        },
+        {
+            question: "【マネジメント】上流工程から下流工程（要件定義→設計→プログラミング→テスト）へと滝のように順番に進める開発モデルはどれですか？",
+            choices: ["ウォーターフォールモデル", "アジャイル開発", "エクストリームプログラミング", "スパイラルモデル"],
+            correctIndex: 0,
+            hint: "水が上から下に流れる「滝（ウォーターフォール）」をイメージしてね。"
+        },
+        {
+            question: "【マネジメント】システムの発注者が、受注候補のITベンダーに対して「具体的な提案を出してください」と依頼する文書はどれですか？",
+            choices: ["RFP（提案依頼書）", "RFI（情報提供依頼書）", "SLA（サービスレベル合意書）", "仕様書"],
+            correctIndex: 0,
+            hint: "Request for Proposal（プロポーザル＝提案）の略だよ。"
+        },
+        {
+            question: "【マネジメント】ITサービスの提供者と利用者の間で、提供するサービスの品質（稼働率など）に関して合意する契約はどれですか？",
+            choices: ["SLA（Service Level Agreement）", "NDA", "RFP", "ISMS"],
+            correctIndex: 0,
+            hint: "サービスの「レベル」について約束（アグリーメント）する文書だよ。"
+        },
+        {
+            question: "【マネジメント】プロジェクト管理において、全体の工程遅延に直結する「最も期間が長くなる作業経路」のことを何と呼びますか？",
+            choices: ["クリティカルパス", "マイルストーン", "ガントチャート", "WBS"],
+            correctIndex: 0,
+            hint: "「重大な・きわどい（クリティカル）」な道のり（パス）のことだよ。"
+        },
+        {
+            question: "【マネジメント】プロジェクトの作業内容を細かく分解し、木構造（階層構造）で整理した構成図のことを何と呼びますか？",
+            choices: ["WBS（Work Breakdown Structure）", "อローダイアグラム", "フローマシン", "ER図"],
+            correctIndex: 0,
+            hint: "仕事を「ブレイクダウン（分解）」していく仕組みだよ。"
+        },
+        {
+            question: "【マネジメント】業務の品質改善などを継続的に進めるための手法「PDCAサイクル」の「C」が表す意味はどれですか？",
+            choices: ["Check（評価・検証）", "Control（管理）", "Change（変更）", "Create（創造）"],
+            correctIndex: 0,
+            hint: "計画（Plan）して実行（Do）したあと、「確認・チェック」するステップだよ。"
+        },
+        {
+            question: "【マネジメント】システム開発で、プログラム単体ではなく「複数システムが連携して正しく動くか」をシステム全体で検証するテストはどれですか？",
+            choices: ["総合テスト（システムテスト）", "単体テスト", "結合テスト", "運用テスト"],
+            correctIndex: 0,
+            hint: "バラバラの部品ではなく、全体を「統合・総合」して確かめるテストだよ。"
+        },
+        {
+            question: "【マネジメント】システムで発生した障害や問合せを受け付ける単一の窓口（問い合わせ対応部門）のことを何と呼びますか？",
+            choices: ["サービスデスク", "ヘルプデスク", "コンサルティングデスク", "コールセンター"],
+            correctIndex: 0,
+            hint: "ITILなどのフレームワークで広く使われる、総合的な窓口の名称だよ。"
+        },
+        {
+            question: "【マネジメント】ITサービスマネジメントのベストプラクティス（成功事例集）を体系的にまとめたフレームワークはどれですか？",
+            choices: ["ITIL（アイティル）", "COBIT", "ISO27001", "PMBOK"],
+            correctIndex: 0,
+            hint: "Information Technology Infrastructure Library の略称だよ。"
+        },
+        {
+            question: "【テクノロジ】パスワードの適切な管理方法に関する記述として、最も適切なものはどれですか？",
+            choices: ["忘れないようにディスプレイの横に貼っておく", "使い回しを避け、推測されにくい文字列を設定する", "複数のWebサイトで全て同じパスワードを使用する", "定期的に生年月日を組み合わせた単純なものに変更する"],
+            correctIndex: 1,
+            hint: "他人に推測されにくく、サイトごとに違うものを使うのが鉄則だよ。"
+        },
+        {
+            question: "【テクノロジ】画面上に「ウイルスに感染しました」と偽の警告を出して不安にさせ、不正なソフトを購入させようとする攻撃手法はどれですか？",
+            choices: ["フィッシング", "フェイクアラート（偽警告）", "ランサムウェア", "ブルートフォース攻撃"],
+            correctIndex: 1,
+            hint: "「フェイク（嘘の）」な「アラート（警告）」を表示する手口だよ。"
+        },
+        {
+            question: "【テクノロジ】データを暗号化して読み取れない状態にし、元に戻すための「代金（身代金）」を要求する悪質なプログラムはどれですか？",
+            choices: ["ランサムウェア", "スパイウェア", "トロイの木馬", "ボット"],
+            correctIndex: 0,
+            hint: "英語で身代金を意味する「ランサム（Ransom）」が名前に入っているよ。"
+        },
+        {
+            question: "【テクノロジ】Webサイトの通信を暗号化し、アドレスが「https://」で始まる仕組みに使われているプロトコルはどれですか？",
+            choices: ["FTP", "DHCP", "SSL/TLS", "SMTP"],
+            correctIndex: 2,
+            hint: "通信を安全（セキュア）にするための暗号化技術だよ。"
+        },
+        {
+            question: "【テクノロジ】インターネット上のコンピュータやルータを識別するために割り振られる、重複のない識別番号はどれですか？",
+            choices: ["MACアドレス", "IPアドレス", "URL", "ドメイン名"],
+            correctIndex: 1,
+            hint: "ネット上の「住所」のような役割を持つ番号だよ。"
+        },
+        {
+            question: "【テクノロジ】「example.com」のような人間にとって分かりやすいドメイン名と、IPアドレスを相互に変換する仕組みはどれですか？",
+            choices: ["DNS", "DHCP", "HTTP", "NTP"],
+            correctIndex: 0,
+            hint: "Domain Name System の略で、名前とIPを変換してくれるよ。"
+        },
+        {
+            question: "【テクノロジ】コンピュータの基本構成（五大装置）のうち、計算やデータの処理を担う中心的な装置はどれですか？",
+            choices: ["記憶装置", "制御装置", "演算装置（CPU）", "入力装置"],
+            correctIndex: 2,
+            hint: "人間の「頭脳」にあたる、パソコンの中心的なパーツだよ。"
+        },
+        {
+            question: "【テクノロジ】電源を切ると記憶内容が消えてしまう（揮発性を持つ）が、読み書きが高速なメモリはどれですか？",
+            choices: ["RAM", "ROM", "SSD", "フラッシュメモリ"],
+            correctIndex: 0,
+            hint: "主記憶装置として使われる、電源を落とすと消える（Random Access Memory）だよ。"
+        },
+        {
+            question: "【テクノロジ】データベースで、データを「行」と「列」の2次元の表形式で管理する最も一般的なデータベース構造はどれですか？",
+            choices: ["リレーショナルデータベース（RDB）", "階層型データベース", "ネットワーク型データベース", "NoSQL"],
+            correctIndex: 0,
+            hint: "表と表を関連付け（リレーション）して管理する仕組みだよ。"
+        },
+        {
+            question: "【テクノロジ】リレーショナルデータベースで、各行を一意に識別するために重複を許さない項目のことを何と呼びますか？",
+            choices: ["主キー（プライマリキー）", "外部キー", "インデックス", "レコード"],
+            correctIndex: 0,
+            hint: "データを特定するための「メインの鍵（プライマリ）」となる項目だよ。"
+        }
+    ];
+
+    let playList = [];
+    let currentQuizIndex = 0;
+    let correctCount = 0;
+
+    function showStartScreen() {
+        document.getElementById("screen-start").classList.remove("hidden");
+        document.getElementById("screen-quiz").classList.add("hidden");
+        document.getElementById("screen-end").classList.add("hidden");
+    }
+
+    function startQuiz() {
+        currentQuizIndex = 0;
+        correctCount = 0;
+        
+        shuffleArray(quizList);
+        playList = quizList.slice(0, 10);
+
+        document.getElementById("screen-start").classList.add("hidden");
+        document.getElementById("screen-quiz").classList.remove("hidden");
+        document.getElementById("screen-end").classList.add("hidden");
+
+        showQuiz();
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
+
+    function showQuiz() {
+        if (currentQuizIndex < playList.length) {
+            const currentQuiz = playList[currentQuizIndex];
+            
+            document.getElementById("lbl-progress").textContent = `第 ${currentQuizIndex + 1} 問 / 全 ${playList.length} 問`;
+            document.getElementById("lbl-question").textContent = currentQuiz.question;
+
+            // ヒントを隠してリセット
+            const hintBox = document.getElementById("lbl-hint");
+            hintBox.textContent = "";
+            hintBox.classList.add("hidden");
+
+            const choiceButtons = document.querySelectorAll(".btn-choice");
+            choiceButtons.forEach((button, index) => {
+                button.textContent = `${index + 1}. ${currentQuiz.choices[index]}`;
+                button.disabled = false;
+                button.style.backgroundColor = "#ffffff";
+                button.style.color = "#007bff";
+            });
+
+            document.getElementById("lbl-result").textContent = "";
+            document.getElementById("btn-next").disabled = true;
+        }
+    }
+
+    // 💡 ヒントを表示する関数
+    function showHint() {
+        const currentQuiz = playList[currentQuizIndex];
+        const hintBox = document.getElementById("lbl-hint");
+        hintBox.textContent = `💡 ヒント: ${currentQuiz.hint}`;
+        hintBox.classList.remove("hidden");
+    }
+
+    function selectChoice(selectedIndex) {
+        const currentQuiz = playList[currentQuizIndex];
+        const choiceButtons = document.querySelectorAll(".btn-choice");
+
+        choiceButtons.forEach(btn => btn.disabled = true);
+
+        if (selectedIndex === currentQuiz.correctIndex) {
+            document.getElementById("lbl-result").textContent = "⭕ 正解！素晴らしい！";
+            document.getElementById("lbl-result").style.color = "#28a745";
+            choiceButtons[selectedIndex].style.backgroundColor = "#28a745";
+            choiceButtons[selectedIndex].style.color = "#ffffff";
+            correctCount++;
+        } else {
+            document.getElementById("lbl-result").textContent = `❌ 残念！正解は ${currentQuiz.correctIndex + 1} です。`;
+            document.getElementById("lbl-result").style.color = "#dc3545";
+            choiceButtons[selectedIndex].style.backgroundColor = "#dc3545";
+            choiceButtons[selectedIndex].style.color = "#ffffff";
+        }
+
+        document.getElementById("btn-next").disabled = false;
+    }
+
+    function nextQuestion() {
+        currentQuizIndex++;
+
+        if (currentQuizIndex < playList.length) {
+            showQuiz();
+        } else {
+            document.getElementById("screen-quiz").classList.add("hidden");
+            document.getElementById("screen-end").classList.remove("hidden");
+            document.getElementById("lbl-final-score").textContent = 
+                `お疲れ様でした！\n\nあなたの成績：${playList.length}問中 ${correctCount}問 正解！`;
+        }
+    }
+</script>
+
+</body>
+</html>
