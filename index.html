@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITパスポート 対策クイズ＆用語集（全500問）</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+        background-color: #f0f2f5;
+        color: #333333;
+        margin: 0;
+        padding: 20px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+    }
+    .container {
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 720px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px 25px;
+    }
+    .hidden {
+        display: none !important;
+    }
+    h1 {
+        color: #0056b3;
+        text-align: center;
+        margin-top: 0;
+        font-size: 24px;
+    }
+    .subtitle {
+        text-align: center;
+        color: #555;
+        font-size: 14px;
+        margin-bottom: 25px;
+        line-height: 1.6;
+    }
+    .section-title {
+        font-size: 15px;
+        font-weight: bold;
+        color: #444;
+        margin: 22px 0 10px 0;
+        padding-left: 10px;
+        border-left: 4px solid #007bff;
+    }
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 14px 18px;
+        margin-bottom: 12px;
+        font-size: 15px;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: center;
+    }
+    .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+    }
+    .btn-primary:hover:not(:disabled) {
+        background-color: #0056b3;
+    }
+    .btn-endless {
+        background-color: #ff5722;
+        color: #fff;
+    }
+    .btn-endless:hover:not(:disabled) {
+        background-color: #e64a19;
+    }
+    .btn-test {
+        background-color: #28a745;
+        color: #fff;
+    }
+    .btn-test:hover:not(:disabled) {
+        background-color: #1e7e34;
+    }
+    .btn-fulltest {
+        background-color: #dc3545;
+        color: #fff;
+    }
+    .btn-fulltest:hover:not(:disabled) {
+        background-color: #bd2130;
+    }
+    .btn-glossary {
+        background-color: #6f42c1;
+        color: #fff;
+    }
+    .btn-glossary:hover:not(:disabled) {
+        background-color: #59359a;
+    }
+    .btn-cat {
+        background-color: #e9f2ff;
+        color: #0056b3;
+        border: 1px solid #b8daff;
+    }
+    .btn-cat:hover:not(:disabled) {
+        background-color: #d0e4ff;
+    }
+    .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+    }
+    .btn-secondary:hover:not(:disabled) {
+        background-color: #545b62;
+    }
+    .btn-hint {
+        background-color: #ffc107;
+        color: #212529;
+    }
+    .btn-hint:hover:not(:disabled) {
+        background-color: #e0a800;
+    }
+    .quiz-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #f0f2f5;
+    }
+    .badge {
+        background-color: #007bff;
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .progress-text {
+        font-size: 14px;
+        font-weight: bold;
+        color: #555;
+    }
+    .question-box {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 18px;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.6;
+        margin-bottom: 18px;
+    }
+    .btn-choice {
+        display: block;
+        width: 100%;
+        padding: 13px 16px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+        background-color: #ffffff;
+        color: #007bff;
+        border: 2px solid #007bff;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.15s;
+    }
+    .btn-choice:hover:not(:disabled) {
+        background-color: #e9f2ff;
+    }
+    .btn-choice:disabled {
+        cursor: default;
+    }
+    .hint-box {
+        background-color: #fff8e1;
+        border-left: 4px solid #ffc107;
+        padding: 12px 15px;
+        margin: 12px 0;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #664d03;
+        line-height: 1.5;
+    }
+    .result-text {
+        font-size: 17px;
+        font-weight: bold;
+        text-align: center;
+        margin: 14px 0 8px 0;
+    }
+    .explanation-box {
+        background-color: #eef6ff;
+        border-left: 4px solid #007bff;
+        padding: 14px 16px;
+        margin: 12px 0 18px 0;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #1c3d5a;
+        line-height: 1.65;
+        white-space: pre-line;
+    }
+    .quiz-footer-btns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    .quiz-sub-btns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    /* テストモード用 */
+    .test-header-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        background-color: #f8f9fa;
+        padding: 12px 15px;
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+        margin-bottom: 15px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    .timer-box {
+        font-size: 16px;
+        font-weight: bold;
+        color: #dc3545;
+        background: #fff;
+        padding: 5px 12px;
+        border-radius: 6px;
+        border: 1px solid #dc3545;
+    }
+    .timer-warning {
+        background-color: #dc3545;
+        color: #fff;
+    }
+    .test-notice {
+        background-color: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeeba;
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+    .test-item {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 16px;
+        background-color: #fafafa;
+    }
+    .test-q-title {
+        font-size: 13px;
+        font-weight: bold;
+        color: #0056b3;
+        margin-bottom: 6px;
+    }
+    .test-q-text {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+    .test-choice-label {
+        display: block;
+        padding: 9px 12px;
+        margin-bottom: 6px;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .test-choice-label:hover {
+        background-color: #f1f7ff;
+    }
+    .test-feedback {
+        margin-top: 10px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .fb-correct {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    .fb-wrong {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+    .test-result-summary {
+        background-color: #e9f5ff;
+        border: 2px solid #007bff;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    /* モーダル（用語集） */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.55);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 15px;
+    }
+    .modal-content {
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 680px;
+        max-height: 85vh;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    }
+    .modal-header {
+        padding: 16px 20px;
+        background-color: #6f42c1;
+        color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .modal-header h2 {
+        margin: 0;
+        font-size: 18px;
+    }
+    .btn-close-modal {
+        background: none;
+        border: none;
+        color: #ffffff;
+        font-size: 24px;
+        cursor: pointer;
+        line-height: 1;
+    }
+    .modal-search {
+        padding: 12px 20px;
+        border-bottom: 1px solid #eee;
+        background-color: #f8f9fa;
+    }
+    .modal-search input {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+    .modal-body {
+        padding: 15px 20px;
+        overflow-y: auto;
+        flex: 1;
+    }
+    .glossary-item {
+        border-bottom: 1px solid #eee;
+        padding: 12px 0;
+    }
+    .glossary-item:last-child {
+        border-bottom: none;
+    }
+    .glossary-term {
+        font-weight: bold;
+        font-size: 15px;
+        color: #222;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .glossary-tag {
+        font-size: 11px;
+        padding: 2px 7px;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: bold;
+    }
+    .tag-st { background-color: #007bff; }
+    .tag-mg { background-color: #28a745; }
+    .tag-tc { background-color: #fd7e14; }
+    .glossary-desc {
+        margin: 0;
+        font-size: 13.5px;
+        color: #555;
+        line-height: 1.5;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- スタート画面 -->
+    <div id="screen-start">
+        <h1>IT未経験者に向けたWEBクイズゲーム</h1>
+        <p class="subtitle" id="lbl-start-subtitle">全500問収録！学習スタイルや分野別に選んで学べます。</p>
+
+        <div class="section-title">通常学習モード（1問ずつ解説＆ヒント付き）</div>
+        <button class="btn btn-primary" onclick="startQuiz('normal')">🎯 全分野ランダム（10問チャレンジ）</button>
+        <button class="btn btn-endless" onclick="startQuiz('endless')">🔥 全500問 エンドレスモード</button>
+
+        <div class="section-title">分野別チャレンジ（各10問）</div>
+        <button class="btn btn-cat" onclick="startQuiz('strategy')">🏢 ストラテジ系（経営・法務・戦略）</button>
+        <button class="btn btn-cat" onclick="startQuiz('management')">📊 マネジメント系（開発・プロジェクト・運用）</button>
+        <button class="btn btn-cat" onclick="startQuiz('technology')">💻 テクノロジ系（基礎理論・ネットワーク・セキュリティ）</button>
+
+        <div class="section-title">模擬試験モード（ヒント・用語集なし）</div>
+        <button class="btn btn-test" onclick="startTestMode(20, false)">📝 模擬テスト（全20問・時間制限なし）</button>
+        <button class="btn btn-fulltest" onclick="startTestMode(100, true)">⏱️ 本格テスト（全100問・制限時間120分）</button>
+
+        <div class="section-title">弱点克服・振り返り</div>
+        <button class="btn btn-endless" onclick="startQuiz('weakness')">🎯 弱点克服モード（苦手な問題を優先出題）</button>
+        <button class="btn btn-cat" onclick="openReviewScreen()">📋 全問題一覧・振り返り（検索・苦手フィルタ）</button>
+        <button class="btn btn-secondary" onclick="resetQuizStats()">🗑️ 成績データをリセット</button>
+        
+        <div class="section-title">学習サポート</div>
+        <button class="btn btn-glossary" id="btn-glossary-start" onclick="openGlossary()">📖 用語集を見る（検索対応）</button>
+    </div>
+
+    <!-- 通常クイズ画面 -->
+    <div id="screen-quiz" class="hidden">
+        <div class="quiz-header">
+            <span class="badge" id="lbl-mode-badge">モード</span>
+            <span class="progress-text" id="lbl-progress">第 1 問 / 全 10 問</span>
+        </div>
+
+        <div class="question-box" id="lbl-question">問題文</div>
+
+        <div id="choices-container">
+            <button class="btn-choice" onclick="selectChoice(0)">1.</button>
+            <button class="btn-choice" onclick="selectChoice(1)">2.</button>
+            <button class="btn-choice" onclick="selectChoice(2)">3.</button>
+            <button class="btn-choice" onclick="selectChoice(3)">4.</button>
+        </div>
+
+        <div class="quiz-sub-btns">
+            <button class="btn btn-hint" onclick="showHint()">💡 ヒントを見る</button>
+            <button class="btn btn-glossary" onclick="openGlossary()">📖 用語集</button>
+        </div>
+
+        <div id="lbl-hint" class="hint-box hidden"></div>
+        <div id="lbl-result" class="result-text"></div>
+        <div id="lbl-explanation" class="explanation-box hidden"></div>
+
+        <div class="quiz-footer-btns">
+            <button class="btn btn-secondary" onclick="showStartScreen()">🏠 スタートへ戻る</button>
+            <button class="btn btn-primary" id="btn-next" onclick="nextQuestion()" disabled>次の問題へ</button>
+        </div>
+    </div>
+
+    <!-- テストモード画面 -->
+    <div id="screen-test" class="hidden">
+        <div class="test-header-bar">
+            <strong id="lbl-test-title">模擬テスト</strong>
+            <div id="test-timer-bar" class="timer-box hidden">残り時間: <span id="lbl-test-timer">120:00</span></div>
+            <div style="display:flex; gap:8px;">
+                <button class="btn btn-secondary" id="btn-test-quit-top" style="margin:0; padding:8px 12px; font-size:13px;" onclick="showStartScreen()">中断して戻る</button>
+                <button class="btn btn-primary" id="btn-submit-test-top" style="margin:0; padding:8px 14px; font-size:13px;" onclick="gradeTestMode(false)">採点する</button>
+                <button class="btn btn-secondary hidden" id="btn-test-back-top" style="margin:0; padding:8px 14px; font-size:13px;" onclick="showStartScreen()">スタートへ戻る</button>
+            </div>
+        </div>
+
+        <div id="lbl-test-notice" class="test-notice"></div>
+        <div id="test-result-area" class="test-result-summary hidden"></div>
+        <div id="test-questions-container"></div>
+
+        <button class="btn btn-primary" id="btn-submit-test" onclick="gradeTestMode(false)">✅ 回答を確定して採点する</button>
+        <button class="btn btn-secondary hidden" id="btn-test-back" onclick="showStartScreen()">🏠 スタート画面へ戻る</button>
+    </div>
+
+    <!-- 終了画面 -->
+    <div id="screen-end" class="hidden" style="text-align:center;">
+        <h1 id="lbl-end-title">クイズ終了！</h1>
+        <p id="lbl-final-score" style="font-size:18px; font-weight:bold; white-space:pre-line; margin:25px 0;"></p>
+        <button class="btn btn-primary" onclick="showStartScreen()">🏠 スタート画面へ戻る</button>
+    </div>
+    
+    <!-- 全問題一覧・振り返り画面 -->
+    <div id="screen-review" class="hidden">
+        <h1>📋 全問題一覧・振り返り</h1>
+        <button class="btn btn-secondary" onclick="showStartScreen()" style="margin-bottom:12px;">🏠 スタート画面へ戻る</button>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+            <input type="text" id="input-review-search" placeholder="問題文・用語・解説で検索" oninput="renderReviewList()" style="flex:1; min-width:200px; padding:10px; border:1px solid #ccc; border-radius:6px;">
+            <select id="select-review-filter" onchange="renderReviewList()" style="padding:10px; border:1px solid #ccc; border-radius:6px;">
+                <option value="all">すべて</option>
+                <option value="weak">苦手（正答率60%未満・不正解あり）</option>
+                <option value="unanswered">未回答のみ</option>
+            </select>
+        </div>
+        <div id="review-list-container"></div>
+        <button class="btn btn-secondary" onclick="showStartScreen()">🏠 スタート画面へ戻る</button>
+    </div>
+</div>
+
+<!-- 用語集モーダル -->
+<div id="modal-glossary" class="modal-overlay hidden" onclick="if(event.target===this) closeGlossary()">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="lbl-glossary-title">ITパスポート頻出 用語集</h2>
+            <button class="btn-close-modal" onclick="closeGlossary()">×</button>
+        </div>
+        <div class="modal-search">
+            <input type="text" id="input-glossary-search" placeholder="用語・解説・分野名で検索（例：SLA、セキュリティ、ストラテジ）" oninput="filterGlossary()">
+        </div>
+        <div class="modal-body" id="glossary-list-container"></div>
+    </div>
+</div>
+
+<script>
+    // 全500問（手動作成問題・重複なし・全問異なる切り口）
+    const quizList = [
+        // ===== ストラテジ系（1〜175問） =====
+        { question: "【ストラテジ】デジタル技術を活用してビジネスモデルや業務プロセス、組織文化などを変革し、競争上の優位性を確立することはどれですか？", choices: ["DX", "BCP", "CRM", "SCM"], correctIndex: 0, hint: "デジタルトランスフォーメーションの略称だよ。", explanation: "DX（Digital Transformation）は単なるIT化にとどまらず、デジタル技術で事業や組織そのものを変革して競争力を高める取り組みです。" },
+        { question: "【ストラテジ】災害やシステム障害などの緊急事態に備え、損害を抑えながら重要業務を継続・早期復旧させるための計画はどれですか？", choices: ["BPR", "BCP", "CSR", "SLA"], correctIndex: 1, hint: "事業継続計画の英語略称だよ。", explanation: "BCP（Business Continuity Plan）は緊急時でも中核事業を継続・早期復旧できるように事前策定しておく計画です。" },
+        { question: "【ストラテジ】自社の強み・弱みと外部環境の機会・脅威の4軸で現状を整理する分析手法はどれですか？", choices: ["3C分析", "PEST分析", "SWOT分析", "RFM分析"], correctIndex: 2, hint: "Strength・Weakness・Opportunity・Threatの頭文字だよ。", explanation: "SWOT分析は内部要因（強み・弱み）と外部要因（機会・脅威）の4要素を組み合わせて戦略立案に役立てます。" },
+        { question: "【ストラテジ】計画・実行・評価・改善の4段階を繰り返し、業務や品質を継続的に高める手法はどれですか？", choices: ["PDCAサイクル", "SECIモデル", "KJ法", "OJT"], correctIndex: 0, hint: "Plan・Do・Check・Actの4段階を回す手法だよ。", explanation: "PDCAサイクルは計画立案から実行、結果検証、改善アクションを循環させて継続的改善を図る枠組みです。" },
+        { question: "【ストラテジ】最終ゴールであるKGIの達成度を測るために設定する、中間的な重要業績評価指標はどれですか？", choices: ["ROI", "KPI", "ROE", "TCO"], correctIndex: 1, hint: "Key Performance Indicatorの略称だよ。", explanation: "KPI（重要業績評価指標）は最終目標（KGI）に向けたプロセスの達成度を定量的に追跡するための指標です。" },
+        { question: "【ストラテジ】最終目標であるKGIと、その達成度を計測する中間指標であるKPIの関係や評価指標を指す組み合わせはどれですか？", choices: ["KPI / KGI", "ROI / ROE", "BtoB / BtoC", "OJT / Off-JT"], correctIndex: 0, hint: "ゴール指標とプロセス指標の組み合わせだよ。", explanation: "KGI（重要目標達成指標）を達成するために、日々の行動や進捗を測るKPI（重要業績評価指標）を設定して管理します。" },
+        { question: "【ストラテジ】会計・人事・生産・販売などの経営資源を一元管理し、経営効率を高める統合基幹業務システムはどれですか？", choices: ["CRM", "SFA", "ERP", "POSシステム"], correctIndex: 2, hint: "企業全体の経営資源を統合管理するシステムだよ。", explanation: "ERP（Enterprise Resource Planning）は部門ごとのデータを統合データベースで一元管理し、迅速な経営判断を支えます。" },
+        { question: "【ストラテジ】顧客情報や購買・問い合わせ履歴などを一元管理・分析し、関係構築や満足度向上を図る手法はどれですか？", choices: ["SCM", "CRM", "ERP", "MRP"], correctIndex: 1, hint: "顧客関係管理の英語略称だよ。", explanation: "CRM（Customer Relationship Management）は顧客との長期的な信頼関係を築き、LTV（顧客生涯価値）を高める取り組みです。" },
+        { question: "【ストラテジ】原材料の調達から製造、在庫管理、物流、販売までの供給連鎖全体を最適化する手法はどれですか？", choices: ["CRM", "SFA", "SCM", "EMS"], correctIndex: 2, hint: "サプライチェーン全体の最適化を指す略称だよ。", explanation: "SCM（Supply Chain Management）は企業間・部門間の情報共有によって在庫削減やリードタイム短縮を実現します。" },
+        { question: "【ストラテジ】他社ブランドの製品を製造すること、または相手先ブランド名での製造を委託する形態はどれですか？", choices: ["OEM", "ODM", "BPO", "ASP"], correctIndex: 0, hint: "相手先ブランド製造を表す略称だよ。", explanation: "OEMは委託元のブランド名で販売する製品を製造する形態で、生産能力の有効活用などに用いられます。" },
+        { question: "【ストラテジ】自社の業務やシステム運用の一部を、外部の専門企業に委託することはどれですか？", choices: ["インソーシング", "アウトソーシング", "ファブレス", "ジョブローテーション"], correctIndex: 1, hint: "外部の専門資源を活用する業務委託だよ。", explanation: "アウトソーシングは外部の専門ノウハウを活用し、自社資源をコア業務へ集中させる経営手法です。" },
+        { question: "【ストラテジ】外部委託していた業務やシステム運用などを、自社内部の体制へ戻して内製化することはどれですか？", choices: ["アウトソーシング", "インソーシング", "BPO", "クラウドソーシング"], correctIndex: 1, hint: "アウトソーシングの対義語にあたる内製化だよ。", explanation: "インソーシングはノウハウの社内蓄積や迅速な仕様変更対応を目的に、業務を自社内で担う形態です。" },
+        { question: "【ストラテジ】株主や社外取締役などが経営陣を監視・統制し、経営の透明性や公正性を確保する仕組みはどれですか？", choices: ["コンプライアンス", "コーポレートガバナンス", "ディスクロージャー", "CSR"], correctIndex: 1, hint: "企業統治を意味する用語だよ。", explanation: "コーポレートガバナンスは経営陣の独断や不正を防ぎ、企業価値の持続的向上を図る統治の仕組みです。" },
+        { question: "【ストラテジ】法令や規則だけでなく、企業倫理や社内規程なども含めて遵守することはどれですか？", choices: ["コーポレートガバナンス", "コンプライアンス", "ダイバーシティ", "モラール"], correctIndex: 1, hint: "法令遵守と企業倫理の徹底を意味するよ。", explanation: "コンプライアンスは法律違反を防ぐだけでなく、社会規範や倫理観に沿った誠実な企業行動を含みます。" },
+        { question: "【ストラテジ】業務上知り得た秘密情報を第三者に漏らさないことを約束する秘密保持契約はどれですか？", choices: ["SLA", "RFP", "NDA", "RFI"], correctIndex: 2, hint: "Non-Disclosure Agreementの略称だよ。", explanation: "NDAは商談や共同開発などの前に締結し、開示された技術情報や営業秘密の漏えい・目的外利用を防ぎます。" },
+        { question: "【ストラテジ】プログラムや文章、イラスト、音楽などの著作物を創作した人が持つ知的財産権はどれですか？", choices: ["特許権", "実用新案権", "意匠権", "著作権"], correctIndex: 3, hint: "出願や登録の手続きなしで創作と同時に発生する権利だよ。", explanation: "著作権は表現された創作物を保護する権利で、原則として創作した時点で自動的に発生します。" },
+        { question: "【ストラテジ】自然法則を利用した技術的思想の創作のうち高度な発明を保護する知的財産権はどれですか？", choices: ["特許権", "商標権", "意匠権", "著作権"], correctIndex: 0, hint: "高度な技術的発明を保護し、出願・審査を経て登録される権利だよ。", explanation: "特許権は新規性・進歩性などの要件を満たす発明を保護し、原則として出願日から20年間独占権が与えられます。" },
+        { question: "【ストラテジ】自社の商品やサービスを他社と区別するための名称やロゴマークなどを保護する権利はどれですか？", choices: ["意匠権", "商標権", "実用新案権", "著作権"], correctIndex: 1, hint: "ブランド名やロゴマークを保護する産業財産権だよ。", explanation: "商標権は更新申請を行うことで半永久的に権利を存続させることができ、ブランド価値の保護に役立ちます。" },
+        { question: "【ストラテジ】物品や建築物・画像などのデザインや外観の美しさを保護する知的財産権はどれですか？", choices: ["特許権", "実用新案権", "意匠権", "商標権"], correctIndex: 2, hint: "製品の形状や模様・色彩などのデザインを保護する権利だよ。", explanation: "意匠権は物品や建築物、画面デザインなどの視覚的な美感・外観デザインを保護する権利です。" },
+        { question: "【ストラテジ】物品の形状・構造・組合せなどに関する小発明（考案）を保護する権利はどれですか？", choices: ["実用新案権", "特許権", "意匠権", "著作権"], correctIndex: 0, hint: "物品の形状や構造の工夫を保護し、無審査で早期登録される権利だよ。", explanation: "実用新案権はライフサイクルの短い製品構造などの考案を保護し、存続期間は出願日から10年です。" },
+        { question: "【ストラテジ】個人情報の適正な取得・利用・安全管理などを事業者に義務づける日本の法律はどれですか？", choices: ["不正アクセス禁止法", "個人情報保護法", "プロバイダ責任制限法", "特定商取引法"], correctIndex: 1, hint: "利用目的の特定や安全管理措置などを定めた法律だよ。", explanation: "個人情報保護法は個人の権利利益を保護しつつ、個人情報の有用性に配慮した適正な取扱いを定めています。" },
+        { question: "【ストラテジ】他人のID・パスワードの無断利用や脆弱性を突く行為による不正侵入を処罰する法律はどれですか？", choices: ["著作権法", "個人情報保護法", "不正アクセス禁止法", "電子署名法"], correctIndex: 2, hint: "なりすましログインやセキュリティホール攻撃を禁止する法律だよ。", explanation: "不正アクセス禁止法はネットワークを通じた無権限アクセス行為だけでなく、他人のID・PWの不正取得や保管・提供も規制します。" },
+        { question: "【ストラテジ】個人情報の保護体制が適切に整備されている事業者に付与される認証マークはどれですか？", choices: ["ISMS", "プライバシーマーク", "PCI DSS", "PUE"], correctIndex: 1, hint: "JIPDECが運営し、日本産業規格JIS Q 15001に基づく認証制度だよ。", explanation: "プライバシーマーク（Pマーク）は個人情報の適切な保護措置を講ずる体制を整備している事業者の証として付与されます。" },
+        { question: "【ストラテジ】省エネ性能の高いIT機器の導入や業務効率化などによって環境負荷を減らすIT活用はどれですか？", choices: ["グリーンIT", "フィンテック", "スマートグリッド", "グリーン調達"], correctIndex: 0, hint: "ITそのものの省エネ化とIT活用による社会の環境負荷低減の両面があるよ。", explanation: "グリーンITはデータセンターの省電力化やペーパーレス化などを通じて環境負荷低減に貢献する取り組みです。" },
+        { question: "【ストラテジ】金融とIT技術を融合させた、決済・送金・資産管理などの新しいサービスや仕組みはどれですか？", choices: ["エドテック", "フィンテック", "ヘルステック", "アグリテック"], correctIndex: 1, hint: "FinanceとTechnologyを組み合わせた造語だよ。", explanation: "フィンテックはスマホ決済や家計簿アプリ、クラウド会計、ロボアドバイザーなど金融サービスの革新を指します。" },
+        { question: "【ストラテジ】教育（Education）とIT技術を融合させた、学習支援や教育サービスの仕組みはどれですか？", choices: ["フィンテック", "エドテック", "ヘルステック", "アグリテック"], correctIndex: 1, hint: "EducationとTechnologyを組み合わせた造語だよ。", explanation: "エドテックはAIによる個別最適化学習やオンライン教材など、ITで教育体験を向上させる領域です。" },
+        { question: "【ストラテジ】健康・医療（Health）とIT技術を融合させた、健康管理や医療支援のサービス・仕組みはどれですか？", choices: ["ヘルステック", "エドテック", "フィンテック", "アグリテック"], correctIndex: 0, hint: "HealthとTechnologyを組み合わせた造語だよ。", explanation: "ヘルステックはウェアラブル端末によるバイタル管理やオンライン診療、AI画像診断支援などを指します。" },
+        { question: "【ストラテジ】農業（Agriculture）とIT技術を融合させた、スマート農業や生産管理の仕組みはどれですか？", choices: ["フィンテック", "ヘルステック", "アグリテック", "エドテック"], correctIndex: 2, hint: "AgricultureとTechnologyを組み合わせた造語だよ。", explanation: "アグリテックはIoTセンサーやドローン、データ分析を活用して農作業の省力化や品質向上を図る取り組みです。" },
+        { question: "【ストラテジ】製品を買い切るのではなく、利用期間に応じて定額料金を支払うビジネスモデルはどれですか？", choices: ["フリーミアム", "サブスクリプション", "アフィリエイト", "シェアリングエコノミー"], correctIndex: 1, hint: "定額制で継続利用する課金モデルだよ。", explanation: "サブスクリプションは音楽・動画配信やSaaSなどに広く採用され、継続的な顧客関係と安定収益を特徴とします。" },
+        { question: "【ストラテジ】基本機能は無料で提供し、高度な機能や追加要素を有料課金するビジネスモデルはどれですか？", choices: ["サブスクリプション", "フリーミアム", "アフィリエイト", "ドロップシッピング"], correctIndex: 1, hint: "FreeとPremiumを組み合わせたモデルだよ。", explanation: "フリーミアムは無料プランで多くのユーザーを集め、より高度な機能や容量を求める一部の利用者に有料プランへ移行してもらうモデルです。" },
+        { question: "【ストラテジ】Webサイト上の広告経由で購入や申込みなどの成果が発生すると報酬が得られる仕組みはどれですか？", choices: ["リスティング広告", "アフィリエイト", "SEO", "デジタルサイネージ"], correctIndex: 1, hint: "成果報酬型広告と呼ばれる仕組みだよ。", explanation: "アフィリエイトはメディア運営者が商品やサービスを紹介し、成約などの成果に応じて広告主から報酬を受け取る仕組みです。" },
+        { question: "【ストラテジ】検索エンジンで入力されたキーワードに連動して検索結果に表示される広告はどれですか？", choices: ["アフィリエイト", "リスティング広告", "SEO", "バナー広告"], correctIndex: 1, hint: "検索連動型広告とも呼ばれるよ。", explanation: "リスティング広告はユーザーが検索したキーワードに応じて表示されるため、購買意欲の高い層にアプローチしやすい広告です。" },
+        { question: "【ストラテジ】検索結果で自社Webサイトが上位に表示されるよう構造や内容を最適化する取り組みはどれですか？", choices: ["SEO", "SEM", "CRM", "CMS"], correctIndex: 0, hint: "Search Engine Optimizationの略称だよ。", explanation: "SEO（検索エンジン最適化）は有益なコンテンツ作成や適切なHTML構造・内部リンク設計などによって自然検索からの流入を増やします。" },
+        { question: "【ストラテジ】店舗のレジなどで商品が売れた時点の情報をリアルタイムに記録・集計するシステムはどれですか？", choices: ["ERP", "POSシステム", "MRP", "EDI"], correctIndex: 1, hint: "販売時点情報管理システムのことだよ。", explanation: "POSシステムはバーコード読み取り等で「いつ・何が・いくつ・いくらで売れたか」を記録し、在庫管理や売れ筋分析に活用します。" },
+        { question: "【ストラテジ】電波を用いてICタグと非接触でデータを読み書きする自動認識技術はどれですか？", choices: ["OCR", "QRコード", "RFID", "GPS"], correctIndex: 2, hint: "無線ICタグを使って複数のタグを一括読み取りできる技術だよ。", explanation: "RFIDは箱に入ったままや離れた位置からでも複数タグの情報を非接触で一括読み取りでき、物流や無人レジに活用されます。" },
+        { question: "【ストラテジ】利益追求だけでなく、環境保全や社会貢献など社会的責任を果たす企業の姿勢はどれですか？", choices: ["CSR", "CI", "CRM", "BCP"], correctIndex: 0, hint: "Corporate Social Responsibilityの略称だよ。", explanation: "CSR（企業の社会的責任）は環境配慮、地域貢献、人権尊重などを通じて持続可能な社会づくりに貢献する取り組みです。" },
+        { question: "【ストラテジ】企業の合併や買収によって事業拡大や経営基盤の強化を図る手法はどれですか？", choices: ["MBO", "M&A", "IPO", "TOB"], correctIndex: 1, hint: "Mergers and Acquisitionsの略称だよ。", explanation: "M&Aは新規事業への参入時間の短縮や技術・人材の獲得、事業承継などの目的で活用されます。" },
+        { question: "【ストラテジ】市場成長率と相対的市場占有率の2軸で事業を分類し、資金配分を検討する手法はどれですか？", choices: ["SWOT分析", "PPM分析", "RFM分析", "ABC分析"], correctIndex: 1, hint: "花形・金のなる木・問題児・負け犬の4象限で分類するよ。", explanation: "PPM（プロダクトポートフォリオマネジメント）は各事業の位置づけを整理し、経営資源の最適配分を判断します。" },
+        { question: "【ストラテジ】企業間で受発注や請求などの商取引データを、標準規約に基づき電子交換する仕組みはどれですか？", choices: ["EDI", "ERP", "POSシステム", "ASP"], correctIndex: 0, hint: "Electronic Data Interchangeの略称だよ。", explanation: "EDIは異なる企業間のコンピュータ同士で受発注・出荷・請求データを標準フォーマットでやり取りし、事務処理を効率化します。" },
+        { question: "【ストラテジ】業務プロセスや組織構造を抜本的に見直し、再設計して劇的な改善を図る手法はどれですか？", choices: ["BCP", "BPO", "BPR", "BPM"], correctIndex: 2, hint: "Business Process Re-engineeringの略称だよ。", explanation: "BPRは既存の業務手順の延長ではなく、業務の流れや組織・ITの使い方をゼロベースで再構築する手法です。" },
+        { question: "【ストラテジ】インターネットを通じて不特定多数の支援者から少額ずつ資金を集める仕組みはどれですか？", choices: ["クラウドソーシング", "クラウドファンディング", "シェアリングエコノミー", "CVC"], correctIndex: 1, hint: "群衆（Crowd）から資金調達（Funding）を行う仕組みだよ。", explanation: "クラウドファンディングは新製品開発や社会貢献プロジェクトなどの資金をネット経由で募る手法です。" },
+        { question: "【ストラテジ】インターネット上で不特定多数の人に業務を発注・委託する仕組みはどれですか？", choices: ["クラウドファンディング", "クラウドソーシング", "アウトソーシング", "オフショア開発"], correctIndex: 1, hint: "デザインやライティング、プログラミングなどをネット上で不特定多数に委託する仕組みだよ。", explanation: "クラウドソーシングは企業や個人がオンラインプラットフォームを通じて外部の働き手に業務を依頼できる仕組みです。" },
+        { question: "【ストラテジ】製品・価格・流通・プロモーションの4要素からマーケティング戦略を組み立てる手法はどれですか？", choices: ["マーケティングミックスの4P", "マーケティングミックスの4C", "3C分析", "PEST分析"], correctIndex: 0, hint: "売り手視点のProduct・Price・Place・Promotionだよ。", explanation: "4Pは企業（売り手）の視点から、どのような製品をいくらでどこでどう訴求するかを整合的に設計する枠組みです。" },
+        { question: "【ストラテジ】製品・価格・流通・プロモーションの4つの視点から売り方や施策を設計する手法の略称はどれですか？", choices: ["3C分析", "4P分析", "4C分析", "PPM分析"], correctIndex: 1, hint: "Product・Price・Place・Promotionの4つの頭文字だよ。", explanation: "4P分析はマーケティング施策の具体的な組み合わせを検討する際に用いられる代表的なフレームワークです。" },
+        { question: "【ストラテジ】顧客価値・顧客コスト・利便性・コミュニケーションの4つの顧客視点で捉える枠組みはどれですか？", choices: ["マーケティングミックスの4P", "マーケティングミックスの4C", "3C分析", "SWOT分析"], correctIndex: 1, hint: "買い手視点のCustomer Value・Cost・Convenience・Communicationだよ。", explanation: "4Cは売り手視点の4Pを顧客目線に置き換えたフレームワークで、顧客にとっての価値や買いやすさを重視します。" },
+        { question: "【ストラテジ】顧客目線で4Pに対応させた4つの要素から価値提供や接点を検討する枠組みの略称はどれですか？", choices: ["4P分析", "4C分析", "3C分析", "ABC分析"], correctIndex: 1, hint: "Customer Value・Cost・Convenience・Communicationの略称だよ。", explanation: "4C分析を用いることで、企業側の都合ではなく顧客が感じる価値や負担を基準に施策を見直せます。" },
+        { question: "【ストラテジ】顧客・競合・自社の3つの視点から市場や事業環境を分析する手法はどれですか？", choices: ["4P分析", "3C分析", "PEST分析", "RFM分析"], correctIndex: 1, hint: "Customer・Competitor・Companyの頭文字だよ。", explanation: "3C分析は顧客ニーズや市場動向、競合の強み・弱み、自社の強みを整理し、成功要因（KSF）を見出す手法です。" },
+        { question: "【ストラテジ】政治・経済・社会・技術の4つのマクロ外部環境を分析する手法はどれですか？", choices: ["SWOT分析", "3C分析", "PEST分析", "ファイブフォース分析"], correctIndex: 2, hint: "Politics・Economy・Society・Technologyの頭文字だよ。", explanation: "PEST分析は法改正や景気動向、人口動態、技術革新など、自社ではコントロールできないマクロ環境の影響を把握します。" },
+        { question: "【ストラテジ】最新購買日・購買頻度・購買金額の3指標で顧客を分類・分析する手法はどれですか？", choices: ["ABC分析", "RFM分析", "PPM分析", "3C分析"], correctIndex: 1, hint: "Recency・Frequency・Monetaryの頭文字だよ。", explanation: "RFM分析は優良顧客や休眠顧客などを分類し、それぞれに最適な販促施策を打つために活用されます。" },
+        { question: "【ストラテジ】売上や在庫などの重要度が高い順にA・B・Cの3グループへランク分けして管理する手法はどれですか？", choices: ["RFM分析", "ABC分析", "PPM分析", "パレート図"], correctIndex: 1, hint: "重点管理のために上位からA・B・Cにランク分けする手法だよ。", explanation: "ABC分析は累積構成比をもとに重点的に管理すべき商品や在庫を特定する手法で、パレート図と併用されます。" },
+        { question: "【ストラテジ】販売数の少ないニッチ商品の売上合計が、ヒット商品の売上を上回る現象はどれですか？", choices: ["カニバリゼーション", "ロングテール", "キャズム", "規模の経済"], correctIndex: 1, hint: "グラフにすると恐竜の長い尻尾のように見える現象だよ。", explanation: "ロングテールは在庫コストの低いECサイトなどで、多数のニッチ商品の積み上げが大きな収益源になる現象です。" },
+        { question: "【ストラテジ】実店舗・ECサイト・SNS・アプリなどの販売経路を連携させ、一貫した購買体験を提供する戦略はどれですか？", choices: ["O2O", "オムニチャネル", "DtoC", "CtoC"], correctIndex: 1, hint: "あらゆる接点を統合してシームレスな体験を提供する戦略だよ。", explanation: "オムニチャネルは顧客データや在庫情報をチャネル間で統合し、店舗受取やアプリ連携など一貫した体験を提供します。" },
+        { question: "【ストラテジ】オンラインのキャンペーンやアプリ等から実店舗への来店や購買を促す手法はどれですか？", choices: ["O2O", "DtoC", "BtoB", "CtoC"], correctIndex: 0, hint: "Online to Offlineの略称だよ。", explanation: "O2OはWebやSNS、クーポンアプリなどオンライン上の施策で実店舗への送客・来店促進を図るマーケティング手法です。" },
+        { question: "【ストラテジ】メーカーが卸売や小売を介さず、自社ECサイト等を通じて消費者へ直接販売する形態はどれですか？", choices: ["BtoB", "CtoC", "DtoC", "O2O"], correctIndex: 2, hint: "Direct to Consumerの略称だよ。", explanation: "DtoCは中間流通を省いて顧客と直接つながることで、高い利益率や顧客データの直接収集・ブランド構築を可能にします。" },
+        { question: "【ストラテジ】フリマアプリやオークション等で、一般消費者同士が直接売買を行う取引形態はどれですか？", choices: ["BtoB", "BtoC", "DtoC", "CtoC"], correctIndex: 3, hint: "Consumer to Consumerの略称だよ。", explanation: "CtoCはプラットフォームを介して個人同士が物品やスキルを売買・取引する形態です。" },
+        { question: "【ストラテジ】企業同士で行われる法人間の商取引形態はどれですか？", choices: ["BtoB", "BtoC", "CtoC", "DtoC"], correctIndex: 0, hint: "Business to Businessの略称だよ。", explanation: "BtoBは部品供給や法人向けクラウドサービスなど、企業から企業へ製品・サービスを提供する取引形態です。" },
+        { question: "【ストラテジ】営業担当者の商談進捗や案件履歴、顧客情報などを管理し営業活動を支援するシステムはどれですか？", choices: ["SCM", "SFA", "MRP", "WMS"], correctIndex: 1, hint: "Sales Force Automationの略称だよ。", explanation: "SFA（営業支援システム）は案件の進捗や商談履歴を可視化し、営業プロセスの標準化や成約率向上を支援します。" },
+        { question: "【ストラテジ】個人の知識やノウハウを共有・活用できる形にして組織全体の競争力を高める手法はどれですか？", choices: ["ナレッジマネジメント", "コンフリクトマネジメント", "リスクマネジメント", "サービスレベル管理"], correctIndex: 0, hint: "属人化した知識を組織の知的資産として共有する経営手法だよ。", explanation: "ナレッジマネジメントは個人の経験やノウハウを形式知化して共有することで、組織全体の業務品質や生産性を高めます。" },
+        { question: "【ストラテジ】暗黙知と形式知の4つの変換プロセスを通じて知識を循環・創造するモデルはどれですか？", choices: ["PDCAサイクル", "SECIモデル", "V字モデル", "スパイラルモデル"], correctIndex: 1, hint: "共同化・表出化・連結化・内面化の4プロセスからなるモデルだよ。", explanation: "SECIモデルは個人の暗黙知を言語化・体系化して形式知にし、組織全体で新たな知識を創造していくプロセスを示します。" },
+        { question: "【ストラテジ】業界の優良企業やベストプラクティスと比較・分析して自社の改善につなげる手法はどれですか？", choices: ["ベンチマーキング", "ブレインストーミング", "リファクタリング", "バズマーケティング"], correctIndex: 0, hint: "指標となる優良事例（ベンチマーク）と自社を比較する手法だよ。", explanation: "ベンチマーキングは優れた他社の業務プロセスや指標と自社を比較し、ギャップを埋める改善策を導く手法です。" },
+        { question: "【ストラテジ】他社が真似しにくい、自社ならではの核となる強みや独自の技術・ノウハウはどれですか？", choices: ["コアコンピタンス", "スケールメリット", "シナジー効果", "ニッチ戦略"], correctIndex: 0, hint: "他社に模倣困難な中核的競争力のことだよ。", explanation: "コアコンピタンスは顧客に価値を提供でき、競合が容易に真似できない自社独自の強みを指します。" },
+        { question: "【ストラテジ】競争の激しい既存市場ではなく、競合が少ない未開拓の市場を切り開く戦略はどれですか？", choices: ["レッドオーシャン戦略", "ブルーオーシャン戦略", "コストリーダーシップ戦略", "市場浸透戦略"], correctIndex: 1, hint: "血みどろの競争がない穏やかな青い海を切り開く戦略だよ。", explanation: "ブルーオーシャン戦略は価値とコストのバランスを見直し、競争のない新しい市場空間を創造する戦略です。" },
+        { question: "【ストラテジ】競合が少なく未開拓で、新たな価値や市場を切り開ける領域を指す用語はどれですか？", choices: ["レッドオーシャン", "ブルーオーシャン", "キャズム", "ロングテール"], correctIndex: 1, hint: "競争の少ない未開拓市場を表す比喩表現だよ。", explanation: "ブルーオーシャンは既存競争の枠を超えた新しい需要が存在する市場領域を指します。" },
+        { question: "【ストラテジ】多くの競合がひしめき、価格競争や消耗戦が起きている既存市場を指す用語はどれですか？", choices: ["ブルーオーシャン", "レッドオーシャン", "ホワイトスペース", "ニッチ市場"], correctIndex: 1, hint: "激しい競争で血に染まった赤い海を表す比喩表現だよ。", explanation: "レッドオーシャンは市場の境界が定まり、同質化した競合同士でシェアを奪い合う過当競争市場を指します。" },
+        { question: "【ストラテジ】既存顧客の要望に応え続ける大企業が、破壊的技術への対応に遅れて市場を奪われる現象はどれですか？", choices: ["イノベーションのジレンマ", "キャズム", "カニバリゼーション", "ブルックスの法則"], correctIndex: 0, hint: "優良企業ほど合理的判断の結果として新興技術に敗れやすい現象だよ。", explanation: "イノベーションのジレンマは既存事業の収益性を守ろうとするあまり、当初は性能が低く見える破壊的イノベーションへの投資が遅れる現象です。" },
+        { question: "【ストラテジ】新技術や新製品が初期採用層から一般市場へ普及する際に越えるべき大きな溝はどれですか？", choices: ["ロングテール", "キャズム", "シナジー", "スキーム"], correctIndex: 1, hint: "イノベーター理論における初期市場とメインストリーム市場の間の深い溝だよ。", explanation: "キャズム（深い溝）を越えるには、実用性や安心感を重視する前期追随者（アーリーマジョリティ）に選ばれる工夫が必要です。" },
+        { question: "【ストラテジ】自社の新商品や新店舗が、既存の自社商品や店舗の顧客・売上を奪い合う現象はどれですか？", choices: ["シナジー効果", "カニバリゼーション", "ネットワーク外部性", "規模の経済"], correctIndex: 1, hint: "共食いを意味するマーケティング用語だよ。", explanation: "カニバリゼーションは自社ブランド内で顧客を奪い合い、全体の利益が伸び悩む現象を指します。" },
+        { question: "【ストラテジ】複数の事業や企業が連携・統合することで、単独以上の相乗効果が生まれることはどれですか？", choices: ["カニバリゼーション", "シナジー効果", "トレードオフ", "ボトルネック"], correctIndex: 1, hint: "1＋1が2以上になる相乗効果のことだよ。", explanation: "シナジー効果は販売網の共有や技術の融合などにより、単独で活動する以上の成果を生み出す効果です。" },
+        { question: "【ストラテジ】売上高と総費用が等しくなり、利益も損失もゼロになる売上高や販売数はどれですか？", choices: ["営業利益", "経常利益", "損益分岐点", "限界利益"], correctIndex: 2, hint: "固定費 ÷（1 − 変動費率）で求められる指標だよ。", explanation: "損益分岐点を超えると黒字になり、下回ると赤字になるため、採算ラインの把握に不可欠です。" },
+        { question: "【ストラテジ】生産量や売上の増減にかかわらず、一定期間に必ず発生する費用はどれですか？", choices: ["変動費", "固定費", "原価", "減価償却費のみ"], correctIndex: 1, hint: "家賃や正社員の基本給など、売上がゼロでもかかる費用だよ。", explanation: "固定費は操業度や販売量に比例せず一定額発生する費用です。" },
+        { question: "【ストラテジ】原材料費や仕入原価のように、生産量や売上の増減に応じて増減する費用はどれですか？", choices: ["固定費", "変動費", "一般管理費", "営業外費用"], correctIndex: 1, hint: "販売数や生産量に比例して増減する費用だよ。", explanation: "変動費は材料費、仕入原価、販売手数料など事業活動量に応じて変化する費用です。" },
+        { question: "【ストラテジ】投下した投資額に対して、どれだけの利益を生み出したかを示す指標はどれですか？", choices: ["ROE", "ROI", "TCO", "KPI"], correctIndex: 1, hint: "Return On Investment（投資利益率）の略称だよ。", explanation: "ROI（利益 ÷ 投資額 × 100）が高いほど、効率よく利益を生む投資であることを示します。" },
+        { question: "【ストラテジ】株主が出資した自己資本を使って、どれだけ効率よく利益を得たかを示す指標はどれですか？", choices: ["ROI", "ROE", "ROA", "PER"], correctIndex: 1, hint: "Return On Equity（自己資本利益率）の略称だよ。", explanation: "ROE（当期純利益 ÷ 自己資本 × 100）は株主目線での資本効率を測る代表的な経営指標です。" },
+        { question: "【ストラテジ】システムの導入初期費用だけでなく、運用・保守・廃棄まで含めた生涯の総費用はどれですか？", choices: ["ROI", "TCO", "SLA", "MRP"], correctIndex: 1, hint: "Total Cost of Ownership（総保有コスト）の略称だよ。", explanation: "TCOはイニシャルコストだけでなく、人件費や電気代、保守費などのランニングコストも含めて評価する指標です。" },
+        { question: "【ストラテジ】固定資産の取得費用を、耐用年数にわたって分割して費用計上する会計処理はどれですか？", choices: ["減価償却", "棚卸資産評価", "引当金計上", "損益分岐点分析"], correctIndex: 0, hint: "建物や機器などの購入額を数年間に分けて経費化する手続きだよ。", explanation: "減価償却は資産の価値が時間の経過や使用とともに減少することを会計上反映する仕組みです。" },
+        { question: "【ストラテジ】ある時点における企業の資産・負債・純資産の財政状態を示す財務諸表はどれですか？", choices: ["損益計算書", "貸借対照表", "キャッシュフロー計算書", "株主資本等変動計算書"], correctIndex: 1, hint: "バランスシート（B/S）とも呼ばれる財務諸表だよ。", explanation: "貸借対照表は決算日時点の「資産＝負債＋純資産」のバランスを表し、企業の安全性や財務健全性を示します。" },
+        { question: "【ストラテジ】一定期間の収益と費用を対比させ、経営成績や利益を示す財務諸表はどれですか？", choices: ["貸借対照表", "損益計算書", "キャッシュフロー計算書", "試算表"], correctIndex: 1, hint: "プロフィット＆ロス（P/L）とも呼ばれる財務諸表だよ。", explanation: "損益計算書は売上総利益・営業利益・経常利益・当期純利益など、一定期間にどれだけ稼いだかを示します。" },
+        { question: "【ストラテジ】一定期間の現金の収入と支出の流れを営業・投資・財務の3区分で示す計算書はどれですか？", choices: ["貸借対照表", "損益計算書", "キャッシュフロー計算書", "原価計算書"], correctIndex: 2, hint: "黒字倒産を防ぐためにも重要な現金収支の報告書だよ。", explanation: "キャッシュフロー計算書は実際の現金および現金同等物の増減を3つの活動区分で明らかにします。" },
+        { question: "【ストラテジ】本業の営業取引に伴う現金の収入と支出の流れを示すキャッシュフロー区分はどれですか？", choices: ["営業活動によるキャッシュフロー", "投資活動によるキャッシュフロー", "財務活動によるキャッシュフロー", "経常活動によるキャッシュフロー"], correctIndex: 0, hint: "商品の販売収入や仕入・人件費の支払いなどが入る区分だよ。", explanation: "営業活動によるキャッシュフローがプラスであることは、本業で現金を生み出せている健全な状態を示します。" },
+        { question: "【ストラテジ】固定資産や有価証券などの取得・売却に伴う現金の増減を示すキャッシュフロー区分はどれですか？", choices: ["営業活動によるキャッシュフロー", "投資活動によるキャッシュフロー", "財務活動によるキャッシュフロー", "開発活動によるキャッシュフロー"], correctIndex: 1, hint: "設備投資や事業買収など将来に向けた資金支出・回収が入る区分だよ。", explanation: "投資活動によるキャッシュフローは積極的な設備投資を行っている企業ではマイナスになることが一般的です。" },
+        { question: "【ストラテジ】借入や返済、株式発行、配当支払いなど資金調達・返済に伴う現金の増減を示す区分はどれですか？", choices: ["営業活動によるキャッシュフロー", "投資活動によるキャッシュフロー", "財務活動によるキャッシュフロー", "経理活動によるキャッシュフロー"], correctIndex: 2, hint: "銀行からの借入れや社債発行・返済などが入る区分だよ。", explanation: "財務活動によるキャッシュフローは資金調達と返済のバランスや財務戦略を把握するのに役立ちます。" },
+        { question: "【ストラテジ】売上総利益から販売費および一般管理費を差し引いて算出する、本業の利益はどれですか？", choices: ["売上総利益", "営業利益", "経常利益", "当期純利益"], correctIndex: 1, hint: "本業そのものの稼ぐ力を示す利益だよ。", explanation: "営業利益は本業の売上から原価と販管費を引いた利益で、企業の本業の収益力を測る重要指標です。" },
+        { question: "【ストラテジ】営業利益に営業外収益を加え、営業外費用を差し引いた通常の企業活動の利益はどれですか？", choices: ["売上総利益", "営業利益", "経常利益", "税引前当期純利益"], correctIndex: 2, hint: "受取利息や支払利息なども含めた普段の事業全体の利益だよ。", explanation: "経常利益は本業の利益に財務活動などの経常的な損益を加味した、企業の総合的な収益力を表します。" },
+        { question: "【ストラテジ】先に入ったものや先に仕入れたものから順番に出庫・処理する方式はどれですか？", choices: ["LIFO", "FIFO", "JIT", "MRP"], correctIndex: 1, hint: "First-In First-Out（先入先出法）の略称だよ。", explanation: "FIFOは古い在庫から順に出庫・払い出しを行う方式で、食品や消費期限のある商品の管理にも適しています。" },
+        { question: "【ストラテジ】後に入ったものや新しく仕入れたものから先に出庫・処理する方式はどれですか？", choices: ["FIFO", "LIFO", "EDI", "ERP"], correctIndex: 1, hint: "Last-In First-Out（後入先出法）の略称だよ。", explanation: "LIFOは直近に仕入れたものから先に出す方式で、データ構造のスタックと同じ考え方です。" },
+        { question: "【ストラテジ】秘密管理性・有用性・非公知性の3つを満たし、不正競争防止法で保護される機密情報はどれですか？", choices: ["営業秘密の3要件", "個人情報", "パブリックドメイン", "著作隣接権"], correctIndex: 0, hint: "秘密として管理され、有用で、公然と知られていない情報の要件だよ。", explanation: "営業秘密の3要件をすべて満たす技術情報や顧客リストは、不正競争防止法により不正取得や使用から保護されます。" },
+        { question: "【ストラテジ】著作者が条件を守れば自由利用を認める意思表示を簡単に示すライセンスルールはどれですか？", choices: ["パブリックドメイン", "クリエイティブ・コモンズ", "コピーレフト", "ボリュームライセンス"], correctIndex: 1, hint: "表示（BY）や非営利（NC）などのマークで条件を示す国際的な仕組みだよ。", explanation: "クリエイティブ・コモンズは著作者が「この条件を守れば自由に共有・再利用してよい」と明示できるライセンス体系です。" },
+        { question: "【ストラテジ】保護期間満了や権利放棄などにより知的財産権がなく、誰でも自由に使える状態はどれですか？", choices: ["クリエイティブ・コモンズ", "パブリックドメイン", "営業秘密", "サブライセンス"], correctIndex: 1, hint: "公有とも呼ばれる状態だよ。", explanation: "パブリックドメインに属する作品は著作権などの制限を受けず、誰でも自由に利用・改変できます。" },
+        { question: "【ストラテジ】派遣元と雇用関係にある労働者が、派遣先の指揮命令を受けて働く契約形態はどれですか？", choices: ["請負契約", "準委任契約", "労働者派遣契約", "出向契約"], correctIndex: 2, hint: "指揮命令権が派遣先にある契約形態だよ。", explanation: "労働者派遣契約では雇用主は派遣元ですが、日常業務の指揮命令は派遣先企業が行います。" },
+        { question: "【ストラテジ】仕事の完成を約束し、完成した成果物に対して報酬が支払われる契約形態はどれですか？", choices: ["労働者派遣契約", "請負契約", "準委任契約", "雇用契約"], correctIndex: 1, hint: "注文者に指揮命令権はなく、成果物の完成義務を負う契約だよ。", explanation: "請負契約はシステム開発などで成果物の完成・納品を約束し、契約不適合責任を負う契約形態です。" },
+        { question: "【ストラテジ】成果物の完成ではなく、業務の遂行そのものを目的として委託する契約形態はどれですか？", choices: ["請負契約", "準委任契約", "労働者派遣契約", "フランチャイズ契約"], correctIndex: 1, hint: "善管注意義務をもって事務や業務を遂行する契約だよ。", explanation: "準委任契約はコンサルティングや運用支援など、完成物の保証ではなく専門業務の適切な遂行に報酬が支払われます。" },
+        { question: "【ストラテジ】法定労働時間を超えて時間外・休日労働を行う際に労使間で結ぶ協定はどれですか？", choices: ["36協定", "労働協約", "就業規則", "NDA"], correctIndex: 0, hint: "労働基準法第36条に基づく労使協定だよ。", explanation: "36（サブロク）協定を締結し労働基準監督署へ届け出ることで、上限規制の範囲内で時間外・休日労働が可能になります。" },
+        { question: "【ストラテジ】一定期間の総労働時間の範囲内で、始業・終業時刻を労働者が決められる制度はどれですか？", choices: ["裁量労働制", "フレックスタイム制", "変形労働時間制", "シフト制"], correctIndex: 1, hint: "コアタイムとフレキシブルタイムを設けることが多い勤務制度だよ。", explanation: "フレックスタイム制は日々の出退勤時刻を労働者の自主性に委ね、ワークライフバランスや業務効率を高める制度です。" },
+        { question: "【ストラテジ】通信販売や訪問販売などの取引を対象に、表示義務やクーリングオフ等を定めた法律はどれですか？", choices: ["景品表示法", "特定商取引法", "消費者契約法", "製造物責任法"], correctIndex: 1, hint: "消費者トラブルを生じやすい取引類型を規制する法律だよ。", explanation: "特定商取引法は訪問販売・通信販売・電話勧誘販売などで広告表示規制やクーリングオフ制度などを定めています。" },
+        { question: "【ストラテジ】一定の要件を満たす電子署名に、手書き署名や押印と同等の効力を認める法律はどれですか？", choices: ["電子帳簿保存法", "電子署名法", "マイナンバー法", "サイバーセキュリティ基本法"], correctIndex: 1, hint: "本人による作成と非改ざん性を推定する法律だよ。", explanation: "電子署名法により、認証局が発行する電子証明書等を用いた電子署名に法的な真正性の推定効が認められます。" },
+        { question: "【ストラテジ】国税関係の帳簿や書類を一定の要件で電子データ保存することを認める法律はどれですか？", choices: ["電子署名法", "電子帳簿保存法", "インボイス制度", "会社法"], correctIndex: 1, hint: "電子取引データの電子保存義務化なども含む法律だよ。", explanation: "電子帳簿保存法は帳簿・スキャナ保存・電子取引データの保存要件を定め、ペーパーレス経理を推進します。" },
+        { question: "【ストラテジ】適格請求書の発行・保存を通じて消費税額や税率の情報を正確に伝える仕組みはどれですか？", choices: ["電子帳簿保存法", "インボイス制度", "マイナンバー制度", "外形標準課税"], correctIndex: 1, hint: "適格請求書等保存方式とも呼ばれる仕組みだよ。", explanation: "インボイス制度では登録番号や適用税率・消費税額を記載した適格請求書の保存が仕入税額控除の要件となります。" },
+        { question: "【ストラテジ】12桁の個人番号で社会保障・税・災害対策の手続きを効率化する制度はどれですか？", choices: ["インボイス制度", "マイナンバー制度", "電子政府基盤", "住民基本台帳ネットワーク"], correctIndex: 1, hint: "国民一人ひとりに付番される12桁の番号制度だよ。", explanation: "マイナンバー制度は行政手続きの効率化や国民の利便性向上、公平・公正な社会の実現を目的としています。" },
+        { question: "【ストラテジ】サイバーセキュリティ施策の基本方針や関係者の責務を定める法律はどれですか？", choices: ["不正アクセス禁止法", "サイバーセキュリティ基本法", "プロバイダ責任制限法", "個人情報保護法"], correctIndex: 1, hint: "国や自治体、重要インフラ事業者等の責務を定めた基本法だよ。", explanation: "サイバーセキュリティ基本法は国全体のサイバーセキュリティ戦略の推進体制や基本理念を定めています。" },
+        { question: "【ストラテジ】ネットワーク上の情報流通による権利侵害での責任制限や発信者情報開示等を定める法律はどれですか？", choices: ["プロバイダ責任制限法", "不正アクセス禁止法", "特定電子メール法", "著作権法"], correctIndex: 0, hint: "SNSや掲示板での誹謗中傷対策などに関わる法律だよ。", explanation: "プロバイダ責任制限法（情報流通プラットフォーム対処法）はプロバイダの損害賠償責任の制限や発信者情報開示請求の手続きを定めています。" },
+        { question: "【ストラテジ】親事業者による不当な減額や支払遅延などから下請事業者を保護する法律はどれですか？", choices: ["独占禁止法", "下請法", "労働基準法", "PL法"], correctIndex: 1, hint: "注文書の交付義務や支払期日の規制などを定めた法律だよ。", explanation: "下請法は取引上の立場が弱い下請事業者の利益を保護し、公正な取引環境を確保するための法律です。" },
+        { question: "【ストラテジ】カルテルや私的独占、不公正な取引方法などを禁止し、公正な競争を促進する法律はどれですか？", choices: ["下請法", "独占禁止法", "景品表示法", "会社法"], correctIndex: 1, hint: "公正取引委員会が運用する競争法の中心だよ。", explanation: "独占禁止法は価格カルテルや入札談合、優越的地位の濫用などを規制し、自由で公正な市場競争を守ります。" },
+        { question: "【ストラテジ】製品の欠陥により消費者に損害が生じた際、製造業者等の責任を定める製造物責任法はどれですか？", choices: ["PL法", "SLA", "CSR", "BCP"], correctIndex: 0, hint: "Product Liabilityの略称だよ。", explanation: "PL法は被害者がメーカーの過失を証明しなくても、製品の欠陥と損害の因果関係を証明すれば損害賠償を請求できる法律です。" },
+        { question: "【ストラテジ】企業理念や独自性をロゴやスローガン、行動などで統一発信するコーポレートアイデンティティ戦略はどれですか？", choices: ["CSR", "CI", "IR", "PR"], correctIndex: 1, hint: "企業の存在意義やイメージを統合してブランド価値を高める戦略だよ。", explanation: "CI（コーポレートアイデンティティ）はデザイン統一だけでなく理念や行動様式も含めて企業価値を高める取り組みです。" },
+        { question: "【ストラテジ】多様な人材を活かし、組織の創造性や競争力を高める考え方はどれですか？", choices: ["ダイバーシティ", "ワークライフバランス", "エンゲージメント", "コンプライアンス"], correctIndex: 0, hint: "性別・年齢・国籍・価値観などの多様性を受容し活かす考え方だよ。", explanation: "ダイバーシティ推進は多様な視点を取り入れることでイノベーション創出や人材確保につなげる経営戦略です。" },
+        { question: "【ストラテジ】仕事と私生活の調和を図り、双方を充実させる考え方はどれですか？", choices: ["ダイバーシティ", "ワークライフバランス", "リスキリング", "ジョブローテーション"], correctIndex: 1, hint: "仕事と生活の好循環を目指す考え方だよ。", explanation: "ワークライフバランスは長時間労働の是正や柔軟な働き方を通じて、個人の充実と生産性向上を両立させる考え方です。" },
+        { question: "【ストラテジ】業務プロセスの一部を、企画・設計から運用まで一括して外部の専門企業に継続委託することはどれですか？", choices: ["BPR", "BPO", "BCP", "BPM"], correctIndex: 1, hint: "Business Process Outsourcingの略称だよ。", explanation: "BPOはコールセンターや経理・人事業務などを業務プロセスごと専門業者に委託し、品質向上とコスト最適化を図る手法です。" },
+        { question: "【ストラテジ】自社で製造工場を持たず、企画・設計に注力して製造は外部へ委託する形態はどれですか？", choices: ["EMS", "OEM", "ファブレス", "垂直統合"], correctIndex: 2, hint: "Fab（工場）を持たない（less）経営形態だよ。", explanation: "ファブレス企業は工場設備への巨額投資を避け、研究開発やマーケティングに経営資源を集中させます。" },
+        { question: "【ストラテジ】他社メーカーから電子機器の設計・部品調達・製造などを受託する生産サービスはどれですか？", choices: ["ファブレス", "EMS", "ASP", "SIer"], correctIndex: 1, hint: "Electronics Manufacturing Serviceの略称だよ。", explanation: "EMSは複数メーカーから製造を受託することで規模の経済を働かせ、低コスト・高品質な受託生産を行います。" },
+        { question: "【ストラテジ】ネットワーク経由でアプリケーション機能を顧客に提供するサービス形態はどれですか？", choices: ["ISP", "ASP", "SIer", "EMS"], correctIndex: 1, hint: "Application Service Providerの略称だよ。", explanation: "ASPはインターネットを通じてソフト機能をレンタル形式で提供する事業者やサービス形態を指します。" },
+        { question: "【ストラテジ】顧客の業務課題に応じてシステムの企画・構築から運用・保守まで一貫請負するIT企業はどれですか？", choices: ["ISP", "ASP", "SIer", "CVC"], correctIndex: 2, hint: "System Integratorの略称だよ。", explanation: "SIer（システムインテグレータ）は要件定義から設計・開発・テスト・運用までシステム構築全体を請け負います。" },
+        { question: "【ストラテジ】通信回線をインターネットへ接続するサービスを提供する事業者はどれですか？", choices: ["ASP", "SIer", "ISP", "CDN"], correctIndex: 2, hint: "Internet Service Providerの略称だよ。", explanation: "ISPはIPアドレスの割り当てやルーティングを提供し、家庭や企業をインターネットへ接続する事業者です。" },
+        { question: "【ストラテジ】クラウドを使わず、自社内にサーバーや機器を設置して構築・運用する形態はどれですか？", choices: ["ハウジング", "ホスティング", "オンプレミス", "マルチクラウド"], correctIndex: 2, hint: "自社構内に機器を置いて独自管理する運用形態だよ。", explanation: "オンプレミスは自社要件に合わせた柔軟なカスタマイズやセキュリティ統制がしやすい一方、初期投資や保守負担が大きくなります。" },
+        { question: "【ストラテジ】データセンターのスペースや設備を借りて、自社所有のサーバーを持ち込み運用するサービスはどれですか？", choices: ["ホスティング", "ハウジング", "オンプレミス", "SaaS"], correctIndex: 1, hint: "コロケーションとも呼ばれ、自前の機器を設置場所だけ借りて置くサービスだよ。", explanation: "ハウジングは堅牢な電源・空調・耐震設備を備えたデータセンターのラック等を借りて自社サーバーを設置する形態です。" },
+        { question: "【ストラテジ】事業者が用意したサーバー機器や領域を借りてシステムやサイトを運用するサービスはどれですか？", choices: ["ハウジング", "ホスティング", "オンプレミス", "ファブレス"], correctIndex: 1, hint: "レンタルサーバーのように事業者の機器・領域を借りるサービスだよ。", explanation: "ホスティングはハードウェアを購入せずにサーバー機能を利用でき、機器保守の負担を抑えられます。" },
+        { question: "【ストラテジ】新技術やアイデアの実現可能性や効果を本格導入前に小規模検証することはどれですか？", choices: ["RFP", "RFI", "PoC", "SLA"], correctIndex: 2, hint: "Proof of Concept（概念実証）の略称だよ。", explanation: "PoCは本格開発に入る前に技術的課題や費用対効果を検証し、導入失敗リスクを低減するために実施します。" },
+        { question: "【ストラテジ】システム導入検討の初期に、ベンダーへ技術動向や製品概要などの情報提供を求める文書はどれですか？", choices: ["RFP", "RFI", "SLA", "NDA"], correctIndex: 1, hint: "Request For Information（情報提供依頼書）の略称だよ。", explanation: "RFIはRFP（提案依頼書）を作成する前段階で、市場の製品や技術情報を収集するために発行します。" },
+        { question: "【ストラテジ】製品やサービスを購入する際、環境負荷が少ないものを優先して選ぶ取り組みはどれですか？", choices: ["グリーンIT", "グリーン調達", "ESG投資", "CSR"], correctIndex: 1, hint: "エコマーク商品や省エネ製品などを優先購入する活動だよ。", explanation: "グリーン調達は環境配慮型製品の購入を通じて、サプライチェーン全体の環境負荷低減を促す取り組みです。" },
+        { question: "【ストラテジ】2030年に向けた持続可能でよりよい世界を目指すために国連で採択された国際目標はどれですか？", choices: ["CSR", "SDGs", "ESG", "Society 5.0"], correctIndex: 1, hint: "17のゴールと169のターゲットからなる持続可能な開発目標だよ。", explanation: "SDGsは貧困・教育・気候変動・産業革新など社会課題の解決を目指す国際共通目標です。" },
+        { question: "【ストラテジ】環境・社会・ガバナンスへの取り組みを財務情報とあわせて重視する投資はどれですか？", choices: ["CVC", "ESG投資", "TOB", "IPO"], correctIndex: 1, hint: "Environment・Social・Governanceの頭文字だよ。", explanation: "ESG投資は長期的・持続的な成長力を見極めるため、非財務情報である環境・社会・企業統治への配慮を評価します。" },
+        { question: "【ストラテジ】IoTやAI・データ活用などで工場や生産工程の高度化・自動化を進める第4次産業革命はどれですか？", choices: ["Society 5.0", "インダストリー4.0", "スマートグリッド", "MRP"], correctIndex: 1, hint: "ドイツ発のスマートファクトリー化構想だよ。", explanation: "インダストリー4.0は製造設備やサプライチェーンをデジタル連携させ、マスカスタマイゼーションや高効率生産を実現します。" },
+        { question: "【ストラテジ】サイバー空間とフィジカル空間を高度に融合させ、発展と課題解決を両立する社会像はどれですか？", choices: ["インダストリー4.0", "Society 5.0", "Web3.0", "メタバース"], correctIndex: 1, hint: "狩猟・農耕・工業・情報社会に続く日本の未来社会コンセプトだよ。", explanation: "Society 5.0はIoT・AI・ロボットなどを活用して経済発展と社会的課題の解決を両立する人間中心の社会像です。" },
+        { question: "【ストラテジ】自社内部だけでなく、他社や大学・研究機関などの外部知見も取り入れて革新を起こす手法はどれですか？", choices: ["垂直統合", "オープンイノベーション", "ベンチマーキング", "コアコンピタンス"], correctIndex: 1, hint: "自前主義から脱却し、外部の技術やアイデアと共創する手法だよ。", explanation: "オープンイノベーションは外部組織との連携によって開発スピードを高め、新しい価値創出につなげます。" },
+        { question: "【ストラテジ】短期間で集中的にソフトウェア開発やアイデア創出を行うイベントはどれですか？", choices: ["ハッカソン", "ブレインストーミング", "オフサイトミーティング", "レビュー"], correctIndex: 0, hint: "ハック（Hack）とマラソン（Marathon）を組み合わせた造語だよ。", explanation: "ハッカソンはエンジニアやデザイナー等がチームを組み、数日などの限られた時間でプロトタイプ開発やアイデアを競い合います。" },
+        { question: "【ストラテジ】遊休資産やスペース・スキルなどをネット経由で共有・貸し借りする経済活動はどれですか？", choices: ["サブスクリプション", "シェアリングエコノミー", "フリーミアム", "オムニチャネル"], correctIndex: 1, hint: "カーシェアや民泊、スキルシェアなどの共有型経済だよ。", explanation: "シェアリングエコノミーは個人や企業が持つ空き時間・空間・モノをマッチングプラットフォーム経由で有効活用します。" },
+        { question: "【ストラテジ】ICTを活用し、時間や場所にとらわれず柔軟に働く勤務形態はどれですか？", choices: ["ジョブローテーション", "テレワーク", "フレックスタイム制", "オンプレミス"], correctIndex: 1, hint: "在宅勤務・モバイルワーク・サテライトオフィス勤務などの総称だよ。", explanation: "テレワークは通勤負担の軽減や災害時の事業継続、育児・介護との両立支援などに貢献します。" },
+        { question: "【ストラテジ】テキストや音声で問い合わせなどに自動応答するプログラムはどれですか？", choices: ["RPA", "チャットボット", "OCR", "CMS"], correctIndex: 1, hint: "ChatとRobotを組み合わせた用語だよ。", explanation: "チャットボットはFAQ対応や社内ヘルプデスク、予約受付などの一次対応を24時間自動化するのに活用されます。" },
+        { question: "【ストラテジ】画像や紙面の文字を解析してテキストデータに変換する技術はどれですか？", choices: ["QRコード", "RFID", "OCR", "POSシステム"], correctIndex: 2, hint: "光学的文字認識の略称だよ。", explanation: "OCRはスキャンした帳票やレシート、名刺などの文字画像から編集・検索可能なテキストデータを抽出します。" },
+        { question: "【ストラテジ】縦と横の2次元方向に情報を格納し、高速に読み取れる2次元コードはどれですか？", choices: ["バーコード", "QRコード", "RFID", "OCR"], correctIndex: 1, hint: "Quick Responseに由来する日本発の2次元コードだよ。", explanation: "QRコードは従来の1次元バーコードより多くの情報量を格納でき、誤り訂正機能により一部が汚れても読み取れます。" },
+        { question: "【ストラテジ】人工衛星からの電波を受信し、現在地の位置や高度などを測定するシステムはどれですか？", choices: ["ETC", "GPS", "RFID", "NFC"], correctIndex: 1, hint: "カーナビやスマホの地図アプリで使われる衛星測位システムだよ。", explanation: "GPSは複数の衛星からの信号到達時間差を計算して、地球上の現在位置を特定します。" },
+        { question: "【ストラテジ】有料道路などで無線通信により停止せずに通行料金を自動精算するシステムはどれですか？", choices: ["GPS", "ETC", "POSシステム", "EDI"], correctIndex: 1, hint: "料金所のノンストップ自動料金収受システムだよ。", explanation: "ETCは車載器と料金所アンテナ間の狭域無線通信（DSRC）で通行料金を自動決済し、渋滞緩和にも役立ちます。" },
+        { question: "【ストラテジ】ITや通信技術で電力需給をリアルタイム制御し、省エネや再エネ活用を図る送電網はどれですか？", choices: ["HEMS", "スマートグリッド", "グリーンIT", "UPS"], correctIndex: 1, hint: "次世代送電網と呼ばれる仕組みだよ。", explanation: "スマートグリッドはスマートメーターや通信網を通じて電力の供給と需要を最適バランスさせる電力網です。" },
+        { question: "【ストラテジ】家庭内のエネルギー使用状況を可視化・最適制御する管理システムはどれですか？", choices: ["ERP", "HEMS", "WMS", "SCM"], correctIndex: 1, hint: "Home Energy Management Systemの略称だよ。", explanation: "HEMSは家電や太陽光発電・蓄電池の電力使用量をモニター等で可視化し、自動制御で省エネを支援します。" },
+        { question: "【ストラテジ】ネットワークや端末を活用し、時間や場所を選ばず学習できる教育形態はどれですか？", choices: ["OJT", "e-ラーニング", "ブレインストーミング", "ハッカソン"], correctIndex: 1, hint: "PCやスマホを使ってオンラインで受講する学習形態だよ。", explanation: "e-ラーニングは受講履歴や理解度テストを一元管理でき、全社員研修や資格対策などに広く活用されます。" },
+        { question: "【ストラテジ】組織内の情報共有や予定管理、連絡などを支援する統合ソフトウェアはどれですか？", choices: ["グループウェア", "ERP", "CAD", "DBMS"], correctIndex: 0, hint: "スケジュール共有、掲示板、メール、ファイル共有などをまとめたツールだよ。", explanation: "グループウェアはチームや部門間の情報共有とコミュニケーションを円滑にし、業務効率を高めます。" },
+        { question: "【ストラテジ】申請・承認・決裁などの社内手続きを電子化し、流れを管理・自動化する仕組みはどれですか？", choices: ["ワークフローシステム", "グループウェア", "CMS", "POSシステム"], correctIndex: 0, hint: "稟議書や経費精算などの回覧・承認を電子化するシステムだよ。", explanation: "ワークフローシステムは承認ルートの自動判定や進捗の可視化により、決裁スピードの向上と内部統制強化を実現します。" },
+        { question: "【ストラテジ】専門知識がなくてもWebサイトの構築や更新を容易に行えるシステムはどれですか？", choices: ["CRM", "CMS", "CAM", "CAD"], correctIndex: 1, hint: "Contents Management Systemの略称だよ。", explanation: "CMSはHTMLやCSSを直接書かなくても、管理画面から記事投稿やページ更新ができるシステムです。" },
+        { question: "【ストラテジ】ディスプレイ等を使って映像や広告、案内情報を配信する電子看板はどれですか？", choices: ["デジタルサイネージ", "リスティング広告", "アフィリエイト", "CMS"], correctIndex: 0, hint: "駅や商業施設、店舗などに設置される電子看板だよ。", explanation: "デジタルサイネージは時間帯やターゲットに応じて表示内容を遠隔切り替えでき、紙ポスターの張り替え手間を省きます。" },
+        { question: "【ストラテジ】建築物や機械部品などの設計図面をコンピュータ上で作成・編集する設計支援システムはどれですか？", choices: ["CAM", "CAD", "CMS", "MRP"], correctIndex: 1, hint: "Computer Aided Designの略称だよ。", explanation: "CADは2次元・3次元の設計図面作成を効率化し、寸法変更や強度シミュレーションなどを容易にします。" },
+        { question: "【ストラテジ】CADの設計データをもとに、工作機械を動かす加工データを作成するシステムはどれですか？", choices: ["CAD", "CAM", "CAE", "CIM"], correctIndex: 1, hint: "Computer Aided Manufacturingの略称だよ。", explanation: "CAMはCADで作られた形状データからNC工作機械の制御プログラム（加工経路など）を生成します。" },
+        { question: "【ストラテジ】必要なものを必要な時に必要な量だけ供給し、在庫やムダを減らす生産方式はどれですか？", choices: ["MRP", "JIT", "BTO", "見込み生産"], correctIndex: 1, hint: "ジャストインタイム生産方式の略称だよ。", explanation: "JITは後工程が必要な部品を必要なタイミングで引き取ることで、仕掛在庫や保管コストを最小限に抑えます。" },
+        { question: "【ストラテジ】生産計画や部品構成、在庫をもとに部品や資材の必要量・時期を算出する手法はどれですか？", choices: ["JIT", "MRP", "ERP", "CRM"], correctIndex: 1, hint: "資材所要量計画の英語略称だよ。", explanation: "MRPは製品の基準生産計画と部品表（BOM）、現在庫量から、いつ何をどれだけ発注・製造すべきかを計算します。" },
+        { question: "【ストラテジ】1人または少人数で組み立てや検査などの工程を完結させる生産方式はどれですか？", choices: ["ライン生産方式", "セル生産方式", "見込み生産方式", "ロット生産方式"], correctIndex: 1, hint: "U字型作業台などで多能工が全工程を担当する生産方式だよ。", explanation: "セル生産方式は多品種少量生産や需要変動への柔軟な対応に強く、作業者の達成感向上にもつながります。" },
+        { question: "【ストラテジ】細分化した工程を流れ作業で分担して生産を行う方式はどれですか？", choices: ["セル生産方式", "ライン生産方式", "受注生産方式", "BTO"], correctIndex: 1, hint: "ベルトコンベア等で作業を分業する大量生産向きの方式だよ。", explanation: "ライン生産方式は単一作業の習熟度を高めやすく、規格化された製品の大量生産に適しています。" },
+        { question: "【ストラテジ】注文を受けてから仕様に合わせて組み立て・製造を行う販売・生産方式はどれですか？", choices: ["見込み生産", "BTO", "セル生産方式", "ライン生産方式"], correctIndex: 1, hint: "Build To Order（受注生産）の略称だよ。", explanation: "BTOはBTOパソコンのように顧客の注文仕様に応じて部品から組み立てるため、完成品在庫リスクを抑えられます。" },
+        { question: "【ストラテジ】設計や生産技術、購買などの各部門が同時並行で作業を進め、期間短縮や品質向上を図る手法はどれですか？", choices: ["ウォーターフォール", "コンカレントエンジニアリング", "カンバン方式", "ベンダーロックイン"], correctIndex: 1, hint: "並列処理を意味する「コンカレント」を用いた開発・生産手法だよ。", explanation: "コンカレントエンジニアリングは開発初期から製造性やコストを各部門が同時に検討し、手戻りと開発期間を削減します。" },
+        { question: "【ストラテジ】批判を避けながら複数人で自由にアイデアを出し合う会議手法はどれですか？", choices: ["デルファイ法", "ブレーンストーミング", "KJ法", "特性要因図"], correctIndex: 1, hint: "質より量・批判厳禁・自由奔放・結合改善の4原則で知られる手法だよ。", explanation: "ブレーンストーミングは自由な発想を促し、他人の意見に便乗することで独創的なアイデアを大量に生み出す手法です。" },
+        { question: "【ストラテジ】意見や情報をカードに書き出し、似たもの同士をグループ化して整理・統合する発想法はどれですか？", choices: ["ブレーンストーミング", "KJ法", "デルファイ法", "パレート図"], correctIndex: 1, hint: "考案者である川喜田二郎氏のイニシャルに由来する手法だよ。", explanation: "KJ法は雑多な意見や事実をカード化してグルーピングし、全体構造や本質的な課題を整理する手法です。" },
+        { question: "【ストラテジ】複数の専門家にアンケートを繰り返し実施し、結果を集約して将来予測を行う手法はどれですか？", choices: ["デルファイ法", "KJ法", "ブレーンストーミング", "ベンチマーキング"], correctIndex: 0, hint: "匿名アンケートとフィードバックを反復して意見を集約する予測手法だよ。", explanation: "デルファイ法は特定の権威者の意見に引きずられるのを防ぎつつ、専門家集団の知見から技術動向などを予測します。" },
+        { question: "【ストラテジ】項目別の件数や金額を降順の棒グラフと累積構成比の折れ線グラフで表す図はどれですか？", choices: ["ヒストグラム", "散布図", "パレート図", "レーダーチャート"], correctIndex: 2, hint: "ABC分析で重要な管理対象を見極める際にも使われるQC七つ道具だよ。", explanation: "パレート図は「全体の8割の問題は2割の原因から生じる」といった重点項目を視覚的に特定するのに役立ちます。" },
+        { question: "【ストラテジ】結果に対してどのような原因が影響しているかを魚の骨のように体系化する図はどれですか？", choices: ["特性要因図", "パレート図", "散布図", "管理図"], correctIndex: 0, hint: "フィッシュボーンチャートとも呼ばれるQC七つ道具だよ。", explanation: "特性要因図は問題（特性）とそれに関わる要因を大骨・中骨・小骨に整理し、根本原因を追求する図です。" },
+        { question: "【ストラテジ】2つの異なるデータ項目を縦軸と横軸にとり、相関関係を調べる図はどれですか？", choices: ["ヒストグラム", "散布図", "パレート図", "レーダーチャート"], correctIndex: 1, hint: "点の散らばり具合から正の相関・負の相関・無相関を見る図だよ。", explanation: "散布図は気温と売上、広告費と来店数など2変数の関係性を視覚的に把握するために使われます。" },
+        { question: "【ストラテジ】データの値を区間ごとに分け、各区間の度数を柱状グラフで表す図はどれですか？", choices: ["パレート図", "散布図", "ヒストグラム", "レーダーチャート"], correctIndex: 2, hint: "テストの点数分布や製品の寸法ばらつきなどを見る度数分布図だよ。", explanation: "ヒストグラムはデータの散らばり方や中心位置、異常値の有無などを把握するのに適したグラフです。" },
+        { question: "【ストラテジ】複数の評価項目を放射線状の軸に配置し、全体のバランスを表すグラフはどれですか？", choices: ["散布図", "レーダーチャート", "ヒストグラム", "パレート図"], correctIndex: 1, hint: "クモの巣状の形で能力や評価のバランスを比較するグラフだよ。", explanation: "レーダーチャートは多角的な評価項目の強み・弱みやバランスを一目で比較できます。" },
+        { question: "【ストラテジ】複数の企業が独立性を保ったまま、特定分野で提携を行うことはどれですか？", choices: ["M&A", "アライアンス", "TOB", "垂直統合"], correctIndex: 1, hint: "業務提携や技術提携、資本提携などの企業間連携を指すよ。", explanation: "アライアンスは各社の独立性を維持しつつ、互いの強みを補完し合って競争力を高める戦略的提携です。" },
+        { question: "【ストラテジ】複数の企業が共同出資して新会社を設立し、特定事業を共同運営する形態はどれですか？", choices: ["ジョイントベンチャー", "フランチャイズチェーン", "アライアンス", "ファブレス"], correctIndex: 0, hint: "合弁会社とも呼ばれる形態だよ。", explanation: "ジョイントベンチャーは資金・技術・販路などを持ち寄って新会社を設立し、新規事業や海外展開のリスクと利益を共有します。" },
+        { question: "【ストラテジ】本部が加盟店に商標やノウハウを提供し、加盟店が対価を支払う契約形態はどれですか？", choices: ["ジョイントベンチャー", "フランチャイズチェーン", "ライセンス契約", "OEM"], correctIndex: 1, hint: "コンビニや飲食チェーンで広く使われる、ロイヤリティを支払う仕組みだよ。", explanation: "フランチャイズチェーンは本部（フランチャイザー）のブランド力と加盟店（フランチャイジー）の資金力で急速な店舗展開を可能にします。" },
+        { question: "【ストラテジ】未上場企業が証券取引所に株式を新たに上場し、売買できるようにすることはどれですか？", choices: ["TOB", "IPO", "MBO", "CVC"], correctIndex: 1, hint: "Initial Public Offering（新規株式公開）の略称だよ。", explanation: "IPOにより企業は市場からの大規模な資金調達や社会的信用の向上を実現できます。" },
+        { question: "【ストラテジ】買収対象企業の株式を条件を公告したうえで、取引所外で直接買い集める手法はどれですか？", choices: ["IPO", "TOB", "MBO", "CVC"], correctIndex: 1, hint: "株式公開買付けの略称だよ。", explanation: "TOB（Take-Over Bid）は買付期間・価格・株数を公開して不特定多数の株主から株式を買い集め、経営権取得などを目指す手法です。" },
+        { question: "【ストラテジ】事業会社が本業との相乗効果や新規事業開拓を目的にスタートアップへ出資する組織はどれですか？", choices: ["CVC", "IPO", "TOB", "BPO"], correctIndex: 0, hint: "コーポレートベンチャーキャピタルの略称だよ。", explanation: "CVCは純粋な投資収益だけでなく、自社事業とのオープンイノベーションや将来のM&Aを見据えて投資を行います。" },
+        { question: "【ストラテジ】創業間もない起業家やスタートアップに対し、支援や育成を行うことはどれですか？", choices: ["インキュベーション", "ディスクロージャー", "リストラクチャリング", "アウトソーシング"], correctIndex: 0, hint: "卵を孵化させることに由来する起業支援活動だよ。", explanation: "インキュベーションはオフィス提供、資金支援、メンタリングなどを通じて新規事業の立ち上げと成長を後押しします。" },
+        { question: "【ストラテジ】調達から製造、販売までのサプライチェーンの上流から下流まで自社グループ内に取り込む戦略はどれですか？", choices: ["水平分業", "垂直統合", "ファブレス", "アウトソーシング"], correctIndex: 1, hint: "川上から川下まで一貫して自社で担う戦略だよ。", explanation: "垂直統合は品質管理の徹底や中間マージンの削減、安定調達に強みがある一方、固定費や投資負担が大きくなります。" },
+        { question: "【ストラテジ】企画・設計・製造・販売などの各工程を、得意な別々の企業が分担する事業形態はどれですか？", choices: ["垂直統合", "水平分業", "カニバリゼーション", "独占禁止"], correctIndex: 1, hint: "半導体業界のファブレスとファウンドリのように工程別に特化する形態だよ。", explanation: "水平分業は各社が得意工程に経営資源を集中できるため、技術革新のスピードと投資効率を高められます。" },
+        { question: "【ストラテジ】生産量や事業規模が大きくなるほど、単位あたりのコストが下がり有利になる効果はどれですか？", choices: ["範囲の経済", "規模の経済", "ネットワーク外部性", "ロングテール"], correctIndex: 1, hint: "スケールメリットとも呼ばれる効果だよ。", explanation: "規模の経済は大量生産や大量仕入れによって固定費や調達単価が薄まり、コスト競争力が高まる効果です。" },
+        { question: "【ストラテジ】複数の事業を別々に行うより、経営資源を共有して多角的に行う方が有利になる効果はどれですか？", choices: ["規模の経済", "範囲の経済", "キャズム", "ニッチ戦略"], correctIndex: 1, hint: "共通のブランド・技術・顧客基盤を複数事業で活かす効果だよ。", explanation: "範囲の経済は既存ノウハウや販売チャネルを他分野へ転用することで、単独事業より低コストで高収益を実現する効果です。" },
+        { question: "【ストラテジ】大手企業が参入しにくい特定の隙間市場に資源を集中させ、シェアを確保する戦略はどれですか？", choices: ["コストリーダーシップ戦略", "差別化戦略", "ニッチ戦略", "市場浸透戦略"], correctIndex: 2, hint: "特定の狭い市場・顧客層に特化する集中戦略だよ。", explanation: "ニッチ戦略は経営資源の限られた中小企業やベンチャーが、大手の目が届きにくい領域で高い利益率を確保するのに有効です。" },
+        { question: "【ストラテジ】大量生産や業務効率化などにより、競合より低いコストで提供する競争戦略はどれですか？", choices: ["差別化戦略", "コストリーダーシップ戦略", "ニッチ戦略", "ブルーオーシャン戦略"], correctIndex: 1, hint: "ポーターの3つの基本戦略のうち、業界最低コストを目指す戦略だよ。", explanation: "コストリーダーシップ戦略は経験曲線効果や規模の経済を活かし、低コスト構造によって価格競争でも利益を出せる体制を築きます。" },
+        { question: "【ストラテジ】品質やデザイン、ブランドなどの独自性で高付加価値を提供する競争戦略はどれですか？", choices: ["コストリーダーシップ戦略", "差別化戦略", "市場浸透戦略", "撤退戦略"], correctIndex: 1, hint: "他社にはない独自価値を認めてもらいプレミアム価格を実現する戦略だよ。", explanation: "差別化戦略は機能・ブランド・アフターサービスなどで独自性を打ち出し、価格以外の要素で選ばれる状態を作ります。" },
+        { question: "【ストラテジ】新規参入や代替品、買い手、売り手、既存競合の5要因から業界の収益性を分析する手法はどれですか？", choices: ["3C分析", "PEST分析", "ファイブフォース分析", "バリューチェーン分析"], correctIndex: 2, hint: "マイケル・ポーターが提唱した5つの競争要因の分析手法だよ。", explanation: "ファイブフォース分析は業界を取り巻く5つの力関係を分析し、その業界の魅力度や収益構造を明らかにします。" },
+        { question: "【ストラテジ】事業活動を機能ごとに分け、価値が生み出される連鎖を分析する手法はどれですか？", choices: ["ファイブフォース分析", "バリューチェーン分析", "SWOT分析", "RFM分析"], correctIndex: 1, hint: "主活動（購買・製造・物流・販売・サービス）と支援活動に分ける価値連鎖分析だよ。", explanation: "バリューチェーン分析はどの工程で付加価値が生まれ、どこに強みやコスト課題があるかを特定します。" },
+        { question: "【ストラテジ】顧客が認知してから購入・利用・共有に至るまでの一連の体験プロセスはどれですか？", choices: ["ペルソナ", "カスタマージャーニー", "オムニチャネル", "CRM"], correctIndex: 1, hint: "顧客の行動・思考・感情の変化を旅（ジャーニー）に見立てて可視化するよ。", explanation: "カスタマージャーニーを整理することで、接点ごとの課題や提供すべき情報のタイミングを設計しやすくなります。" },
+        { question: "【ストラテジ】ターゲット像を明確にするため、属性や価値観などを具体的に設定した架空の顧客像はどれですか？", choices: ["ペルソナ", "ステークホルダー", "セグメント", "アーリーアダプター"], correctIndex: 0, hint: "年齢・職業・家族構成・ライフスタイルまで具体的に描く人物像だよ。", explanation: "ペルソナを設定することで、開発やマーケティングに関わるメンバー全員が共通の顧客イメージを持って施策を検討できます。" },
+        { question: "【ストラテジ】株主・従業員・顧客・取引先・地域社会など、企業活動に利害関係を持つ人々や組織はどれですか？", choices: ["ペルソナ", "ステークホルダー", "フランチャイジー", "ベンダー"], correctIndex: 1, hint: "直接的・間接的に企業と利害関係を持つすべての関係者のことだよ。", explanation: "ステークホルダーの期待や利益にバランスよく応えることが、持続的な企業経営において重視されます。" },
+        { question: "【ストラテジ】企業が財務状況や経営情報などをステークホルダーへ適切に公開することはどれですか？", choices: ["コンプライアンス", "ディスクロージャー", "インサイダー取引", "コーポレートガバナンス"], correctIndex: 1, hint: "情報開示を意味する用語だよ。", explanation: "ディスクロージャーは透明性の高い経営情報を投資家や取引先へ適時・適切に開示することで信頼を得る取り組みです。" },
+        { question: "【ストラテジ】公表前の重要な内部情報を知って株式等を売買する違法行為はどれですか？", choices: ["ディスクロージャー", "インサイダー取引", "TOB", "マネーロンダリング"], correctIndex: 1, hint: "内部者取引とも呼ばれ、金融商品取引法で禁止されているよ。", explanation: "インサイダー取引は市場の公正性と投資家の信頼を損なうため厳しく処罰されます。" },
+        { question: "【ストラテジ】職場で上司や先輩が日常の業務を通じて部下や新入社員を指導する教育手法はどれですか？", choices: ["Off-JT", "OJT", "e-ラーニング", "ジョブローテーション"], correctIndex: 1, hint: "On-the-Job Trainingの略称だよ。", explanation: "OJTは実際の仕事を通して実践的なスキルを身につけられる一方、指導者の力量によって教育品質に差が出やすい特徴があります。" },
+        { question: "【ストラテジ】業務現場を離れ、研修や講義・演習などで体系的に知識・スキルを学ぶ教育手法はどれですか？", choices: ["OJT", "Off-JT", "MBO", "ワークライフバランス"], correctIndex: 1, hint: "Off-the-Job Trainingの略称だよ。", explanation: "Off-JTは集合研修や外部セミナーなどを通じて、体系的な知識や共通スキルを効率よく習得できる教育手法です。" },
+        { question: "【ストラテジ】能力開発や適性把握などを目的に、一定期間ごとに異なる部署や職務を経験させる制度はどれですか？", choices: ["ジョブローテーション", "フレックスタイム制", "リスキリング", "MBO"], correctIndex: 0, hint: "計画的な配置転換によって幅広い視野やスキルを育てる制度だよ。", explanation: "ジョブローテーションは多角的な業務理解を促すとともに、同じ部署に長く留まることによる不正防止にも役立ちます。" },
+        { question: "【ストラテジ】社員が自ら業務目標を設定し、その達成度合いに応じて評価・管理する手法はどれですか？", choices: ["M&A", "MBO", "IPO", "KPI"], correctIndex: 1, hint: "Management by Objectives（目標管理制度）の略称だよ。", explanation: "MBOは組織目標と個人目標を連動させ、自主性の向上と納得感のある人事評価につなげる手法です。" },
+        { question: "【ストラテジ】高い成果につながる行動特性をモデル化した評価・育成基準はどれですか？", choices: ["モラール", "コンピテンシー", "エンゲージメント", "ダイバーシティ"], correctIndex: 1, hint: "ハイパフォーマーに共通する思考や行動パターンのことだよ。", explanation: "コンピテンシーを明確にすることで、採用基準や人材育成、人事評価の客観性を高めることができます。" },
+        { question: "【ストラテジ】職場における従業員の働く意欲や熱意、士気などを表す言葉はどれですか？", choices: ["コンピテンシー", "モラール", "リスキリング", "ステークホルダー"], correctIndex: 1, hint: "道徳を意味するモラル（moral）とは別の「士気・意欲」を表す用語だよ。", explanation: "モラールが高い職場では生産性やチームワークが向上し、離職率の低下にもつながります。" },
+        { question: "【ストラテジ】従業員が組織の理念や目標に共感し、自発的に貢献したいと思う愛着や信頼の強さはどれですか？", choices: ["モラール", "エンゲージメント", "コンピテンシー", "コンプライアンス"], correctIndex: 1, hint: "個人と組織が対等な関係で互いに貢献し合う絆の強さを表すよ。", explanation: "従業員エンゲージメントが高まることで、主体的な改善提案や定着率向上、顧客満足度向上につながります。" },
+        { question: "【ストラテジ】DXや技術革新に伴い、現在や将来の業務に必要な新しいスキル・知識を学び直すことはどれですか？", choices: ["リスキリング", "ジョブローテーション", "OJT", "ベンチマーキング"], correctIndex: 0, hint: "AIやデータ活用など、新しい職種・業務に対応するための学び直しだよ。", explanation: "リスキリングは企業が従業員のスキル再開発を支援し、デジタル時代に対応した人材配置を実現する取り組みです。" },
+        { question: "【ストラテジ】市場と製品の「既存・新規」の2軸で成長戦略を整理する枠組みはどれですか？", choices: ["PPM分析", "アンゾフの成長マトリクス", "SWOT分析", "3C分析"], correctIndex: 1, hint: "市場浸透・新市場開拓・新製品開発・多角化の4つに分類するよ。", explanation: "アンゾフの成長マトリクスは事業拡大の方向性とリスク度合いを整理する際に用いられる基本フレームワークです。" },
+        { question: "【ストラテジ】既存市場において既存製品の販売拡大やシェア向上を図る戦略はどれですか？", choices: ["市場浸透戦略", "新市場開拓戦略", "新製品開発戦略", "多角化戦略"], correctIndex: 0, hint: "アンゾフの成長マトリクスで最もリスクが低い戦略だよ。", explanation: "市場浸透戦略は広告強化やリピート促進、価格見直しなどにより、現在の市場で既存商品の売上を伸ばす戦略です。" },
+        { question: "【ストラテジ】既存製品・サービスを新しい市場や顧客セグメントへ展開する戦略はどれですか？", choices: ["市場浸透戦略", "新市場開拓戦略", "新製品開発戦略", "多角化戦略"], correctIndex: 1, hint: "海外展開や新しい年齢層・法人向け展開などが該当するよ。", explanation: "新市場開拓戦略は既存の製品・サービスの強みを活かしながら、まだ開拓していない地域や顧客層へ販路を広げます。" },
+        { question: "【ストラテジ】既存市場に対して新しい製品・サービスを開発・提供する戦略はどれですか？", choices: ["市場浸透戦略", "新市場開拓戦略", "新製品開発戦略", "多角化戦略"], correctIndex: 2, hint: "現在の顧客基盤に向けて新商品や後継モデルを投入する戦略だよ。", explanation: "新製品開発戦略は既存顧客のニーズや信頼関係を活かして、新しい製品・サービスを購買してもらう戦略です。" },
+        { question: "【ストラテジ】新規市場と新製品の両面で事業を展開する成長戦略はどれですか？", choices: ["市場浸透戦略", "新市場開拓戦略", "新製品開発戦略", "多角化戦略"], correctIndex: 3, hint: "アンゾフの成長マトリクスで最もリスクが高いが成長余地も大きい戦略だよ。", explanation: "多角化戦略は未知の市場に新製品を投入するためリスクは高いものの、新たな収益柱の確立やリスク分散につながります。" },
+        // ===== マネジメント系（176〜300問） =====
+        { question: "【マネジメント】システムを発注する企業が、ITベンダーへ提案書や見積もりの提出を依頼する文書はどれですか？", choices: ["RFI", "RFP", "SLA", "WBS"], correctIndex: 1, hint: "Request For Proposal（提案依頼書）の略称だよ。", explanation: "RFPは調達したいシステムの目的や要件、評価基準などを示し、ベンダーから具体的なシステム構成や費用・スケジュールの提案を受けるための文書です。" },
+        { question: "【マネジメント】サービス提供者と利用者の間で、品質や稼働率などの合意内容を定めた文書はどれですか？", choices: ["RFP", "SLA", "ITIL", "PMBOK"], correctIndex: 1, hint: "Service Level Agreement（サービスレベル合意書）の略称だよ。", explanation: "SLAは応答時間や可用性、サポート受付時間などサービス品質の目標水準と、未達時の対応などを明確に合意する文書です。" },
+        { question: "【マネジメント】プロジェクト作業を細かく分解し、階層構造で整理した構成図はどれですか？", choices: ["WBS", "ガントチャート", "アローダイアグラム", "PERT図"], correctIndex: 0, hint: "Work Breakdown Structure（作業分解構成図）の略称だよ。", explanation: "WBSはプロジェクト全体の成果物や作業を管理可能な単位（ワークパッケージ）まで階層的に分解し、作業の抜け漏れを防ぎます。" },
+        { question: "【マネジメント】プロジェクトの作業経路の中で最も所要時間が長くなる経路はどれですか？", choices: ["マイルストーン", "クリティカルパス", "ベースライン", "スコープ"], correctIndex: 1, hint: "この経路上の作業が1日遅れると全体の完了日も1日遅れるよ。", explanation: "クリティカルパスは開始から終了までの最長経路であり、日程短縮や遅延防止において最優先で管理すべき工程です。" },
+        { question: "【マネジメント】縦軸に作業項目、横軸に日程をとり、予定と進捗を横棒グラフで表す管理表はどれですか？", choices: ["パレート図", "ガントチャート", "バーンダウンチャート", "アローダイアグラム"], correctIndex: 1, hint: "各タスクの開始日・終了日と進捗状況を横棒で視覚化する表だよ。", explanation: "ガントチャートはスケジュール全体の計画と実績の進み具合を一目で把握しやすく、進捗管理に広く使われます。" },
+        { question: "【マネジメント】ITサービスの運用・管理におけるベストプラクティスを体系化したガイドラインはどれですか？", choices: ["PMBOK", "ITIL", "ISMS", "JIS Q 15001"], correctIndex: 1, hint: "Information Technology Infrastructure Libraryの略称だよ。", explanation: "ITILはインシデント管理や問題管理、変更管理などITサービスマネジメントの成功事例・枠組みを体系化したものです。" },
+        { question: "【マネジメント】利用者からの問い合わせや障害報告を一元的に受け付ける単一窓口はどれですか？", choices: ["サービスデスク", "CSIRT", "SOC", "ステアリングコミッティ"], correctIndex: 0, hint: "SPOC（単一窓口）としてユーザー対応や一次切り分けを行う窓口だよ。", explanation: "サービスデスクは利用者からの質問・障害連絡・サービス要求を一元受付し、迅速な一次解決や専門部署へのエスカレーションを行います。" },
+        { question: "【マネジメント】プログラムの個々のモジュールや部品単位で仕様どおり動くか確認するテストはどれですか？", choices: ["単体テスト", "結合テスト", "総合テスト", "受入テスト"], correctIndex: 0, hint: "モジュールや関数などの最小単位ごとに行うテストだよ。", explanation: "単体テストは開発者が個々のプログラム部品のロジックや入出力が内部設計どおりに動作するかを検証します。" },
+        { question: "【マネジメント】複数のモジュールや部品を組み合わせて連携や受け渡しを確認するテストはどれですか？", choices: ["単体テスト", "結合テスト", "総合テスト", "受入テスト"], correctIndex: 1, hint: "モジュール間のインターフェースやデータ連携を検証するテストだよ。", explanation: "結合テストは単体テスト済みの部品同士をつなぎ、データの受け渡しや呼び出し関係が外部設計どおりに動くか確認します。" },
+        { question: "【マネジメント】本番に近い環境でシステム全体が要件・仕様どおり動くか検証するテストはどれですか？", choices: ["単体テスト", "結合テスト", "総合テスト", "受入テスト"], correctIndex: 2, hint: "システムテストとも呼ばれ、機能・性能・負荷・セキュリティ等を全体検証するよ。", explanation: "総合テストはシステム全体を通しで稼働させ、機能要件だけでなく応答性能や障害復旧などの非機能要件も確認します。" },
+        { question: "【マネジメント】発注者側が業務運用や要件に適合しているか最終確認するテストはどれですか？", choices: ["単体テスト", "結合テスト", "総合テスト", "受入テスト"], correctIndex: 3, hint: "検収テストとも呼ばれ、実際の業務シナリオに沿って発注者が確認するよ。", explanation: "受入テストは利用者・発注者主体で実際の業務に使えるかを確認し、合格することで納品・検収の判断材料となります。" },
+        { question: "【マネジメント】情報システムが安全かつ効率的に運用されているかを独立した専門家が評価する活動はどれですか？", choices: ["システム監査", "脆弱性診断", "ペネトレーションテスト", "ソフトウェア保守"], correctIndex: 0, hint: "安全性・信頼性・効率性・準拠性を客観的に点検・評価し助言する活動だよ。", explanation: "システム監査は独立した立場からリスクコントロールの整備・運用状況を評価し、改善勧告を行うことでガバナンスを高めます。" },
+        { question: "【マネジメント】システムに必要な機能や性能・制約などの要件を明確にする工程はどれですか？", choices: ["要件定義", "システム保守", "カットオーバー", "データ移行"], correctIndex: 0, hint: "開発の最上流で「何を作るか」を発注者と開発者で合意する工程だよ。", explanation: "要件定義では業務要件や機能要件、非機能要件（性能・可用性・セキュリティ等）を整理して合意形成を行います。" },
+        { question: "【マネジメント】システム稼働後に不具合修正や環境・法改正対応、機能改善などを行う工程はどれですか？", choices: ["要件定義", "結合テスト", "システム保守", "データ移行"], correctIndex: 2, hint: "本番リリース後にシステムの価値と正常稼働を維持し続ける活動だよ。", explanation: "システム保守は障害の修正だけでなく、OS更新・法改正への対応や使い勝手向上のための改修も含みます。" },
+        { question: "【マネジメント】プロジェクトで実施する作業や達成すべき成果物の範囲を指す用語はどれですか？", choices: ["マイルストーン", "スコープ", "ベースライン", "クリティカルパス"], correctIndex: 1, hint: "プロジェクトの「対象範囲（どこまでやるか）」を表す用語だよ。", explanation: "スコープを明確に定義・合意することで、不要な作業の混入や認識違いによるトラブルを防ぎます。" },
+        { question: "【マネジメント】プロジェクトのスケジュールにおける重要な節目や中間目標地点はどれですか？", choices: ["スコープ", "マイルストーン", "ベースライン", "ワークパッケージ"], correctIndex: 1, hint: "要件定義完了やカットオーバーなど、所要期間0日の重要な節目だよ。", explanation: "マイルストーンを設けることで、長期プロジェクトでも中間到達点を明確にし進捗の遅れを早期検知できます。" },
+        { question: "【マネジメント】設計書やソースコードなどの成果物を複数人で点検し、誤りや漏れを見つける手法はどれですか？", choices: ["レビュー", "リファクタリング", "デバッグ", "マイグレーション"], correctIndex: 0, hint: "テスト工程を待たずに上流成果物の欠陥を早期発見する静的検証手法だよ。", explanation: "レビューは仕様書やプログラムを複数人の目で確認することで、手戻りコストの大きい上流工程のミスを早期に修正できます。" },
+        { question: "【マネジメント】システムの機能数や入出力数などから規模を算出し、工数やコストを見積もる手法はどれですか？", choices: ["プログラムステップ法", "ファンクションポイント法", "類推見積法", "三点見積法"], correctIndex: 1, hint: "外部入力・外部出力・照会・内部論理ファイルなどの機能量から規模を測る手法だよ。", explanation: "ファンクションポイント法は開発言語に依存せず利用者視点の機能規模で測定できるため、要件定義段階でも見積もりやすい手法です。" },
+        { question: "【マネジメント】作業の順序関係と所要日数を矢印と結合点で表現し、日程や経路を求める図はどれですか？", choices: ["ガントチャート", "アローダイアグラム", "バーンダウンチャート", "パレート図"], correctIndex: 1, hint: "PERT図とも呼ばれ、クリティカルパスを求める際に使われるネットワーク図だよ。", explanation: "アローダイアグラムは作業間の前後関係（依存関係）と所要日数を可視化し、最短完了日数や余裕日数を計算できます。" },
+        { question: "【マネジメント】プロジェクトや生産管理で重視される品質・コスト・納期の3要素はどれですか？", choices: ["CIA", "QCD", "SLA", "ROI"], correctIndex: 1, hint: "Quality・Cost・Deliveryの頭文字だよ。", explanation: "QCDは互いに関連し合う3つの管理指標であり、全体のバランスを最適化しながら目標達成を目指します。" },
+        { question: "【マネジメント】短い期間で設計・実装・テストのサイクルを繰り返し、柔軟に開発を進める手法はどれですか？", choices: ["アジャイル開発", "ウォーターフォールモデル", "V字モデル", "スパイラルモデル"], correctIndex: 0, hint: "反復と改善を重視する開発手法だよ。", explanation: "アジャイル開発は仕様変更やフィードバックを素早く取り込みながら開発を進めやすい手法です。" },
+        { question: "【マネジメント】要件定義・設計・開発・テストなどを上流工程から下流工程へ段階的に順番に進める開発モデルはどれですか？", choices: ["ウォーターフォールモデル", "アジャイル開発", "プロトタイピングモデル", "スクラム"], correctIndex: 0, hint: "上流から下流へ段階的に進める開発モデルだよ。", explanation: "ウォーターフォールモデルは工程ごとの管理や成果物確認がしやすい反面、後工程での仕様変更には弱点があります。" },
+        { question: "【マネジメント】開発工程とテスト工程の対応関係をV字型に整理したモデルはどれですか？", choices: ["V字モデル", "アジャイル開発", "スパイラルモデル", "プロトタイピングモデル"], correctIndex: 0, hint: "開発とテストの対応をV字で示すモデルだよ。", explanation: "V字モデルでは各設計工程に対応するテスト計画・テスト実施の観点を整理できます。" },
+        { question: "【マネジメント】設計・実装・テスト・評価をらせん状に繰り返しながら規模を拡大する手法はどれですか？", choices: ["スパイラルモデル", "ウォーターフォールモデル", "V字モデル", "プロトタイピングモデル"], correctIndex: 0, hint: "らせん状に反復して規模を広げる手法だよ。", explanation: "スパイラルモデルは各サイクルで評価・計画を見直しながら段階的に開発を進めます。" },
+        { question: "【マネジメント】開発初期に試作品を作成して利用者に確認してもらいながら要件を固める手法はどれですか？", choices: ["プロトタイピングモデル", "ウォーターフォールモデル", "V字モデル", "スパイラルモデル"], correctIndex: 0, hint: "試作品で確認しながら要件を詰める手法だよ。", explanation: "プロトタイピングモデルは画面や操作感のすり合わせに有効で、要件の曖昧さを減らせます。" },
+        { question: "【マネジメント】短いスプリント単位の反復でプロダクトを開発・改善するアジャイル手法はどれですか？", choices: ["スクラム", "ウォーターフォールモデル", "V字モデル", "ファンクションポイント法"], correctIndex: 0, hint: "スプリント単位で反復開発するフレームワークだよ。", explanation: "スクラムはチームの自律性や透明性、適応性を高めながらプロダクトを育てる手法です。" },
+        { question: "【マネジメント】スクラム開発において、設計・実装・テスト・レビューを行う短い固定期間はどれですか？", choices: ["スプリント", "マイルストーン", "ベースライン", "スコープ"], correctIndex: 0, hint: "スクラムの短い開発サイクル期間だよ。", explanation: "スプリントの終わりには動作するインクリメント（成果物）の完成を目指します。" },
+        { question: "【マネジメント】スクラムチームが毎日短時間集まり、進捗や予定、障害などを共有する会議はどれですか？", choices: ["デイリースクラム", "レトロスペクティブ", "キックオフミーティング", "ステアリングコミッティ"], correctIndex: 0, hint: "毎日の短い進捗・課題共有ミーティングだよ。", explanation: "デイリースクラムは日々の作業進捗やブロッカーを素早く共有するための会議です。" },
+        { question: "【マネジメント】スプリント終了時に開発プロセスやチームの進め方を振り返り、改善点を話し合う活動はどれですか？", choices: ["レトロスペクティブ", "デイリースクラム", "レビュー", "システム監査"], correctIndex: 0, hint: "進め方やプロセスを振り返る活動だよ。", explanation: "レトロスペクティブはチームが継続的に改善していくための振り返りの場です。" },
+        { question: "【マネジメント】2人1組でコードを記述する側と確認・助言する側に分かれて開発する手法はどれですか？", choices: ["ペアプログラミング", "リファクタリング", "テスト駆動開発", "CI/CD"], correctIndex: 0, hint: "2人1組で開発を進める手法だよ。", explanation: "ペアプログラミングは記述とレビューを同時に行いやすく、属人化防止や品質向上につながります。" },
+        { question: "【マネジメント】外部から見た動作を変えずに、内部構造や可読性・保守性を改善する作業はどれですか？", choices: ["リファクタリング", "デバッグ", "マイグレーション", "カットオーバー"], correctIndex: 0, hint: "外部動作を変えず内部構造を整える作業だよ。", explanation: "リファクタリングは重複排除や構造整理などを通じて、保守しやすいコードへ改善します。" },
+        { question: "【マネジメント】実装の前にテストを作成し、テストを通過するように実装と改善を進める手法はどれですか？", choices: ["テスト駆動開発", "ペアプログラミング", "リファクタリング", "CI/CD"], correctIndex: 0, hint: "テスト先行で実装・改善を進める手法だよ。", explanation: "テスト駆動開発は仕様をテストコードとして先に表現し、検証しながら実装を進めます。" },
+        { question: "【マネジメント】コード変更を契機にビルドやテスト、配置・配信などを自動化する仕組みはどれですか？", choices: ["CI/CD", "DevOps", "リファクタリング", "テスト駆動開発"], correctIndex: 0, hint: "継続的インテグレーションと継続的デリバリー・デプロイだよ。", explanation: "CI/CDにより人手によるビルド・テスト・配置の手間やミスを減らし、リリースを迅速化できます。" },
+        { question: "【マネジメント】開発担当と運用担当が密接に連携し、迅速かつ安定的に価値を提供する取り組みはどれですか？", choices: ["DevOps", "CI/CD", "ITIL", "SLM"], correctIndex: 0, hint: "開発と運用の連携による価値提供の取り組みだよ。", explanation: "DevOpsは組織文化やプロセス・ツールの連携を通じて、変更の迅速な提供と安定稼働を両立します。" },
+        { question: "【マネジメント】プログラムの内部構造や分岐・経路に着目して動作を検証するテストはどれですか？", choices: ["ホワイトボックステスト", "ブラックボックステスト", "受入テスト", "リグレッションテスト"], correctIndex: 0, hint: "内部構造や分岐経路を見るテストだよ。", explanation: "ホワイトボックステストは内部コードの経路や条件分岐を網羅的に確認するのに適しています。" },
+        { question: "【マネジメント】内部構造を意識せず、入力に対する出力が仕様どおりか確認するテストはどれですか？", choices: ["ブラックボックステスト", "ホワイトボックステスト", "同値分割", "境界値分析"], correctIndex: 0, hint: "入出力の仕様を確認するテストだよ。", explanation: "ブラックボックステストは内部実装に依存せず、仕様書通りの振る舞いを確認できます。" },
+        { question: "【マネジメント】入力値を同じ性質のグループに分け、各グループから代表値を選ぶ技法はどれですか？", choices: ["同値分割", "境界値分析", "リグレッションテスト", "ホワイトボックステスト"], correctIndex: 0, hint: "同じ性質の入力グループから代表値を選ぶ技法だよ。", explanation: "同値分割はテスト対象となる入力値をグループ化し、無駄な重複を減らします。" },
+        { question: "【マネジメント】条件の境界付近の値にバグが起きやすいことに着目し、境界やその前後を検証する技法はどれですか？", choices: ["境界値分析", "同値分割", "ブラックボックステスト", "レビュー"], correctIndex: 0, hint: "境界とその前後の値を調べる技法だよ。", explanation: "境界値分析は「以上・以下」「未満・超」などの境界付近の不具合を検出しやすくします。" },
+        { question: "【マネジメント】変更や修正によって既存の正常な機能に悪影響が出ていないか確認するテストはどれですか？", choices: ["リグレッションテスト", "単体テスト", "結合テスト", "総合テスト"], correctIndex: 0, hint: "既存機能への悪影響を確認するテストだよ。", explanation: "リグレッションテストは修正や機能追加に伴う副作用・退行を見つけるために実施されます。" },
+        { question: "【マネジメント】作成者が中心となって仕様や成果物を説明し、参加者で誤りを見つけるレビュー手法はどれですか？", choices: ["ウォークスルー", "インスペクション", "レトロスペクティブ", "デイリースクラム"], correctIndex: 0, hint: "作成者が説明しながら進めるレビューだよ。", explanation: "ウォークスルーは仕様や設計の意図を共有しつつ、誤りや改善点を早期に洗い出せます。" },
+        { question: "【マネジメント】進行役のもとで役割やチェック基準を定めて厳格に行う公式なレビュー手法はどれですか？", choices: ["インスペクション", "ウォークスルー", "レビュー", "システム監査"], correctIndex: 0, hint: "進行役と基準のもとで行う公式レビューだよ。", explanation: "インスペクションはあらかじめ定めた基準や役割に基づいて欠陥を検出する手法です。" },
+        { question: "【マネジメント】プログラムの行数予測と生産性をもとに開発工数や規模を見積もる手法はどれですか？", choices: ["プログラムステップ法", "ファンクションポイント法", "類推見積法", "ボトムアップ見積法"], correctIndex: 0, hint: "予想ステップ数から規模や工数を見積もる手法だよ。", explanation: "プログラムステップ法は行数ベースで規模を捉える見積もり手法です。" },
+        { question: "【マネジメント】過去の類似プロジェクトの実績をもとに、差異を考慮して工数や費用を見積もる手法はどれですか？", choices: ["類推見積法", "ファンクションポイント法", "プログラムステップ法", "三点見積法"], correctIndex: 0, hint: "過去の類似案件の実績をもとに見積もる手法だよ。", explanation: "類推見積法は類似案件の実績データを出発点とし、条件の違いを調整して見積もります。" },
+        { question: "【マネジメント】細かく分解した作業ごとの見積もりを積み上げて全体の工数や費用を算出する手法はどれですか？", choices: ["ボトムアップ見積法", "類推見積法", "三点見積法", "プログラムステップ法"], correctIndex: 0, hint: "細かい作業の見積もりを積み上げる手法だよ。", explanation: "ボトムアップ見積法は作業単位で積み上げるため、抜け漏れが減り詳細見積もりに向きます。" },
+        { question: "【マネジメント】1人の作業者が1か月間働いた場合の作業量を表す工数の単位はどれですか？", choices: ["人月", "RPO", "RTO", "MTBF"], correctIndex: 0, hint: "1人が1か月働く作業量の単位だよ。", explanation: "人月は工数や規模を表す基本単位の一つです。" },
+        { question: "【マネジメント】遅れている開発プロジェクトへの途中人員追加は逆効果になりやすい経験則はどれですか？", choices: ["ブルックスの法則", "スコープクリープ", "コンティンジェンシー予備", "ベースライン"], correctIndex: 0, hint: "遅れた開発への途中増員が逆効果になりやすい経験則だよ。", explanation: "ブルックスの法則はプロジェクト管理における代表的な経験則の一つです。" },
+        { question: "【マネジメント】プロジェクトマネジメントの知識や手法を体系化した代表的なガイドブックはどれですか？", choices: ["PMBOK", "ITIL", "ISMS", "SLA"], correctIndex: 0, hint: "プロジェクトマネジメントの知識体系だよ。", explanation: "PMBOKはプロジェクトマネジメントの標準的な考え方や枠組みを提供します。" },
+        { question: "【マネジメント】管理されないまま仕様や作業範囲が進行中に少しずつ膨張していく現象はどれですか？", choices: ["スコープクリープ", "ベースライン", "クリティカルパス", "マイルストーン"], correctIndex: 0, hint: "作業範囲が管理なく膨張する現象だよ。", explanation: "スコープクリープを防ぐには、変更手続きの明確化と合意形成が重要です。" },
+        { question: "【マネジメント】合意・承認された計画や仕様の基準版であり、変更管理の基準となるものはどれですか？", choices: ["ベースライン", "スコープクリープ", "マイルストーン", "コンティンジェンシー予備"], correctIndex: 0, hint: "変更管理の基準となる計画・仕様の版だよ。", explanation: "ベースラインを定めることで、計画変更の有無や影響度を明確に管理できます。" },
+        { question: "【マネジメント】特定されたリスクが顕在化した際に備えて確保しておく予備の予算や期間はどれですか？", choices: ["コンティンジェンシー予備", "ベースライン", "スコープクリープ", "ブルックスの法則"], correctIndex: 0, hint: "特定済みリスクに備える予備の予算や期間だよ。", explanation: "コンティンジェンシー予備はリスク対応計画に基づいて確保される予備です。" },
+        { question: "【マネジメント】プロジェクト開始時に目的や目標、体制、スケジュールなどを共有する最初の会議はどれですか？", choices: ["キックオフミーティング", "デイリースクラム", "レトロスペクティブ", "ステアリングコミッティ"], correctIndex: 0, hint: "プロジェクト開始時の顔合わせ・方針共有会議だよ。", explanation: "キックオフミーティングで目的やゴール、体制を共有することで円滑なスタートにつなげます。" },
+        { question: "【マネジメント】経営層や責任者などで構成され、重要方針の決定や調整を行う運営委員会はどれですか？", choices: ["ステアリングコミッティ", "サービスデスク", "キックオフミーティング", "デイリースクラム"], correctIndex: 0, hint: "重要方針の決定や調整を行う運営委員会だよ。", explanation: "ステアリングコミッティはプロジェクトの方向性や部門間調整などの重要事項を扱います。" },
+        { question: "【マネジメント】SLAで定めたサービス品質の維持・向上に向けて監視や報告、見直しを行う管理はどれですか？", choices: ["SLM", "インシデント管理", "問題管理", "変更管理"], correctIndex: 0, hint: "サービスレベル管理の略称だよ。", explanation: "SLMは合意したサービス水準が継続的に満たされているかを確認し、改善につなげます。" },
+        { question: "【マネジメント】障害や問い合わせが発生した際、通常のサービスを迅速に復旧させることを優先する管理はどれですか？", choices: ["インシデント管理", "問題管理", "変更管理", "構成管理"], correctIndex: 0, hint: "迅速なサービス復旧を優先する管理だよ。", explanation: "インシデント管理は業務影響を抑えるため、早期の復旧や回避策の適用を重視します。" },
+        { question: "【マネジメント】障害の根本原因を特定して恒久対策を行い、再発や未然防止を図る管理はどれですか？", choices: ["問題管理", "インシデント管理", "変更管理", "可用性管理"], correctIndex: 0, hint: "根本原因の特定と再発防止を行う管理だよ。", explanation: "問題管理は同一・類似インシデントの再発を防ぐための恒久対策につなげます。" },
+        { question: "【マネジメント】システムや構成への変更に伴う影響やリスクを評価・承認し、安全に実施する管理はどれですか？", choices: ["変更管理", "インシデント管理", "問題管理", "キャパシティ管理"], correctIndex: 0, hint: "変更の影響評価・承認・安全実施を行う管理だよ。", explanation: "変更管理は変更に伴う予期せぬ障害やセキュリティリスクを抑えるために重要です。" },
+        { question: "【マネジメント】システムを構成するハード・ソフト・機器などの情報や関連性を記録・維持する管理はどれですか？", choices: ["構成管理", "インシデント管理", "キャパシティ管理", "可用性管理"], correctIndex: 0, hint: "構成要素の情報や関連性を管理することだよ。", explanation: "構成管理はシステムの正確な構成状態を把握し、運用や変更管理を支えます。" },
+        { question: "【マネジメント】処理能力や記憶容量・帯域などの過不足が生じないよう予測・最適化する管理はどれですか？", choices: ["キャパシティ管理", "構成管理", "可用性管理", "変更管理"], correctIndex: 0, hint: "処理能力や容量・帯域の過不足を防ぐ管理だよ。", explanation: "キャパシティ管理は将来の利用増加やピーク負荷を見据えたリソース計画に役立ちます。" },
+        { question: "【マネジメント】合意された稼働水準を満たすよう信頼性や冗長化などを管理し、停止を抑える活動はどれですか？", choices: ["可用性管理", "キャパシティ管理", "問題管理", "インシデント管理"], correctIndex: 0, hint: "稼働水準を満たすよう可用性を保つ管理だよ。", explanation: "可用性管理は冗長化や保守計画などを通じて、必要なときの利用可能性を確保します。" },
+        { question: "【マネジメント】一次対応で解決できない問い合わせや障害を、上位担当者や専門部門へ引き継ぐことはどれですか？", choices: ["エスカレーション", "カットオーバー", "リファクタリング", "リモートワイプ"], correctIndex: 0, hint: "上位者や専門部門へ対応を引き継ぐことだよ。", explanation: "エスカレーションの基準や手順を明確にしておくことで、対応の停滞を防げます。" },
+        { question: "【マネジメント】よくある質問と回答をあらかじめまとめ、利用者の自己解決を支援する仕組みはどれですか？", choices: ["FAQ", "SLA", "RFP", "RFI"], correctIndex: 0, hint: "よくある質問と回答集だよ。", explanation: "FAQは利用者が疑問を素早く解消できるように整理した情報です。" },
+        { question: "【マネジメント】自動応答プログラムを活用して問い合わせ対応を効率化する仕組みはどれですか？", choices: ["チャットボットサポート", "FAQ", "エスカレーション", "サービスデスク"], correctIndex: 0, hint: "自動応答プログラムによる問い合わせ対応だよ。", explanation: "チャットボットサポートはよくある質問への自動案内や振り分けなどに活用されます。" },
+        { question: "【マネジメント】ハードウェアやソフトウェアライセンスなどの保有・利用状況を管理し、適正化を図る活動はどれですか？", choices: ["IT資産管理", "構成管理", "システム監査", "ソフトウェアライセンス監査"], correctIndex: 0, hint: "機器やライセンスの保有・利用状況の管理だよ。", explanation: "IT資産管理は無駄なコストの削減や不正利用・コンプライアンス違反の防止に役立ちます。" },
+        { question: "【マネジメント】契約数と実際の利用・インストール状況の整合性を点検し、違反を防ぐ調査はどれですか？", choices: ["ソフトウェアライセンス監査", "システム監査", "IT資産管理", "脆弱性診断"], correctIndex: 0, hint: "ライセンス契約数と利用状況の整合性点検だよ。", explanation: "ソフトウェアライセンス監査はライセンス管理の適正さを確認するために行われます。" },
+        { question: "【マネジメント】旧システムから新システムへの切り替え時に、データを変換・移し替える作業はどれですか？", choices: ["データ移行", "カットオーバー", "リファクタリング", "デバッグ"], correctIndex: 0, hint: "新システムへデータを変換・移し替える作業だよ。", explanation: "データ移行は移行リハーサルや検証を含めて計画的に進める必要があります。" },
+        { question: "【マネジメント】基準日をもって全拠点・全業務を一度に新システムへ切り替える移行方式はどれですか？", choices: ["一斉移行方式", "並行移行方式", "段階移行方式", "カットオーバー"], correctIndex: 0, hint: "全対象を一度に切り替える方式だよ。", explanation: "一斉移行方式は新旧の混在期間が短く済みますが、切り替え時の準備と検証が重要です。" },
+        { question: "【マネジメント】一定期間、旧システムと新システムを並行稼働させて結果を確認してから切り替える方式はどれですか？", choices: ["並行移行方式", "一斉移行方式", "段階移行方式", "データ移行"], correctIndex: 0, hint: "新旧システムを並行稼働させて切り替える方式だよ。", explanation: "並行移行方式は旧システムと出力結果を突き合わせるなどして安全性を確認しやすい方式です。" },
+        { question: "【マネジメント】部署や機能、拠点単位などで少しずつ新システムへ切り替えていく移行方式はどれですか？", choices: ["段階移行方式", "一斉移行方式", "並行移行方式", "データ移行"], correctIndex: 0, hint: "対象を分けて段階的に切り替える方式だよ。", explanation: "段階移行方式は業務や拠点ごとに順次切り替えることで、リスクを分散しやすくなります。" },
+        { question: "【マネジメント】開発や移行を終え、本番環境で新システムの運用を開始することはどれですか？", choices: ["カットオーバー", "データ移行", "要件定義", "システム保守"], correctIndex: 0, hint: "本番運用へ切り替えることだよ。", explanation: "カットオーバー後は運用体制のもとで監視やサポートを密に行うことが重要です。" },
+        { question: "【マネジメント】監査対象部門から組織的・身分的に独立し、客観的な立場で監査を行うべき原則はどれですか？", choices: ["システム監査人の独立性", "監査証拠", "職務分掌", "コントロール"], correctIndex: 0, hint: "監査対象の部門から独立して監査する原則だよ。", explanation: "独立性が保たれることで、監査結果の信頼性や客観性が高まります。" },
+        { question: "【マネジメント】監査の結論や意見を裏付けるために収集する記録や資料、検証結果などの根拠はどれですか？", choices: ["監査証拠", "システム監査人の独立性", "コントロール", "アクセスログの監査"], correctIndex: 0, hint: "監査意見の裏付けとなる記録や資料だよ。", explanation: "監査証拠は記録の閲覧やヒアリング、実査・検証などを通じて収集されます。" },
+        { question: "【マネジメント】リスクを低減するために設ける承認・制限・チェックなどの管理・統制の仕組みはどれですか？", choices: ["コントロール", "職務分掌", "監査証拠", "インシデント管理"], correctIndex: 0, hint: "リスク低減のための統制やチェックの仕組みだよ。", explanation: "コントロールを適切に設計・運用することで、不正や誤りの発生・影響を低減できます。" },
+        { question: "【マネジメント】不正やミスを防ぐため、権限や業務工程を複数人で分担させて相互牽制を図る仕組みはどれですか？", choices: ["職務分掌", "コントロール", "アクセスログの監査", "システム監査人の独立性"], correctIndex: 0, hint: "権限や工程を分担して相互牽制を図る仕組みだよ。", explanation: "職務分掌は申請・承認・実行などの役割を分けることで不正の抑止に役立ちます。" },
+        { question: "【マネジメント】誤ったデータの登録を防ぐため、桁数や範囲、形式などをシステムで検証する仕組みはどれですか？", choices: ["データの入力チェック", "アクセスログの監査", "職務分掌", "コントロール"], correctIndex: 0, hint: "桁数や範囲・形式などを検証する入力チェックだよ。", explanation: "入力チェックはシステム側でデータ形式や妥当性を確認する基本的な統制です。" },
+        { question: "【マネジメント】システムやデータへのアクセス履歴を点検し、不正利用や異常を確認する管理はどれですか？", choices: ["アクセスログの監査", "データの入力チェック", "職務分掌", "監査証拠"], correctIndex: 0, hint: "アクセス履歴を点検して異常を確認する管理だよ。", explanation: "アクセスログの監査により、不正アクセスや情報持ち出しの兆候などを把握しやすくなります。" },
+        { question: "【マネジメント】3つのコピーを用意し、2種類の異なる媒体に保存し、1つは遠隔地に保管する原則はどれですか？", choices: ["バックアップの3-2-1ルール", "フルバックアップ", "差分バックアップ", "増分バックアップ"], correctIndex: 0, hint: "3コピー・2媒体・1遠隔地のバックアップ原則だよ。", explanation: "3-2-1ルールを意識することで、単一障害や災害・サイバー攻撃への耐性を高めやすくなります。" },
+        { question: "【マネジメント】対象となるデータを毎回すべて一括でバックアップする方式はどれですか？", choices: ["フルバックアップ", "差分バックアップ", "増分バックアップ", "バックアップの3-2-1ルール"], correctIndex: 0, hint: "毎回すべて一括で保存する方式だよ。", explanation: "フルバックアップは世代管理や復元が分かりやすい反面、容量と時間がかかります。" },
+        { question: "【マネジメント】前回のフルバックアップ以降に変更・追加されたデータをまとめて保存する方式はどれですか？", choices: ["差分バックアップ", "フルバックアップ", "増分バックアップ", "バックアップの3-2-1ルール"], correctIndex: 0, hint: "前回フルバックアップからの変更分をまとめて保存する方式だよ。", explanation: "差分バックアップは前回フルバックアップ時点からの変更分を蓄積して保存します。" },
+        { question: "【マネジメント】前回のバックアップ以降に変更・追加されたデータのみを保存する方式はどれですか？", choices: ["増分バックアップ", "フルバックアップ", "差分バックアップ", "バックアップの3-2-1ルール"], correctIndex: 0, hint: "前回バックアップからの変更分のみを保存する方式だよ。", explanation: "増分バックアップは直近のバックアップ時点からの変更分だけを記録します。" },
+        { question: "【マネジメント】障害や災害時に、どの時点までのデータを復旧させるかを示す目標指標はどれですか？", choices: ["RPO", "RTO", "MTBF", "MTTR"], correctIndex: 0, hint: "復旧対象とするデータの時点を示す指標だよ。", explanation: "RPOは災害や障害時に失ってもよいデータの時間幅・時点の目安となります。" },
+        { question: "【マネジメント】障害や災害の発生から、システムやサービスを復旧させるまでの目標時間はどれですか？", choices: ["RTO", "RPO", "MTBF", "MTTR"], correctIndex: 0, hint: "障害発生から復旧完了までの目標時間だよ。", explanation: "RTOはシステムや業務を復旧させるまでにかけられる時間の目標値です。" },
+        { question: "【マネジメント】災害や障害時に業務やシステムを引き継ぐために用意する予備の拠点や設備はどれですか？", choices: ["BCPにおける代替サイト", "ディザスタリカバリ", "RPO", "RTO"], correctIndex: 0, hint: "災害や障害時に切り替える予備拠点だよ。", explanation: "代替サイトは被災時にも業務やシステムを継続・再開するための拠点です。" },
+        { question: "【マネジメント】大規模災害などでシステムが被災した際、復旧・再開させる対策や仕組みはどれですか？", choices: ["ディザスタリカバリ", "BCPにおける代替サイト", "RPO", "RTO"], correctIndex: 0, hint: "災害等からのシステム復旧・再開対策だよ。", explanation: "ディザスタリカバリはバックアップや代替環境などを組み合わせて復旧力を高めます。" },
+        { question: "【マネジメント】攻撃者の手法を模した擬似攻撃を行い、侵入可否や防御の弱点を検証するテストはどれですか？", choices: ["ペネトレーションテスト", "脆弱性診断", "システム監査", "ソフトウェアライセンス監査"], correctIndex: 0, hint: "擬似攻撃で侵入可否や弱点を調べるテストだよ。", explanation: "ペネトレーションテストは実際の攻撃シナリオに基づき、防御や検知の有効性を検証します。" },
+        { question: "【マネジメント】システムやソフトウェアの既知の脆弱性や設定不備を調査・点検する診断はどれですか？", choices: ["脆弱性診断", "ペネトレーションテスト", "システム監査", "ソフトウェアライセンス監査"], correctIndex: 0, hint: "既知の脆弱性や設定不備を調べる診断だよ。", explanation: "脆弱性診断により、パッチ未適用や設定ミスなどの弱点を早期に把握・対策できます。" },
+        { question: "【マネジメント】情報資産を適切に管理・保護するため、方針や管理策を定め継続改善する仕組みはどれですか？", choices: ["ISMS", "CSIRT", "SOC", "プライバシーマーク"], correctIndex: 0, hint: "情報セキュリティマネジメントシステムの略称だよ。", explanation: "ISMSは組織の情報セキュリティリスクを管理し、継続的に改善するための枠組みです。" },
+        { question: "【マネジメント】セキュリティインシデント発生時に、対応や被害拡大防止、原因調査を行う専門チームはどれですか？", choices: ["CSIRT", "SOC", "ISMS", "サービスデスク"], correctIndex: 0, hint: "インシデント対応を行う専門チームだよ。", explanation: "CSIRTはインシデント発生時の対応手順整備や初動対応、関係機関との連携などを担います。" },
+        { question: "【マネジメント】ネットワークや機器のログ・通信を監視し、サイバー攻撃の検知・分析を行う組織はどれですか？", choices: ["SOC", "CSIRT", "ISMS", "サービスデスク"], correctIndex: 0, hint: "ログや通信を監視して攻撃を検知・分析する組織だよ。", explanation: "SOCは継続的な監視と分析を通じて、サイバー攻撃の早期発見やインシデント対応を支援します。" },
+        { question: "【マネジメント】インシデント判明時に被害拡大を防ぐ隔離や報告などの初期対応はどれですか？", choices: ["インシデント対応の初動", "デジタルフォレンジックス", "CSIRT", "SOC"], correctIndex: 0, hint: "被害拡大を防ぐ初期対応だよ。", explanation: "インシデント対応では初動の判断や隔離・記録が被害の大きさや原因究明に影響します。" },
+        { question: "【マネジメント】インシデントや不正の調査のため、電子的記録を保全・収集・解析する技術はどれですか？", choices: ["デジタルフォレンジックス", "インシデント対応の初動", "ペネトレーションテスト", "脆弱性診断"], correctIndex: 0, hint: "電子的記録の保全・収集・解析技術だよ。", explanation: "デジタルフォレンジックスはサイバー犯罪やインシデントの原因・経路の解明などに活用されます。" },
+        { question: "【マネジメント】故障や異常が発生した際、常に安全な状態になるよう動作・停止させる設計思想はどれですか？", choices: ["フェールセーフ", "フールプルーフ", "フェールソフト", "フォールトトレラント"], correctIndex: 0, hint: "故障時に常に安全な状態へ制御する設計思想だよ。", explanation: "フェールセーフは機器の故障や異常を前提として、安全側に制御・停止させる設計です。" },
+        { question: "【マネジメント】利用者の誤操作やミスが起きにくくしたり、事故につながらないようにしたりする設計思想はどれですか？", choices: ["フールプルーフ", "フェールセーフ", "フェールソフト", "フォールトトレラント"], correctIndex: 0, hint: "誤操作を防いだり事故につなげない設計思想だよ。", explanation: "フールプルーフはヒューマンエラーを前提に、誤操作を防止または無害化する設計です。" },
+        { question: "【マネジメント】一部に障害が起きても機能を縮小・制限しながら処理を継続させる設計思想はどれですか？", choices: ["フェールソフト", "フェールセーフ", "フールプルーフ", "フォールトトレラント"], correctIndex: 0, hint: "一部障害時に機能を縮小して処理を継続する設計だよ。", explanation: "フェールソフトはシステム全体の停止を避け、利用可能な機能で処理を続けます。" },
+        { question: "【マネジメント】部品や装置に故障が生じても、冗長化などにより正常な動作を継続できる耐障害設計はどれですか？", choices: ["フォールトトレラント", "単一障害点", "フェールセーフ", "フールプルーフ"], correctIndex: 0, hint: "故障しても正常動作を継続できる耐障害設計だよ。", explanation: "フォールトトレラントは故障発生時にもシステム全体を止めずに稼働し続けることを目指します。" },
+        { question: "【マネジメント】そこ1箇所が故障するとシステム全体が停止してしまう冗長化されていない箇所はどれですか？", choices: ["単一障害点", "フォールトトレラント", "フェールソフト", "クリティカルパス"], correctIndex: 0, hint: "1箇所の故障で全体が止まる箇所だよ。", explanation: "単一障害点を特定して冗長化することで、システム全体の可用性を高めやすくなります。" },
+        { question: "【マネジメント】システムや機器が正常に稼働している時間の平均値（故障間隔の平均）はどれですか？", choices: ["MTBF", "MTTR", "RPO", "RTO"], correctIndex: 0, hint: "平均故障間隔を表す指標だよ。", explanation: "MTBFはMean Time Between Failuresの略で、故障から次の故障までの平均稼働時間を示します。" },
+        { question: "【マネジメント】システムや機器が故障してから修理・復旧するまでにかかる時間の平均値はどれですか？", choices: ["MTTR", "MTBF", "RPO", "RTO"], correctIndex: 0, hint: "平均復旧時間を表す指標だよ。", explanation: "MTTRはMean Time To Repairの略で、故障発生から復旧までの平均所要時間を示します。" },
+        { question: "【マネジメント】MTBF ÷（MTBF ＋ MTTR）によってシステムの稼働率を求める計算式はどれですか？", choices: ["稼働率の計算式", "MTBF", "MTTR", "直列システムの稼働率"], correctIndex: 0, hint: "MTBF ÷（MTBF ＋ MTTR）だよ。", explanation: "稼働率は総時間のうち正常に稼働している割合を表し、MTBFとMTTRから算出できます。" },
+        { question: "【マネジメント】要素が直列につながりすべて正常でないと動かない構成の稼働率（各稼働率の積）はどれですか？", choices: ["直列システムの稼働率", "並列システムの稼働率", "稼働率の計算式", "MTBF"], correctIndex: 0, hint: "各要素の稼働率を掛け合わせた値だよ。", explanation: "直列構成では要素が増えるほど全体としての稼働率は下がる傾向があります。" },
+        { question: "【マネジメント】要素が並列につながり少なくとも1つ正常なら動く構成の稼働率はどれですか？", choices: ["並列システムの稼働率", "直列システムの稼働率", "稼働率の計算式", "MTTR"], correctIndex: 0, hint: "並列構成の稼働率だよ。", explanation: "並列構成では冗長化によって全体としての稼働率を高めることができます。" },
+        { question: "【マネジメント】クラウド事業者と利用者の間で、セキュリティや管理の責任範囲を分担する考え方はどれですか？", choices: ["クラウドサービスの責任共有モデル", "ベンダーロックイン", "マルチベンダー", "SLA"], correctIndex: 0, hint: "事業者と利用者の責任分担の考え方だよ。", explanation: "責任共有モデルを理解することで、自社で設定・管理すべきセキュリティ対策を漏れなく行えます。" },
+        { question: "【マネジメント】特定ベンダーの独自仕様や製品に依存し、他社への乗り換えが困難になる状態はどれですか？", choices: ["ベンダーロックイン", "マルチベンダー", "クラウドサービスの責任共有モデル", "BPO"], correctIndex: 0, hint: "特定ベンダーに依存して乗り換えにくくなる状態だよ。", explanation: "ベンダーロックインは長期的なコストや柔軟性に影響するため、導入時の検討が重要です。" },
+        { question: "【マネジメント】特定の1社に偏らず、複数ベンダーの製品やサービスを組み合わせて構成する形態はどれですか？", choices: ["マルチベンダー", "ベンダーロックイン", "クラウドサービスの責任共有モデル", "SIer"], correctIndex: 0, hint: "複数ベンダーを組み合わせる形態だよ。", explanation: "マルチベンダーでは各社の得意領域を活かせる一方、連携や責任範囲の明確化が欠かせません。" },
+        { question: "【マネジメント】稼働後のソフトウェアに対して不具合修正や環境対応、機能改善などを行う活動はどれですか？", choices: ["ソフトウェア保守", "要件定義", "単体テスト", "リファクタリング"], correctIndex: 0, hint: "稼働後ソフトの修正・対応・改善だよ。", explanation: "ソフトウェア保守はシステムを安全かつ有用な状態で使い続けるために重要です。" },
+        { question: "【マネジメント】管理者向けの監視・保守手順書と、利用者向けの画面・業務説明書の組み合わせはどれですか？", choices: ["運用マニュアルと操作マニュアル", "RFP", "SLA", "WBS"], correctIndex: 0, hint: "運用手順書と操作説明書の組み合わせだよ。", explanation: "運用マニュアルは運用担当者向け、操作マニュアルはエンドユーザ向けに作成されます。" },
+        { question: "【マネジメント】プロジェクトの開始を承認し、目的や概要、予算、PMの権限などを定めた文書はどれですか？", choices: ["プロジェクト憲章", "スコープ", "ベースライン", "キックオフミーティング"], correctIndex: 0, hint: "プロジェクト開始を承認し目的・権限を定める文書だよ。", explanation: "プロジェクト憲章はプロジェクトの方向性とPMの権限を明確にする基礎文書です。" },
+        { question: "【マネジメント】プロジェクト関係者の影響度や関心度を整理し、適切な関わり方や連絡計画を立てる活動はどれですか？", choices: ["ステークホルダー分析", "コンフリクトマネジメント", "WBS", "ガントチャート"], correctIndex: 0, hint: "関係者の影響度や関心度を整理する活動だよ。", explanation: "ステークホルダー分析は関係者の立場や期待に応じたコミュニケーション設計に役立ちます。" },
+        { question: "【マネジメント】プロジェクト内で生じた意見対立や摩擦を調整し、建設的な合意や解決へ導くことはどれですか？", choices: ["コンフリクトマネジメント", "ステークホルダー分析", "デイリースクラム", "レトロスペクティブ"], correctIndex: 0, hint: "意見対立を調整して解決へ導くことだよ。", explanation: "コンフリクトマネジメントはチームの合意形成や円滑な進行を支えるマネジメント活動です。" },
+        { question: "【マネジメント】残りの作業量の推移をグラフ化し、予定どおり完了に向かっているか把握する図はどれですか？", choices: ["バーンダウンチャート", "ガントチャート", "アローダイアグラム", "WBS"], correctIndex: 0, hint: "残作業量の推移を表すグラフだよ。", explanation: "バーンダウンチャートは残りの作業量が計画通りに減っているかを視覚的に確認できます。" },
+        { question: "【マネジメント】未着手・進行中・完了などの列でタスクの状態や流れを可視化する管理手法はどれですか？", choices: ["カンバン", "バーンダウンチャート", "WBS", "ガントチャート"], correctIndex: 0, hint: "タスクの状態や流れを列で見える化する手法だよ。", explanation: "カンバンは作業の進み具合や詰まりポイントを直感的に把握しやすい手法です。" },
+        { question: "【マネジメント】WBSの各作業項目について、作業内容や担当者、完了基準などの詳細を記述した資料はどれですか？", choices: ["WBS辞書", "WBS", "プロジェクト憲章", "運用マニュアルと操作マニュアル"], correctIndex: 0, hint: "WBS各項目の詳細を記述した資料だよ。", explanation: "WBS辞書は各作業項目の範囲や基準を明確にし、認識のずれを防ぐのに役立ちます。" },
+        { question: "【マネジメント】楽観値・最可能値・悲観値の3つの見積もり値から加重平均などを算出する手法はどれですか？", choices: ["三点見積法", "ファンクションポイント法", "プログラムステップ法", "類推見積法"], correctIndex: 0, hint: "楽観・最可能・悲観の3値から見積もる手法だよ。", explanation: "三点見積法はばらつきを考慮した見積もりを行う際に有効です。" },
+        { question: "【マネジメント】計画価値・出来高価値・実コストを金額で比較し、進捗やコスト効率を定量評価する手法はどれですか？", choices: ["アーンドバリューマネジメント", "三点見積法", "ボトムアップ見積法", "コンティンジェンシー予備"], correctIndex: 0, hint: "計画・出来高・実コストで進捗とコストを評価する手法だよ。", explanation: "アーンドバリューマネジメントはコストとスケジュールの予実管理や予測に活用されます。" },
+        { question: "【マネジメント】計画や仕様、スコープなどの変更を正式に申請・審議するための変更要求はどれですか？", choices: ["チェンジリクエスト", "ベースライン", "スコープクリープ", "コンティンジェンシー予備"], correctIndex: 0, hint: "変更を正式に申請する要求だよ。", explanation: "チェンジリクエストにより、仕様や計画の変更を統制された形で扱うことができます。" },
+        { question: "【マネジメント】プロセスや体制の適合を保証する品質保証と、テストや検査で品質を管理する品質管理の対はどれですか？", choices: ["品質保証と品質管理", "QCD", "レビュー", "インスペクション"], correctIndex: 0, hint: "仕組み・プロセスの保証と、検査・管理の対だよ。", explanation: "品質保証と品質管理はどちらも品質を高める重要な活動ですが、着眼点や役割が異なります。" },
+        { question: "【マネジメント】提供可能なITサービスの内容や利用条件、申請方法などを一覧化した案内書はどれですか？", choices: ["サービスカタログ", "SLA", "ITIL", "SLM"], correctIndex: 0, hint: "提供可能なITサービスの一覧案内だよ。", explanation: "サービスカタログは利用者がサービス内容を分かりやすく確認・利用するための情報源です。" },
+        { question: "【マネジメント】発生前の予防的対応（プロアクティブ）と、発生後の事後的対応（リアクティブ）の対はどれですか？", choices: ["プロアクティブ対応とリアクティブ対応", "インシデント管理", "問題管理", "変更管理"], correctIndex: 0, hint: "予防的対応と事後的対応の対だよ。", explanation: "事後の迅速な復旧と事前の予防・改善を組み合わせることで、安定運用につながります。" },
+        { question: "【マネジメント】情報システム部門の管理や許可を受けずに、業務で勝手に利用される機器やサービスはどれですか？", choices: ["シャドーIT", "BYOD", "MDM", "リモートワイプ"], correctIndex: 0, hint: "管理外で勝手に業務利用される機器やサービスだよ。", explanation: "シャドーITの実態把握や適切な代替手段の提供、ルール周知が重要です。" },
+        { question: "【マネジメント】従業員が個人所有する端末を、会社の許可のもとで業務に利用する仕組みはどれですか？", choices: ["BYOD", "シャドーIT", "MDM", "リモートワイプ"], correctIndex: 0, hint: "個人所有端末を許可のもとで業務利用する仕組みだよ。", explanation: "BYODはBring Your Own Deviceの略で、規程や技術的対策とセットで運用されます。" },
+        { question: "【マネジメント】業務利用のモバイル端末に対して、設定や遠隔ロック・消去などを一括管理する仕組みはどれですか？", choices: ["MDM", "BYOD", "リモートワイプ", "シャドーIT"], correctIndex: 0, hint: "モバイル端末を一括管理する仕組みだよ。", explanation: "MDMにより端末のセキュリティ設定や紛失時対応を集中管理しやすくなります。" },
+        { question: "【マネジメント】端末の紛失や盗難時に、遠隔操作で端末内のデータを消去する機能はどれですか？", choices: ["リモートワイプ", "MDM", "BYOD", "シャドーIT"], correctIndex: 0, hint: "遠隔で端末データを消去する機能だよ。", explanation: "リモートワイプは紛失・盗難時の情報漏えい対策として有効な機能です。" },
+        { question: "【マネジメント】システムやデータ、環境などを別の基盤や構成へ移行・移転することはどれですか？", choices: ["マイグレーション", "カットオーバー", "リファクタリング", "デバッグ"], correctIndex: 0, hint: "クラウド移行やOS・DBの刷新など、基盤や環境を移し替えることだよ。", explanation: "マイグレーションはレガシーシステムから新基盤・クラウド環境へ移行する取り組み全般を指します。" },
+
+        // ===== テクノロジ系（301〜350問） =====
+        { question: "【テクノロジ】電源を切っても記憶内容が消えない不揮発性を持ち、電気的に書き換え可能なメモリはどれですか？", choices: ["フラッシュメモリ", "RAM", "キャッシュメモリ", "CPU"], correctIndex: 0, hint: "電源を切っても消えず電気的に書き換えられるメモリだよ。", explanation: "フラッシュメモリは不揮発性メモリであり、SSDやUSBメモリなどに利用されます。" },
+        { question: "【テクノロジ】文字、音声、静止画、動画など多様な形式の情報を統合して扱うことはどれですか？", choices: ["マルチメディア", "レスポンシブWebデザイン", "ユニバーサルデザイン", "Webアクセシビリティ"], correctIndex: 0, hint: "文字・音声・画像・動画など多様な情報を統合して扱うことだよ。", explanation: "マルチメディアは複数の表現形式を組み合わせることで、分かりやすく豊かな情報伝達を可能にします。" },
+        { question: "【テクノロジ】一定量や一定期間のデータをまとめて一括で処理する方式はどれですか？", choices: ["バッチ処理", "リアルタイム処理", "分散処理", "トランザクション処理"], correctIndex: 0, hint: "一定量や一定期間のデータをまとめて一括処理する方式だよ。", explanation: "バッチ処理は夜間などの時間帯に大量データを一括処理する用途などでよく使われます。" },
+        { question: "【テクノロジ】データの発生や入力に応じて即時に処理を行う方式はどれですか？", choices: ["バッチ処理", "リアルタイム処理", "仮想記憶", "コンパイル"], correctIndex: 1, hint: "ATM取引や座席予約のように即時応答が求められる処理方式だよ。", explanation: "リアルタイム処理はデータ発生と同時に処理を実行し、即座に結果を反映します。" },
+        { question: "【テクノロジ】許可された者のみアクセスできる機密性、改ざんされない完全性、いつでも使える可用性の3要素はどれですか？", choices: ["ACID特性", "CIA", "QCD", "プロトコルスタック"], correctIndex: 1, hint: "機密性・完全性・可用性の情報セキュリティ3要素だよ。", explanation: "CIAはConfidentiality・Integrity・Availabilityの頭文字をとった情報セキュリティの基本要素です。" },
+        { question: "【テクノロジ】命令の解釈や計算、各装置の制御を行うコンピュータの中枢となる演算・制御装置はどれですか？", choices: ["CPU", "GPU", "RAM", "フラッシュメモリ"], correctIndex: 0, hint: "計算や命令の実行・制御を行うコンピュータの中枢だよ。", explanation: "CPUは制御装置や演算装置などを備え、プログラムの命令を読み込んで実行します。" },
+        { question: "【テクノロジ】読み書きが可能で高速だが、電源を切ると記憶内容が消える主記憶用メモリはどれですか？", choices: ["フラッシュメモリ", "RAM", "キャッシュメモリ", "SSD"], correctIndex: 1, hint: "読み書きが高速で電源断で内容が消える主記憶メモリだよ。", explanation: "RAMは揮発性の主記憶装置であり、実行中のプログラムやデータを一時保持します。" },
+        { question: "【テクノロジ】データを表形式で管理し、表同士を関連付けて扱うデータベースはどれですか？", choices: ["DBMS", "リレーショナルデータベース", "データウェアハウス", "トランザクション処理"], correctIndex: 1, hint: "表形式でデータを管理し表同士を関連付けるDBだよ。", explanation: "リレーショナルデータベースは行と列からなる表（関係）でデータを管理し、キーで関連付けます。" },
+        { question: "【テクノロジ】表の各行を一意に識別するために重複や空を許さない項目はどれですか？", choices: ["外部キー", "主キー", "SQLのSELECT文", "ロールバック"], correctIndex: 1, hint: "各行を一意に識別する重複・空不可の項目だよ。", explanation: "主キーはレコードを一意に特定するための列または列の組み合わせです。" },
+        { question: "【テクノロジ】正規機関などを装う偽メールやメッセージから偽サイトへ誘導し情報を盗む手口はどれですか？", choices: ["フィッシング詐欺", "スミッシング", "サポート詐欺", "ビジネスメール詐欺"], correctIndex: 0, hint: "偽の連絡やサイトへ誘導して認証情報等を盗む手口だよ。", explanation: "フィッシング詐欺では本物そっくりのメールやWebページを用意してID・パスワードやカード情報を入力させます。" },
+        { question: "【テクノロジ】データを暗号化して使えなくし、解除と引き換えに身代金を要求するマルウェアはどれですか？", choices: ["トロイの木馬", "ランサムウェア", "ワーム", "スパイウェア"], correctIndex: 1, hint: "暗号化して利用不能にし身代金を要求するマルウェアだよ。", explanation: "ランサムウェアは感染した端末やネットワーク上のファイルを暗号化し、復号と引き換えに金銭を要求します。" },
+        { question: "【テクノロジ】インターネット上の通信を暗号化し、盗聴や改ざんを防ぐ仕組みはどれですか？", choices: ["SSL/TLS", "VPN", "ファイアウォール", "WAF"], correctIndex: 0, hint: "通信を暗号化して盗聴や改ざんを防ぐ仕組みだよ。", explanation: "SSL/TLSは通信経路上の暗号化やサーバー認証などを行い、安全な通信を支えます。" },
+        { question: "【テクノロジ】ネットワーク上の機器を識別するために割り振られる番号はどれですか？", choices: ["MACアドレス", "ポート番号", "IPアドレス", "サブネットマスク"], correctIndex: 2, hint: "ネットワーク上の機器を識別する番号だよ。", explanation: "IPアドレスはネットワーク層等で通信相手や機器を識別するために使われます。" },
+        { question: "【テクノロジ】ドメイン名とIPアドレスを相互に変換する仕組みはどれですか？", choices: ["DHCP", "DNS", "NAT", "ARP"], correctIndex: 1, hint: "ドメイン名とIPアドレスを対応づけて変換する仕組みだよ。", explanation: "DNSは人間が扱いやすいドメイン名と、通信で使われるIPアドレスを紐づけて名前解決を行います。" },
+        { question: "【テクノロジ】公衆回線上に暗号化された仮想の専用通信路を構築する技術はどれですか？", choices: ["VLAN", "VPN", "ファイアウォール", "ロードバランサ"], correctIndex: 1, hint: "インターネット上に仮想の専用通信路を作る技術だよ。", explanation: "VPNは暗号化やトンネリング技術により、安全な仮想通信路を形成します。" },
+        { question: "【テクノロジ】ネットワーク境界などで通信ルールに基づきアクセスや通信を制御する仕組みはどれですか？", choices: ["WAF", "IDS / IPS", "ファイアウォール", "プロキシサーバー"], correctIndex: 2, hint: "ルールに基づき通信やアクセスを制御する防御仕組みだよ。", explanation: "ファイアウォールは送信元・宛先やポート、プロトコルなどの条件で通信を通すか遮断かを制御します。" },
+        { question: "【テクノロジ】異なる認証要素を組み合わせて本人確認の安全性を高める仕組みはどれですか？", choices: ["シングルサインオン", "二要素認証 / 多要素認証", "ワンタイムパスワード", "CAPTCHA"], correctIndex: 1, hint: "複数の認証要素を組み合わせて安全性を高める仕組みだよ。", explanation: "知識情報・所持情報・生体情報などのうち異なる要素を組み合わせることで認証強度を高めます。" },
+        { question: "【テクノロジ】人間の心理や行動の隙・不注意につけ込んで秘密情報を引き出す手法はどれですか？", choices: ["ショルダーハッキング", "トラッシング", "フィッシング詐欺", "ソーシャルエンジニアリング"], correctIndex: 3, hint: "人の心理や隙・不注意を利用して情報を得る手法だよ。", explanation: "ソーシャルエンジニアリングは技術的な攻撃だけでなく、人の心理や行動の隙を突く手法全般を指します。" },
+        { question: "【テクノロジ】完成したアプリケーション機能をクラウド経由で提供する形態はどれですか？", choices: ["IaaS", "PaaS", "SaaS", "シンクライアント"], correctIndex: 2, hint: "クラウド経由でアプリケーション機能を提供する形態だよ。", explanation: "SaaSはインフラやOS・アプリ管理を事業者が担い、利用者はブラウザやアプリからすぐ利用できます。" },
+        { question: "【テクノロジ】仮想サーバーやストレージ、ネットワークなどのインフラ基盤を提供する形態はどれですか？", choices: ["SaaS", "PaaS", "IaaS", "シンクライアント"], correctIndex: 2, hint: "サーバーやストレージ等のインフラ基盤を提供する形態だよ。", explanation: "IaaSは仮想マシンやネットワーク・ストレージなどの基盤を提供し、OSやミドルウェア・アプリは利用者が管理します。" },
+        { question: "【テクノロジ】アプリケーション開発・実行のためのプラットフォーム基盤を提供するクラウド形態はどれですか？", choices: ["SaaS", "PaaS", "IaaS", "オンプレミス"], correctIndex: 1, hint: "OSやミドルウェア・実行環境が用意されておりアプリ開発に集中できる形態だよ。", explanation: "PaaSはDBやプログラム実行環境を事業者が管理・提供するため、開発者はアプリケーション構築に注力できます。" },
+        { question: "【テクノロジ】センサーや通信機能を備えたモノがネットワークにつながり、データ収集や制御を行う仕組みはどれですか？", choices: ["エッジコンピューティング", "IoT", "デジタルツイン", "ウェアラブル端末"], correctIndex: 1, hint: "モノがネットにつながりデータ収集や制御を行う仕組みだよ。", explanation: "IoTは多様な機器やセンサーが通信し、状態把握や自動化・遠隔制御などに活用されます。" },
+        { question: "【テクノロジ】データから規則やパターンを学習し、分類や予測・判断を行う技術はどれですか？", choices: ["ディープラーニング", "生成AI", "機械学習", "LLM"], correctIndex: 2, hint: "データから規則やパターンを学習して予測・判断する技術だよ。", explanation: "機械学習は明示的なルールをすべて人間が書かなくても、データからパターンやモデルを学習します。" },
+        { question: "【テクノロジ】定型的なPC操作や事務作業をソフトウェアロボットで自動化する技術はどれですか？", choices: ["RPA", "チャットボット", "OCR", "エッジコンピューティング"], correctIndex: 0, hint: "定型的なPC操作や事務処理を自動化する技術だよ。", explanation: "RPAは既存システムの画面操作や転記・集計などの定型業務を自動化するのに役立ちます。" },
+        { question: "【テクノロジ】取引履歴を暗号技術でつなぎ分散管理することで改ざん耐性を高める技術はどれですか？", choices: ["Web3.0", "ブロックチェーン", "NFT", "耐量子計算機暗号"], correctIndex: 1, hint: "暗号技術でつなぎ分散管理して改ざん耐性を高める技術だよ。", explanation: "ブロックチェーンはブロックを暗号学的なハッシュ等で連結し、複数ノードで台帳を分散保持する仕組みです。" },
+        { question: "【テクノロジ】一度の認証で複数の連携システムやサービスを利用できるようにする仕組みはどれですか？", choices: ["二要素認証 / 多要素認証", "シングルサインオン", "ワンタイムパスワード", "生体認証"], correctIndex: 1, hint: "一度の認証で複数システムを利用できる仕組みだよ。", explanation: "シングルサインオンは認証の手間を減らしつつ、アカウント管理や認証の集中管理をしやすくします。" },
+        { question: "【テクノロジ】ネットワーク上の機器にIPアドレスなどの設定を自動的に割り振るプロトコルはどれですか？", choices: ["DNS", "NAT", "DHCP", "ARP"], correctIndex: 2, hint: "IPアドレスなどのネットワーク設定を自動割り当てする規約だよ。", explanation: "DHCPは端末接続時にIPアドレスやサブネットマスク、デフォルトゲートウェイなどの設定を自動配布します。" },
+        { question: "【テクノロジ】プライベートIPアドレスとグローバルIPアドレスを相互に変換する技術はどれですか？", choices: ["DNS", "DHCP", "NAT", "ARP"], correctIndex: 2, hint: "社内LANのIPアドレスとインターネット上のIPアドレスを変換する技術だよ。", explanation: "NAT（やNAPT）により、限られたグローバルIPアドレスを複数のLAN内端末で共有して通信できます。" },
+        { question: "【テクノロジ】IPアドレスから対応するMACアドレスを解決・取得するためのプロトコルはどれですか？", choices: ["DNS", "DHCP", "NAT", "ARP"], correctIndex: 3, hint: "同一ネットワーク内でIPアドレスに対応する物理アドレスを問い合わせる規約だよ。", explanation: "ARPは通信相手のIPアドレスをもとに、イーサネット通信に必要なMACアドレスを取得します。" },
+        { question: "【テクノロジ】物理的な配線にとらわれず、論理的にネットワークを分割する技術はどれですか？", choices: ["VPN", "VLAN", "WAN", "CDN"], correctIndex: 1, hint: "スイッチの設定等で仮想的なLANグループに分ける技術だよ。", explanation: "VLANを使うと部署や用途ごとにブロードキャストドメインを分離でき、セキュリティと管理性を高められます。" },
+        { question: "【テクノロジ】メール送信・転送に用いられるSMTPと、メール受信等に用いられるPOP3の組み合わせはどれですか？", choices: ["HTTPとHTTPS", "TCPとUDP", "SMTP / POP3", "IMAPとPOP3"], correctIndex: 2, hint: "メール送信等のSMTPとメール受信等のPOP3だよ。", explanation: "メールの送信やサーバー間転送にはSMTP、受信にはPOP3やIMAPなどが使われます。" },
+        { question: "【テクノロジ】指紋や顔・静脈などの身体的特徴を用いて本人確認を行う認証方式はどれですか？", choices: ["ワンタイムパスワード", "CAPTCHA", "生体認証", "二要素認証 / 多要素認証"], correctIndex: 2, hint: "身体的特徴を用いて本人確認を行う認証方式だよ。", explanation: "生体認証は忘れたり盗まれたりしにくい特徴を持ちますが、再発行が難しいため管理設計が重要です。" },
+        { question: "【テクノロジ】特定の組織や標的を狙い、業務に関係する手口などで侵入や情報窃取を図る攻撃はどれですか？", choices: ["APT", "標的型攻撃", "水飲み場攻撃", "DoS攻撃 / DDoS攻撃"], correctIndex: 1, hint: "特定の組織や標的を狙って仕掛けるサイバー攻撃だよ。", explanation: "標的型攻撃は特定の企業や組織を狙い、機密情報の窃取やシステム侵入などを目的とします。" },
+        { question: "【テクノロジ】大量の要求やデータで負荷をかけ、サービスやシステムの提供を妨害する攻撃はどれですか？", choices: ["ゼロデイ攻撃", "ブルートフォース攻撃", "DoS攻撃 / DDoS攻撃", "中間者攻撃"], correctIndex: 2, hint: "過剰な負荷や通信でサービスを停止・妨害する攻撃だよ。", explanation: "DoS攻撃や複数拠点から一斉に行うDDoS攻撃は、サーバーや回線・アプリのリソースを枯渇させます。" },
+        { question: "【テクノロジ】脆弱性の修正策が公開される前に、その未対策の欠陥を悪用して行う攻撃はどれですか？", choices: ["DoS攻撃 / DDoS攻撃", "ブルートフォース攻撃", "ゼロデイ攻撃", "パスワードリスト攻撃"], correctIndex: 2, hint: "修正策が公開される前の脆弱性を突く攻撃だよ。", explanation: "ゼロデイ攻撃は修正パッチが提供される前であるため、迅速な検知や緩和策・多層防御が重要になります。" },
+        { question: "【テクノロジ】元のデータに完全復元できないが高圧縮の非可逆と、完全に元に戻せる可逆の圧縮方式はどれですか？", choices: ["文字コード", "非可逆圧縮 / 可逆圧縮", "圧縮ファイル", "ファイル拡張子"], correctIndex: 1, hint: "完全復元できない非可逆と完全復元できる可逆の圧縮だよ。", explanation: "文書やプログラムには可逆圧縮、画像・音声・動画などには高圧縮率の非可逆圧縮がよく使われます。" },
+        { question: "【テクノロジ】現実空間に情報を重ねる拡張現実と、仮想空間を体験する仮想現実の組み合わせはどれですか？", choices: ["メタバース", "AR / VR", "デジタルツイン", "ウェアラブル端末"], correctIndex: 1, hint: "現実へ重ねるARと仮想空間を体験するVRだよ。", explanation: "ARは現実世界に情報を重畳表示し、VRは没入感のある仮想環境を体験する技術です。" },
+        { question: "【テクノロジ】リレーショナルデータベースの操作や定義に用いられる標準的な言語はどれですか？", choices: ["HTML", "XML", "SQL", "JSON"], correctIndex: 2, hint: "リレーショナルDBの検索・操作などに使う言語だよ。", explanation: "SQLはデータの検索・追加・更新・削除や表定義などを行うための標準言語です。" },
+        { question: "【テクノロジ】複数の記憶装置を組み合わせて信頼性やアクセス性能を高める技術はどれですか？", choices: ["SSD", "RAID", "キャッシュメモリ", "仮想記憶"], correctIndex: 1, hint: "複数記憶装置を組み合わせて信頼性や性能を高める技術だよ。", explanation: "RAIDはミラーリングやストライピングなどの構成により、耐障害性や読み書き性能を高めます。" },
+        { question: "【テクノロジ】障害時に備えて機器や回線・構成要素などを多重化して用意しておくことはどれですか？", choices: ["フォールトトレラント", "単一障害点", "冗長化", "フェールソフト"], correctIndex: 2, hint: "障害に備えて設備や経路などを多重化しておくことだよ。", explanation: "冗長化により、一部に障害が発生しても代替経路や予備機器で処理を継続しやすくなります。" },
+        { question: "【テクノロジ】ネットワーク通信におけるデータ形式や送受信手順などの取り決めはどれですか？", choices: ["アルゴリズム", "プロトコル", "API", "URL"], correctIndex: 1, hint: "ネットワーク通信での手順や約束事などの規約だよ。", explanation: "プロトコルが共通であることで、異なる機器やOS間でも正しく通信できるようになります。" },
+        { question: "【テクノロジ】問題を解決するための明確な計算手順や処理手順はどれですか？", choices: ["プロトコル", "アルゴリズム", "再帰処理", "計算量"], correctIndex: 1, hint: "問題を解くための具体的な計算・処理手順だよ。", explanation: "アルゴリズムは有限の手順で目的の出力や解を得るための処理方法です。" },
+        { question: "【テクノロジ】プログラムの誤りや不具合の原因を探し出して修正する作業はどれですか？", choices: ["リファクタリング", "コンパイル", "デバッグ", "インタプリタとコンパイラ"], correctIndex: 2, hint: "プログラムの不具合の原因を特定して修正する作業だよ。", explanation: "デバッグはログやブレークポイント、テスト結果などをもとに原因を特定し修正する作業です。" },
+        { question: "【テクノロジ】プログラミング言語で書かれたソースコードを機械語等の実行可能形式へ一括変換することはどれですか？", choices: ["デバッグ", "コンパイル", "リファクタリング", "サンプリング"], correctIndex: 1, hint: "実行前にプログラム全体を機械語へ翻訳する処理だよ。", explanation: "コンパイルを行うことで実行時の翻訳が不要になり、高速に動作する実行ファイルを作成できます。" },
+        { question: "【テクノロジ】入力の論理値（0または1）を反転させて出力する論理演算はどれですか？", choices: ["論理積", "論理和", "排他的論理和", "否定"], correctIndex: 3, hint: "NOT演算とも呼ばれ、0なら1、1なら0を返す演算だよ。", explanation: "否定（NOT）は入力が真なら偽、偽なら真を出力する基本論理演算です。" },
+        { question: "【テクノロジ】トランザクション処理に求められる原子性・一貫性・独立性・永続性の4特性はどれですか？", choices: ["CIA", "ACID特性", "ビッグデータの3つのV", "QCD"], correctIndex: 1, hint: "Atomicity・Consistency・Isolation・Durabilityの頭文字だよ。", explanation: "ACID特性を満たすことで、データベースのトランザクション処理の信頼性とデータ整合性が保証されます。" },
+        { question: "【テクノロジ】無線LAN通信に関する代表的な規格・ブランドはどれですか？", choices: ["Bluetooth", "NFC", "Wi-Fi", "LPWA"], correctIndex: 2, hint: "IEEE 802.11規格に基づく無線LANのブランド名だよ。", explanation: "Wi-Fiは家庭やオフィス、公衆無線LANスポットなどで広く利用されている無線LAN規格です。" },
+        { question: "【テクノロジ】2進数の1010を10進数に変換すると10になる計算と表現の対応はどれですか？", choices: ["16進数の表記", "2進数と10進数の変換", "論理積", "論理和"], correctIndex: 1, hint: "2進数の1010を10進数で表した数値だよ。", explanation: "2進数の1010は 1×8 + 0×4 + 1×2 + 0×1 = 10 です。" },
+        { question: "【テクノロジ】0〜9とA〜Fの16種類の記号を用い、10進数の15をFなどで表す基数表現はどれですか？", choices: ["2進数と10進数の変換", "16進数の表記", "文字コード", "MACアドレス"], correctIndex: 1, hint: "0〜9とA〜Fで数を表す16進数の表記体系だよ。", explanation: "16進数では10〜15をA〜Fで表し、4ビット（半バイト）を1桁で簡潔に表現できます。" },
+        { question: "【テクノロジ】入力がすべて1のときだけ出力が1になり、それ以外は0になる論理演算はどれですか？", choices: ["論理和", "排他的論理和", "論理積", "2進数と10進数の変換"], correctIndex: 2, hint: "全入力が1のときのみ1を出力する論理演算だよ。", explanation: "論理積（AND）は条件がすべて成立したときに1となる演算です。" },
+        { question: "【テクノロジ】入力のうち少なくとも1つが1であれば出力が1になる論理演算はどれですか？", choices: ["論理積", "排他的論理和", "論理和", "16進数の表記"], correctIndex: 2, hint: "いずれかの入力が1なら1を出力する論理演算だよ。", explanation: "論理和（OR）は少なくとも一方の入力が1であれば1となる演算です。" },
+        { question: "【テクノロジ】2つの入力が異なるときに1、同じときに0を出力する論理演算はどれですか？", choices: ["論理積", "論理和", "排他的論理和", "ハッシュ関数"], correctIndex: 2, hint: "2入力が異なるときに1となる論理演算だよ。", explanation: "排他的論理和（XOR）は2つの値が異なるとき1、一致するとき0になります。" },
+        { question: "【テクノロジ】量・多様性・発生速度などの特徴を持つ大規模データ群の性質を表す概念はどれですか？", choices: ["ACID特性", "ビッグデータの3つのV", "CIA", "プロトコルスタック"], correctIndex: 1, hint: "ビッグデータの特徴を表す3つのVの観点だよ。", explanation: "ビッグデータの3つのVはVolume・Variety・Velocityなどの観点で特徴を捉えます。" },
+        { question: "【テクノロジ】多層のニューラルネットワークを用いて特徴抽出や学習を行う機械学習手法はどれですか？", choices: ["機械学習", "ディープラーニング", "過学習", "教師あり学習"], correctIndex: 1, hint: "多層ニューラルネットワークを用いる機械学習手法だよ。", explanation: "ディープラーニングは深層学習とも呼ばれ、画像や音声、自然言語などの高度な処理に活用されます。" },
+        { question: "【テクノロジ】訓練データに適合しすぎて、未知のデータに対する予測精度が低下する現象はどれですか？", choices: ["ディープラーニング", "教師あり学習", "過学習", "教師なし学習"], correctIndex: 2, hint: "訓練データに過剰適合して汎化性能が下がる現象だよ。", explanation: "過学習（オーバーフィッティング）を防ぐには、データ量や正則化、検証データでの確認などが重要です。" },
+        { question: "【テクノロジ】正解ラベル付きのデータから規則やモデルを学習する機械学習手法はどれですか？", choices: ["教師なし学習", "強化学習", "教師あり学習", "過学習"], correctIndex: 2, hint: "正解付きデータから学習して予測や分類を行う手法だよ。", explanation: "教師あり学習は入力と正解ラベルの組から規則性を学び、分類や回帰などに使われます。" },
+        { question: "【テクノロジ】正解ラベルのないデータから構造やグループなどを抽出する機械学習手法はどれですか？", choices: ["教師あり学習", "強化学習", "教師なし学習", "過学習"], correctIndex: 2, hint: "正解ラベルなしで構造やグループを抽出する手法だよ。", explanation: "教師なし学習はクラスタリングや次元削減など、データ内部の構造やパターンを捉えるのに使われます。" },
+        { question: "【テクノロジ】環境との試行錯誤と報酬をもとに、最適な行動方策を学習する手法はどれですか？", choices: ["教師あり学習", "教師なし学習", "強化学習", "ディープラーニング"], correctIndex: 2, hint: "試行錯誤と報酬をもとに最適な行動を学ぶ手法だよ。", explanation: "強化学習は行動の結果得られる報酬を最大化するような方策を学習します。" },
+        { question: "【テクノロジ】AIが事実と異なる内容や存在しない情報をもっともらしく生成する現象はどれですか？", choices: ["過学習", "ハルシネーション", "ディープフェイク", "プロンプトエンジニアリング"], correctIndex: 1, hint: "AIが事実と異なる情報をもっともらしく出力する現象だよ。", explanation: "ハルシネーションは生成AIの特性の一つであり、重要な事実確認や根拠参照（RAG等）が重要になります。" },
+        { question: "【テクノロジ】AIから意図した出力を得るために指示文や条件などを工夫・設計する技術はどれですか？", choices: ["ハルシネーション", "プロンプトエンジニアリング", "RAG", "LLM"], correctIndex: 1, hint: "AIへの指示文や条件などを設計・工夫する技術だよ。", explanation: "プロンプトエンジニアリングは目的や前提、出力形式などを明確に伝えることで精度や使いやすさを高めます。" },
+        { question: "【テクノロジ】データ発生源に近い場所で処理を行い、遅延や通信負荷を抑える方式はどれですか？", choices: ["IoT", "エッジコンピューティング", "デジタルツイン", "ウェアラブル端末"], correctIndex: 1, hint: "データ発生源の近くで処理し遅延や負荷を抑える方式だよ。", explanation: "エッジコンピューティングは現場付近の端末やエッジサーバーで処理し、リアルタイム性や帯域効率を高めます。" },
+        { question: "【テクノロジ】現実世界の対象や環境の状態を仮想空間上に再現・連動させる技術はどれですか？", choices: ["AR / VR", "メタバース", "デジタルツイン", "エッジコンピューティング"], correctIndex: 2, hint: "現実世界の対象や状態を仮想空間に再現・連動させる技術だよ。", explanation: "デジタルツインはセンサーデータ等と連動し、シミュレーションや状態監視・予知保全などに活用されます。" },
+        { question: "【テクノロジ】身体に装着して利用する小型のコンピュータ端末はどれですか？", choices: ["ウェアラブル端末", "アクチュエータ", "シンクライアント", "IoT"], correctIndex: 0, hint: "腕時計型や眼鏡型など身に付けて使う小型端末だよ。", explanation: "ウェアラブル端末は健康状態や活動量、位置情報などの計測・通知などに利用されます。" },
+        { question: "【テクノロジ】制御信号を受けて機械的・物理的な動作や力を生み出す駆動装置はどれですか？", choices: ["ウェアラブル端末", "アクチュエータ", "GPU", "キャッシュメモリ"], correctIndex: 1, hint: "電気信号などを機械的・物理的な動きに変換する駆動装置だよ。", explanation: "アクチュエータはモーターやバルブなどの駆動部であり、IoTやロボット制御で物理動作を担います。" },
+        { question: "【テクノロジ】画像処理や並列演算に優れた演算装置で、AI処理などにも活用されるパーツはどれですか？", choices: ["CPU", "GPU", "RAM", "SSD"], correctIndex: 1, hint: "画像処理や並列計算に強くAI処理にも使われる装置だよ。", explanation: "GPUは多数の演算コアで並列処理を行うのが得意であり、グラフィックスや深層学習などに活用されます。" },
+        { question: "【テクノロジ】CPUと主記憶の速度差を補うため、よく使うデータを一時保持する高速メモリはどれですか？", choices: ["RAM", "フラッシュメモリ", "キャッシュメモリ", "SSD"], correctIndex: 2, hint: "CPUと主記憶の速度差を補う高速メモリだよ。", explanation: "キャッシュメモリは最近アクセスされた命令やデータを保持し、CPUの待ち時間を減らします。" },
+        { question: "【テクノロジ】フラッシュメモリを用いた駆動部のない補助記憶装置はどれですか？", choices: ["RAM", "キャッシュメモリ", "SSD", "仮想記憶"], correctIndex: 2, hint: "フラッシュメモリを使った駆動部のない補助記憶装置だよ。", explanation: "SSDは機械的な駆動部を持たないため、耐衝撃性や高速アクセス、静音性などに優れます。" },
+        { question: "【テクノロジ】主記憶の容量を補うため、補助記憶装置の一部を主記憶のように扱う技術はどれですか？", choices: ["仮想記憶", "キャッシュメモリ", "RAID", "冗長化"], correctIndex: 0, hint: "補助記憶の一部を主記憶のように扱い容量を補う技術だよ。", explanation: "仮想記憶はページングなどの仕組みにより、物理メモリを超えるプログラムや空間を扱えるようにします。" },
+        { question: "【テクノロジ】1つのCPUに複数の演算コアを搭載し、並列処理性能を高める構成はどれですか？", choices: ["デュアルコア / マルチコアCPU", "GPU", "キャッシュメモリ", "仮想記憶"], correctIndex: 0, hint: "1つのCPUパッケージに複数のコアを持つ構成だよ。", explanation: "マルチコアCPUは複数のコアで処理を分担でき、同時実行性や処理効率の向上に寄与します。" },
+        { question: "【テクノロジ】上下の向きを気にせず接続でき、データ転送や映像出力・給電などに対応する規格はどれですか？", choices: ["HDMI", "Bluetooth", "NFC", "USB Type-C"], correctIndex: 3, hint: "上下リバーシブルで通信・映像出力・給電に対応する規格だよ。", explanation: "USB Type-Cはコネクタ形状の規格であり、USB通信や映像出力、電力供給などの機能と組み合わせて使われます。" },
+        { question: "【テクノロジ】映像や音声などのデジタル信号をケーブルで伝送するインターフェース規格はどれですか？", choices: ["USB Type-C", "HDMI", "Bluetooth", "NFC"], correctIndex: 1, hint: "ディスプレイやテレビへ映像・音声を送るデジタル規格だよ。", explanation: "HDMIは高精細な映像信号や音声信号などを1本のケーブルで伝送できる規格です。" },
+        { question: "【テクノロジ】近距離の機器同士を低消費電力の電波で無線接続する通信規格はどれですか？", choices: ["Wi-Fi", "NFC", "Bluetooth", "LPWA"], correctIndex: 2, hint: "イヤホンや周辺機器などを近距離で無線接続する規格だよ。", explanation: "Bluetoothは2.4GHz帯の電波を用い、機器間のペアリングや低消費電力通信などに広く使われます。" },
+        { question: "【テクノロジ】数センチ程度の近距離でかざすだけで通信できる無線通信規格はどれですか？", choices: ["Bluetooth", "Wi-Fi", "NFC", "5G"], correctIndex: 2, hint: "数センチの近距離でかざして通信する規格だよ。", explanation: "NFCは近距離無線通信規格であり、ICカードや決済・認証などにかざす操作で使われます。" },
+        { question: "【テクノロジ】周辺機器をOSから制御・利用できるようにするためのソフトウェアはどれですか？", choices: ["ファームウェア", "ドライバ", "ミドルウェア", "ハイパーバイザ"], correctIndex: 1, hint: "周辺機器をOSから制御するためのソフトウェアだよ。", explanation: "デバイスドライバはプリンタやGPU、ネットワーク機器などのハードウェアをOSから扱う橋渡しをします。" },
+        { question: "【テクノロジ】ハードウェアの基本的な制御のために機器内部に組み込まれるソフトウェアはどれですか？", choices: ["ドライバ", "ファームウェア", "ミドルウェア", "ハイパーバイザ"], correctIndex: 1, hint: "機器内部に組み込まれ基本制御を担うソフトだよ。", explanation: "ファームウェアはルータやSSD、家電などのハードウェア制御に組み込まれ、更新されることもあります。" },
+        { question: "【テクノロジ】OSとアプリケーションの間に位置し、共通機能を提供するソフトウェアはどれですか？", choices: ["ドライバ", "ファームウェア", "ミドルウェア", "ハイパーバイザ"], correctIndex: 2, hint: "OSと業務アプリの間で共通機能を提供するソフトだよ。", explanation: "ミドルウェアはWebサーバーやDB管理ソフトなど、複数のアプリから利用される共通基盤的ソフトを指します。" },
+        { question: "【テクノロジ】物理マシン上で複数の仮想マシンやOSを稼働させるための仮想化基盤ソフトはどれですか？", choices: ["ミドルウェア", "コンテナ型仮想化", "ハイパーバイザ", "シンクライアント"], correctIndex: 2, hint: "物理マシン上で複数の仮想マシンを動かす仮想化基盤だよ。", explanation: "ハイパーバイザは物理ハードウェアのリソースを仮想マシンへ割り当て、複数のOSを並行稼働させます。" },
+        { question: "【テクノロジ】ホストOSのカーネルを共有しつつアプリ実行環境を隔離して動かす仮想化方式はどれですか？", choices: ["ハイパーバイザ", "コンテナ型仮想化", "シンクライアント", "仮想記憶"], correctIndex: 1, hint: "OSカーネルを共有しつつ軽量に環境を隔離する方式だよ。", explanation: "コンテナ型仮想化はゲストOSを丸ごと持たないため起動が速く、環境差異を抑えて配置しやすくなります。" },
+        { question: "【テクノロジ】手元端末の処理やデータ保持を抑え、サーバー側で集中管理・実行する形態はどれですか？", choices: ["コンテナ型仮想化", "シンクライアント", "IaaS", "PaaS"], correctIndex: 1, hint: "手元端末の処理やデータ保持を抑えサーバー側で実行する形態だよ。", explanation: "シンクライアントは端末紛失時のデータ残存リスクを抑えたり、管理を一元化したりするのに役立ちます。" },
+        { question: "【テクノロジ】アイコンやウィンドウなどの視覚要素を用いて操作する画面インターフェースはどれですか？", choices: ["CUI", "GUI", "API", "HTML"], correctIndex: 1, hint: "アイコンやボタン・ウィンドウ等で直感操作する画面だよ。", explanation: "GUIはグラフィカルユーザーインターフェースであり、ポインタやタッチ操作などで扱いやすくします。" },
+        { question: "【テクノロジ】文字コマンドをキーボードから入力して操作するインターフェースはどれですか？", choices: ["GUI", "CUI", "API", "XML"], correctIndex: 1, hint: "文字コマンドを入力して操作するインターフェースだよ。", explanation: "CUIはキャラクターユーザーインターフェースであり、自動化スクリプトやサーバー管理などに適しています。" },
+        { question: "【テクノロジ】ソフトウェアやサービス間で機能やデータを呼び出し・連携するための仕様や窓口はどれですか？", choices: ["GUI", "CUI", "API", "JSON"], correctIndex: 2, hint: "ソフトやサービス間で機能・データを連携する窓口や仕様だよ。", explanation: "APIは外部サービス連携やモジュール間の機能呼び出しを標準化・安全に行うためのインターフェースです。" },
+        { question: "【テクノロジ】画面サイズや端末に応じてレイアウトや表示を最適化するWeb設計手法はどれですか？", choices: ["Webアクセシビリティ", "ユニバーサルデザイン", "レスポンシブWebデザイン", "マルチメディア"], correctIndex: 2, hint: "スマホやPCなど画面サイズに応じて表示を最適化する設計だよ。", explanation: "レスポンシブWebデザインは同一のHTML等をもとに、画面幅に応じてレイアウトや文字サイズ等を調整します。" },
+        { question: "【テクノロジ】心身の特性や利用環境にかかわらず、Web情報や機能の利用しやすさの度合いはどれですか？", choices: ["レスポンシブWebデザイン", "ユニバーサルデザイン", "Webアクセシビリティ", "UIとUX"], correctIndex: 2, hint: "心身の特性や環境にかかわらずWebを利用しやすさだよ。", explanation: "Webアクセシビリティは視覚・聴覚・運動・認知の特性や支援技術の利用なども考慮して確保します。" },
+        { question: "【テクノロジ】年齢や障がいの有無などにかかわらず、多くの人が利用しやすいように設計する考え方はどれですか？", choices: ["Webアクセシビリティ", "ユニバーサルデザイン", "レスポンシブWebデザイン", "マルチメディア"], correctIndex: 1, hint: "最初から多くの人に使いやすいよう設計する考え方だよ。", explanation: "ユニバーサルデザインは特別な変更を後から加えるのではなく、初めから多様な人に配慮して設計します。" },
+        { question: "【テクノロジ】Webページの構造や要素をタグで記述するマークアップ言語はどれですか？", choices: ["HTML", "XML", "JSON", "CSV"], correctIndex: 0, hint: "Webページの構造をタグで記述するマークアップ言語だよ。", explanation: "HTMLは文書構造や要素の意味をタグで示し、ブラウザで表示されるWebページの基盤となります。" },
+        { question: "【テクノロジ】独自タグで構造化データを記述でき、データ交換などにも使われる言語はどれですか？", choices: ["HTML", "XML", "JSON", "CSV"], correctIndex: 1, hint: "独自タグで構造化データを表せるマークアップ言語だよ。", explanation: "XMLはデータの意味や構造をタグで明示でき、設定ファイルやシステム間データ交換などに使われます。" },
+        { question: "【テクノロジ】キーと値の組などで軽量にデータを表現するテキスト形式のデータ交換フォーマットはどれですか？", choices: ["HTML", "XML", "JSON", "CSV"], correctIndex: 2, hint: "キーと値の組などで軽量にデータを表す形式だよ。", explanation: "JSONはWeb APIのデータやり取りや設定記述などで広く使われる軽量なデータ形式です。" },
+        { question: "【テクノロジ】データ項目をカンマなどで区切って表すテキスト形式のデータファイル形式はどれですか？", choices: ["HTML", "XML", "JSON", "CSV"], correctIndex: 3, hint: "項目をカンマなどで区切るテキストデータ形式だよ。", explanation: "CSVは表計算ソフトやデータベース間のデータ入出力などで扱いやすいシンプルな形式です。" },
+        { question: "【テクノロジ】データベースの作成・検索・更新・制御などを行う管理ソフトウェアはどれですか？", choices: ["DBMS", "SQL", "主キー", "外部キー"], correctIndex: 0, hint: "データベースを管理・制御するソフトウェアだよ。", explanation: "DBMSはデータの格納・検索・排他制御・バックアップやアクセス制御などを一元管理します。" },
+        { question: "【テクノロジ】ある表の列が別の表の主キーを参照し、表同士を関連付けるための項目はどれですか？", choices: ["主キー", "外部キー", "DBMS", "トランザクション処理"], correctIndex: 1, hint: "別の表の主キーを参照して表同士を関連付ける項目だよ。", explanation: "外部キーを設定することで、表間の参照整合性を保ちながらデータを関連付けられます。" },
+        { question: "【テクノロジ】データの重複や矛盾・不整合を防ぐため、ルールに沿って表を分割・整理することはどれですか？", choices: ["トランザクション処理", "排他制御", "データベースの正規化", "ロールバック"], correctIndex: 2, hint: "重複や矛盾・不整合を防ぐためルールに沿って表を整理することだよ。", explanation: "正規化によって更新時の矛盾や冗長なデータ重複を減らし、保守しやすい表構造にします。" },
+        { question: "【テクノロジ】一連の処理をひとまとまりとし、すべて成功させるか取り消すかで扱う処理方式はどれですか？", choices: ["データベースの正規化", "排他制御", "トランザクション処理", "コミット"], correctIndex: 2, hint: "一連の処理をひとまとまりとし全成功か取消しで扱う方式だよ。", explanation: "トランザクション処理は銀行振込や在庫引き当てなど、整合性が不可欠な処理で重要です。" },
+        { question: "【テクノロジ】同時アクセスや同時更新によるデータの不整合を防ぐための制御・ロックの仕組みはどれですか？", choices: ["ロールバック", "コミット", "排他制御", "データベースの正規化"], correctIndex: 2, hint: "同時更新などによるデータ不整合を防ぐ制御・ロックだよ。", explanation: "排他制御により、複数処理が同時に同じデータを書き換えて壊れるのを防ぎます。" },
+        { question: "【テクノロジ】処理途中で異常や中断が起きた際、処理前の状態へ戻して復旧する仕組みはどれですか？", choices: ["コミット", "ロールバック", "排他制御", "トランザクション処理"], correctIndex: 1, hint: "異常や中断時にトランザクション開始前の状態へ戻すことだよ。", explanation: "ロールバックにより、中途半端な更新が残るのを防ぎ整合性を保ちます。" },
+        { question: "【テクノロジ】トランザクションの一連の変更を確定させ、正式に反映させることはどれですか？", choices: ["ロールバック", "コミット", "排他制御", "SQLのSELECT文"], correctIndex: 1, hint: "トランザクションの変更内容を確定して反映させることだよ。", explanation: "コミットが行われることで、一連の変更が正式に確定されます。" },
+        { question: "【テクノロジ】データベースの表から条件に合うデータを検索・抽出するためのSQL文はどれですか？", choices: ["SQLのINSERT文 / UPDATE文 / DELETE文", "SQLのSELECT文", "DBMS", "主キー"], correctIndex: 1, hint: "表から条件に合うデータを検索・取得するSQL文だよ。", explanation: "SELECT文は列の指定やWHERE句での条件指定、並び替え・集計などを行ってデータを抽出します。" },
+        { question: "【テクノロジ】データの追加を行うINSERT、更新を行うUPDATE、削除を行うDELETEのSQL文群はどれですか？", choices: ["SQLのSELECT文", "SQLのINSERT文 / UPDATE文 / DELETE文", "外部キー", "ロールバック"], correctIndex: 1, hint: "追加のINSERT・更新のUPDATE・削除のDELETEだよ。", explanation: "INSERTは行追加、UPDATEは既存行の変更、DELETEは条件に合う行の削除を行います。" },
+        { question: "【テクノロジ】大量のデータから統計や機械学習などを用いて法則やパターンを見出す手法はどれですか？", choices: ["データウェアハウス", "オープンデータ", "データマイニング", "ビッグデータの3つのV"], correctIndex: 2, hint: "大量データから統計や機械学習等で法則・パターンを抽出する手法だよ。", explanation: "データマイニングは埋もれた相関や傾向、顧客行動のパターンなどを発見するために使われます。" },
+        { question: "【テクノロジ】分析や意思決定のために時系列で統合・蓄積されたデータの保管基盤はどれですか？", choices: ["データマイニング", "データウェアハウス", "DBMS", "リレーショナルデータベース"], correctIndex: 1, hint: "分析や意思決定向けに時系列で統合蓄積する基盤だよ。", explanation: "データウェアハウスは日々の業務DBとは別に、分析向けに整理・統合された履歴データを蓄積します。" },
+        { question: "【テクノロジ】二次利用可能なルールのもとで公開された公共や組織などのデータはどれですか？", choices: ["データウェアハウス", "ビッグデータの3つのV", "オープンデータ", "データマイニング"], correctIndex: 2, hint: "二次利用可能なルールで公開された公共等のデータだよ。", explanation: "オープンデータは行政や公共機関などが機械判読しやすく二次利用しやすい形で公開するデータです。" },
+        { question: "【テクノロジ】建物内や構内など限定された範囲で機器を接続するネットワークはどれですか？", choices: ["WAN", "LAN", "VPN", "VLAN"], correctIndex: 1, hint: "建物内や構内など限定された範囲のネットワークだよ。", explanation: "LANは家庭やオフィス、校舎など比較的限られた範囲内で機器を相互接続するネットワークです。" },
+        { question: "【テクノロジ】離れた拠点や地域のLAN同士を通信回線などで結ぶ広域ネットワークはどれですか？", choices: ["LAN", "WAN", "VLAN", "VPN"], correctIndex: 1, hint: "離れた拠点や地域のLAN同士を結ぶ広域ネットワークだよ。", explanation: "WANは通信事業者の回線などを利用し、地理的に離れた拠点間を接続します。" },
+        { question: "【テクノロジ】異なるネットワーク間を接続し、宛先に応じて通信経路を選択・中継する機器はどれですか？", choices: ["ルータ", "ロードバランサ", "プロキシサーバー", "ファイアウォール"], correctIndex: 0, hint: "異なるネットワーク間を結び宛先に応じて経路選択・中継する機器だよ。", explanation: "ルータはIPアドレス等の情報をもとに最適な経路へパケットを転送します。" },
+        { question: "【テクノロジ】内部ネットワークから外部ネットワークへ通信を出す際の出入り口となる機器や設定はどれですか？", choices: ["サブネットマスク", "デフォルトゲートウェイ", "DNS", "DHCP"], correctIndex: 1, hint: "別ネットワークへ通信を出す際の出入り口となる機器や設定だよ。", explanation: "デフォルトゲートウェイは宛先が自ネットワーク外にある場合、最初に通信を送る中継先です。" },
+        { question: "【テクノロジ】IPアドレスのネットワーク部とホスト部を識別するために用いる値はどれですか？", choices: ["IPアドレス", "MACアドレス", "サブネットマスク", "ポート番号"], correctIndex: 2, hint: "IPアドレスのネットワーク部とホスト部を区切る値だよ。", explanation: "サブネットマスクにより、同じネットワークに属するかどうかやネットワークアドレスを判別できます。" },
+        { question: "【テクノロジ】32ビットのIPv4と、アドレス枯渇対策として128ビットへ拡張されたIPv6の組み合わせはどれですか？", choices: ["HTTPとHTTPS", "TCPとUDP", "IPv4とIPv6", "IMAPとPOP3"], correctIndex: 2, hint: "32ビットのIPv4と128ビットへ拡張されたIPv6だよ。", explanation: "IPv6はアドレス空間を大幅に拡張し、IPv4アドレス枯渇問題への対応として普及が進められています。" },
+        { question: "【テクノロジ】インターネット上の情報やリソースの場所と取得方法を示す表記はどれですか？", choices: ["DNS", "URL", "Cookie", "API"], correctIndex: 1, hint: "Web上のリソースの場所や取得方法を示す表記だよ。", explanation: "URLはスキーム（https等）、ホスト名、パスやクエリなどを組み合わせてリソースを指し示します。" },
+        { question: "【テクノロジ】Webサイト利用時にブラウザへ保存され、状態維持などに使われる小さなデータはどれですか？", choices: ["URL", "Cookie", "キャッシュメモリ", "JSON"], correctIndex: 1, hint: "ブラウザに保存され状態維持などに使われる小さなデータだよ。", explanation: "Cookieはログイン状態やカート内容の保持、利用状況の識別などに利用されます。" },
+        { question: "【テクノロジ】Web通信のHTTPと、それに暗号化や認証を加えた安全なHTTPSの組み合わせはどれですか？", choices: ["TCPとUDP", "IPv4とIPv6", "HTTPとHTTPS", "SMTP / POP3"], correctIndex: 2, hint: "Web通信のHTTPと暗号化・認証を加えたHTTPSだよ。", explanation: "HTTPSはHTTPをSSL/TLS上で通信させることで、盗聴や改ざん、なりすましを防ぎやすくします。" },
+        { question: "【テクノロジ】信頼性・再送制御を重視するTCPと、低遅延・リアルタイム性を重視するUDPの組み合わせはどれですか？", choices: ["HTTPとHTTPS", "TCPとUDP", "IMAPとPOP3", "IPv4とIPv6"], correctIndex: 1, hint: "確実性・再送制御のTCPと低遅延・高速性のUDPだよ。", explanation: "TCPはコネクション確立や順序保証・再送制御を行い、UDPは軽量でリアルタイム配信や音声・ゲーム等に向きます。" },
+        { question: "【テクノロジ】サーバー上にメールを残して複数端末で管理しやすいIMAPと受信取得型のPOP3の組み合わせはどれですか？", choices: ["SMTP / POP3", "TCPとUDP", "IMAPとPOP3", "HTTPとHTTPS"], correctIndex: 2, hint: "サーバー管理向きのIMAPと受信取得型のPOP3だよ。", explanation: "IMAPはメールをサーバー上で同期管理しやすく、POP3はメールサーバーから受信して取得する方式です。" },
+        { question: "【テクノロジ】利用者と外部サーバーの間に入って通信を代理し、制御や高速化などを行うサーバーはどれですか？", choices: ["ロードバランサ", "プロキシサーバー", "DNS", "DHCP"], correctIndex: 1, hint: "利用者と外部サーバーの間で通信を代理するサーバーだよ。", explanation: "プロキシサーバーはアクセス制御やキャッシュによる高速化、通信ログ記録などに用いられます。" },
+        { question: "【テクノロジ】複数のサーバーへアクセスや処理を振り分けて負荷を分散する装置・仕組みはどれですか？", choices: ["プロキシサーバー", "ロードバランサ", "CDN", "ルータ"], correctIndex: 1, hint: "複数サーバーへアクセスや処理を振り分ける負荷分散装置だよ。", explanation: "ロードバランサはアクセス集中を防ぎ、可用性や応答性能を高めるのに役立ちます。" },
+        { question: "【テクノロジ】分散配置したサーバーからコンテンツを効率よく配信し、遅延や負荷を抑える仕組みはどれですか？", choices: ["ロードバランサ", "CDN", "VPN", "VLAN"], correctIndex: 1, hint: "分散サーバーからコンテンツを配信し遅延や負荷を抑える仕組みだよ。", explanation: "CDNは静的コンテンツや動画などを利用者に近いエッジサーバーから配信し、表示高速化やorigin負荷軽減を図ります。" },
+        { question: "【テクノロジ】低消費電力で広範囲・長距離の無線通信を行うIoT向けの通信技術群はどれですか？", choices: ["Bluetooth", "NFC", "LPWA", "Wi-Fi"], correctIndex: 2, hint: "低消費電力・長距離通信を行うIoT向け無線技術だよ。", explanation: "LPWAは電池駆動のセンサーやメーターなど、少ないデータ量を省電力で広域通信する用途に適します。" },
+        { question: "【テクノロジ】高速・大容量、超低遅延、多数同時接続などを特徴とする第5世代移動通信システムはどれですか？", choices: ["LPWA", "5G", "Bluetooth", "NFC"], correctIndex: 1, hint: "高速大容量・超低遅延・多数同時接続が特徴の移動通信だよ。", explanation: "5Gは第5世代移動通信システムであり、多様な産業・サービスでの活用が進められています。" },
+        { question: "【テクノロジ】スマートフォンの通信機能を使い、他の端末をインターネットへ接続する機能はどれですか？", choices: ["Bluetooth", "NFC", "テザリング", "VPN"], correctIndex: 2, hint: "スマホの回線を使って他端末をネット接続する機能だよ。", explanation: "テザリングはWi-FiやUSB、Bluetoothなどを通じてPCやタブレット等に通信経路を提供します。" },
+        { question: "【テクノロジ】不正や有害な目的で作られた悪意あるソフトウェアの総称はどれですか？", choices: ["マルウェア", "トロイの木馬", "ワーム", "スパイウェア"], correctIndex: 0, hint: "不正や有害な目的で作られた悪意あるソフトの総称だよ。", explanation: "マルウェアにはウイルス、ワーム、トロイの木馬、ランサムウェア、スパイウェアなどが含まれます。" },
+        { question: "【テクノロジ】有用なプログラムや別物に見せかけて侵入し、悪意ある動作を行うマルウェアはどれですか？", choices: ["ワーム", "トロイの木馬", "スパイウェア", "ランサムウェア"], correctIndex: 1, hint: "有用なソフトや別物に見せかけて侵入し悪事を行うマルウェアだよ。", explanation: "トロイの木馬は通常は自己増殖しませんが、侵入後に情報窃取やバックドア設置などの不正動作を行います。" },
+        { question: "【テクノロジ】他プログラムに寄生せず単独で動作し、自己増殖して感染を広げるマルウェアはどれですか？", choices: ["トロイの木馬", "ワーム", "スパイウェア", "ランサムウェア"], correctIndex: 1, hint: "単独で動作し自己増殖して感染を広げるマルウェアだよ。", explanation: "ワームはネットワーク等を通じて自己拡散し、感染拡大や通信負荷を引き起こすことがあります。" },
+        { question: "【テクノロジ】利用者の行動や入力情報などを密かに収集し、外部へ送信するマルウェアはどれですか？", choices: ["トロイの木馬", "ワーム", "スパイウェア", "ボットネット"], correctIndex: 2, hint: "操作履歴や入力情報などを密かに収集し外部へ送るソフトだよ。", explanation: "スパイウェアはキー入力や閲覧履歴・個人情報などを無断で収集し、攻撃者へ送信します。" },
+        { question: "【テクノロジ】マルウェアに感染し遠隔操作される多数の端末群で構成されるネットワークはどれですか？", choices: ["C&Cサーバー", "ボットネット", "APT", "水飲み場攻撃"], correctIndex: 1, hint: "感染して遠隔操作される多数の端末群ネットワークだよ。", explanation: "ボットネットはDDoS攻撃やスパム送信などの踏み台として悪用されることがあります。" },
+        { question: "【テクノロジ】感染端末群に対して攻撃や動作の指令を送る司令塔となるサーバーはどれですか？", choices: ["ボットネット", "C&Cサーバー", "プロキシサーバー", "ロードバランサ"], correctIndex: 1, hint: "感染端末へ指令を送る司令塔サーバーだよ。", explanation: "C&C（コマンド＆コントロール）サーバーは感染端末との通信や指令伝達に用いられます。" },
+        { question: "【テクノロジ】特定の組織などを狙い、複数の手法を組み合わせて長期間・執拗に行われる高度な攻撃はどれですか？", choices: ["APT", "ブルートフォース攻撃", "辞書攻撃", "ショルダーハッキング"], correctIndex: 0, hint: "標的を定め複数手法で長期間・執拗に行われる高度な攻撃だよ。", explanation: "APT（高度持続的脅威）は潜伏や横展開を重ねながら機密情報等を狙う攻撃形態です。" },
+        { question: "【テクノロジ】標的がよく利用するWebサイトを改ざんして罠を仕掛け、訪問者を感染させる攻撃はどれですか？", choices: ["APT", "水飲み場攻撃", "スミッシング", "サポート詐欺"], correctIndex: 1, hint: "標的が訪れるサイトに罠を仕掛ける攻撃だよ。", explanation: "水飲み場攻撃は特定の対象層がよくアクセスするサイトを悪用し、訪問端末へ攻撃を仕掛けます。" },
+        { question: "【テクノロジ】入力欄などに不正なSQLを混入させ、データベースを不正操作・抽出する攻撃はどれですか？", choices: ["クロスサイトスクリプティング", "CSRF", "SQLインジェクション", "中間者攻撃"], correctIndex: 2, hint: "入力欄等に不正なSQLを混入させてDBを不正操作する攻撃だよ。", explanation: "SQLインジェクションは入力値の適切な無害化（プレースホルダ利用等）やエスケープ処理で防ぎます。" },
+        { question: "【テクノロジ】Webページに悪意あるスクリプトを埋め込み、閲覧者のブラウザ上で実行させる攻撃はどれですか？", choices: ["SQLインジェクション", "CSRF", "クロスサイトスクリプティング", "パスワードリスト攻撃"], correctIndex: 2, hint: "悪意あるスクリプトを埋め込み閲覧者ブラウザで実行させる攻撃だよ。", explanation: "クロスサイトスクリプティング（XSS）は出力時の適切なエスケープ処理などで対策します。" },
+        { question: "【テクノロジ】認証済み利用者に意図しないリクエストを送信させ、不正な操作を行わせる攻撃はどれですか？", choices: ["SQLインジェクション", "クロスサイトスクリプティング", "CSRF", "ブルートフォース攻撃"], correctIndex: 2, hint: "認証済み利用者に意図しないリクエストを送らせる攻撃だよ。", explanation: "CSRF（クロスサイトリクエストフォージェリ）はCSRFトークンの検証などで対策します。" },
+        { question: "【テクノロジ】考えられる文字や数字の組み合わせを順番にすべて試して解読・侵入を図る攻撃はどれですか？", choices: ["辞書攻撃", "パスワードリスト攻撃", "ブルートフォース攻撃", "ショルダーハッキング"], correctIndex: 2, hint: "考えられる組み合わせを総当たりで試す攻撃だよ。", explanation: "ブルートフォース攻撃（総当たり攻撃）に対しては、複雑なパスワードやログイン試行制限などが有効です。" },
+        { question: "【テクノロジ】パスワードに使われやすい単語や文字列のリストを用いて解読・ログインを試みる攻撃はどれですか？", choices: ["ブルートフォース攻撃", "辞書攻撃", "パスワードリスト攻撃", "トラッシング"], correctIndex: 1, hint: "単語や文字列のリストを使って解読・ログインを試みる攻撃だよ。", explanation: "辞書攻撃は推測しやすい単語や一般的な文字列のリストを順に試す手法です。" },
+        { question: "【テクノロジ】流出したIDとパスワードの組み合わせを使い回し、他サービスへのログインを試みる攻撃はどれですか？", choices: ["ブルートフォース攻撃", "辞書攻撃", "パスワードリスト攻撃", "フィッシング詐欺"], correctIndex: 2, hint: "流出したID・PWの組み合わせを使い回して他サービスへ侵入する攻撃だよ。", explanation: "パスワードリスト攻撃を防ぐには、サービスごとに異なるパスワードを設定することが重要です。" },
+        { question: "【テクノロジ】通信経路の途中に割り込み、通信内容の盗聴や改ざんを行う攻撃はどれですか？", choices: ["中間者攻撃", "ショルダーハッキング", "トラッシング", "DoS攻撃 / DDoS攻撃"], correctIndex: 0, hint: "通信経路の途中に割り込んで盗聴や改ざんを行う攻撃だよ。", explanation: "中間者攻撃に対しては、TLSによる通信暗号化やサーバー証明書の適切な検証が重要になります。" },
+        { question: "【テクノロジ】画面やキーボード操作を肩越しに覗き見て、パスワードや情報を盗み見る手口はどれですか？", choices: ["トラッシング", "ショルダーハッキング", "ビジネスメール詐欺", "サポート詐欺"], correctIndex: 1, hint: "画面やキーボード操作を肩越しに覗き見る手口だよ。", explanation: "ショルダーハッキングは外出先やオフィスでの画面のぞき見防止フィルムや周囲確認などで防ぎます。" },
+        { question: "【テクノロジ】廃棄された書類やごみなどから、機密情報やメモなどを漁り取る手口はどれですか？", choices: ["ショルダーハッキング", "トラッシング", "スミッシング", "サポート詐欺"], correctIndex: 1, hint: "廃棄された書類やごみから機密情報を漁り取る手口だよ。", explanation: "トラッシングを防ぐには、不要な機密書類のシュレッダー処理や適切な廃棄管理が必要です。" },
+        { question: "【テクノロジ】取引先や経営幹部などになりすましたメールで、不正な送金や情報送付を促す詐欺はどれですか？", choices: ["フィッシング詐欺", "スミッシング", "サポート詐欺", "ビジネスメール詐欺"], correctIndex: 3, hint: "取引先や幹部になりすまして不正送金や情報送付を促す詐欺だよ。", explanation: "ビジネスメール詐欺（BEC）では、別経路での本人・事実確認や決裁フローの確認が重要です。" },
+        { question: "【テクノロジ】偽の警告画面や連絡先を表示して不安をあおり、金銭や不当な対応を迫る詐欺はどれですか？", choices: ["フィッシング詐欺", "スミッシング", "サポート詐欺", "ビジネスメール詐欺"], correctIndex: 2, hint: "偽の警告画面や電話番号を表示して不安をあおる詐欺だよ。", explanation: "サポート詐欺では偽の警告音や画面に慌てず、ブラウザを閉じるなどの冷静な対応が重要です。" },
+        { question: "【テクノロジ】SMS（ショートメッセージ）を用いて偽サイトへ誘導し、情報を盗み取る手口はどれですか？", choices: ["フィッシング詐欺", "スミッシング", "サポート詐欺", "ビジネスメール詐欺"], correctIndex: 1, hint: "SMSのメッセージから偽サイトへ誘導して情報を盗む手口だよ。", explanation: "スミッシングはSMSを用いたフィッシングの一種であり、不審なURLにアクセスしないことが大切です。" },
+        { question: "【テクノロジ】Webアプリケーションへの攻撃を通信内容の検査によって検知・遮断する防御仕組みはどれですか？", choices: ["ファイアウォール", "IDS / IPS", "WAF", "サンドボックス"], correctIndex: 2, hint: "Webアプリへの攻撃を通信内容から検知・遮断する仕組みだよ。", explanation: "WAFはWebアプリケーション層を狙う攻撃パターン等を検査し、防御を強化します。" },
+        { question: "【テクノロジ】不正アクセスの兆候を検知するIDSと、検知に加えて遮断などを行うIPSの組み合わせはどれですか？", choices: ["ファイアウォール", "WAF", "IDS / IPS", "プロキシサーバー"], correctIndex: 2, hint: "検知のIDSと検知＋遮断等のIPSだよ。", explanation: "IDSは侵入検知システム、IPSは侵入防御システムとしてネットワーク監視・防御に用いられます。" },
+        { question: "【テクノロジ】不審なプログラムやファイルを隔離された環境で動かして安全性を検証する仕組みはどれですか？", choices: ["WAF", "IDS / IPS", "サンドボックス", "ゼロトラストセキュリティ"], correctIndex: 2, hint: "隔離された環境で不審な挙動を検証する仕組みだよ。", explanation: "サンドボックスは本番や通常環境に悪影響を与えないよう隔離空間で動作を観察します。" },
+        { question: "【テクノロジ】社内・社外を問わずすべての通信やアクセスを信用せず、都度検証する考え方はどれですか？", choices: ["ファイアウォール", "サンドボックス", "ゼロトラストセキュリティ", "シングルサインオン"], correctIndex: 2, hint: "境界の内側も外側も信用せず毎回検証する考え方だよ。", explanation: "ゼロトラストセキュリティは従来の境界防御にとどまらず、IDや端末状態・通信ごとに検証を行います。" },
+        { question: "【テクノロジ】一度限りや短時間のみ有効な使い捨てのパスワードを用いる認証方式はどれですか？", choices: ["生体認証", "ワンタイムパスワード", "CAPTCHA", "二要素認証 / 多要素認証"], correctIndex: 1, hint: "一度限りや短時間のみ有効な使い捨てパスワードだよ。", explanation: "ワンタイムパスワードは毎回異なる値が生成されるため、盗聴や使い回しリスクを低減できます。" },
+        { question: "【テクノロジ】自動プログラムではなく人間による操作であることを確認する認証方式はどれですか？", choices: ["ワンタイムパスワード", "生体認証", "CAPTCHA", "シングルサインオン"], correctIndex: 2, hint: "自動ボットではなく人間であることを確認する仕組みだよ。", explanation: "CAPTCHAは不正な自動登録やスパム送信、総当たり試行などを抑止するために用いられます。" },
+        { question: "【テクノロジ】暗号化と復号に同じ鍵を用いる暗号方式はどれですか？", choices: ["公開鍵暗号方式", "ハイブリッド暗号方式", "共通鍵暗号方式", "ハッシュ関数"], correctIndex: 2, hint: "暗号化と復号に同じ共通の鍵を使う方式だよ。", explanation: "共通鍵暗号方式は処理が高速ですが、通信相手と鍵を安全に共有する鍵配送が課題になります。" },
+        { question: "【テクノロジ】暗号化用の公開鍵と復号用の秘密鍵という鍵のペアを用いる暗号方式はどれですか？", choices: ["共通鍵暗号方式", "ハイブリッド暗号方式", "ハッシュ関数", "公開鍵暗号方式"], correctIndex: 3, hint: "公開鍵と秘密鍵のペアを用いる暗号方式だよ。", explanation: "公開鍵暗号方式は鍵配送の課題を解決しやすい一方、共通鍵暗号方式より計算コストが高めです。" },
+        { question: "【テクノロジ】共通鍵暗号方式と公開鍵暗号方式を組み合わせて利点を活かす暗号方式はどれですか？", choices: ["共通鍵暗号方式", "公開鍵暗号方式", "ハイブリッド暗号方式", "デジタル署名"], correctIndex: 2, hint: "共通鍵暗号と公開鍵暗号を組み合わせて利点を活かす方式だよ。", explanation: "ハイブリッド暗号方式では共通鍵の受け渡し等に公開鍵暗号を使い、データ暗号化には高速な共通鍵暗号を使います。" },
+        { question: "【テクノロジ】入力データから固定長のハッシュ値を算出し、改ざん検知や照合などに使う関数はどれですか？", choices: ["共通鍵暗号方式", "公開鍵暗号方式", "ハッシュ関数", "デジタル署名"], correctIndex: 2, hint: "入力から固定長の値を算出し改ざん検知等に使う関数だよ。", explanation: "ハッシュ関数は元のデータからハッシュ値を求めるのは容易ですが、ハッシュ値から元を復元するのは困難な性質を持ちます。" },
+        { question: "【テクノロジ】秘密鍵による署名と公開鍵による検証で、作成者や非改ざん性を確認する技術はどれですか？", choices: ["ハッシュ関数", "共通鍵暗号方式", "デジタル署名", "認証局とデジタル証明書"], correctIndex: 2, hint: "秘密鍵で署名し公開鍵で検証して本人性や非改ざん性を示す技術だよ。", explanation: "デジタル署名は送信者の秘密鍵で生成した署名を公開鍵で検証することで、なりすましや改ざんを検知できます。" },
+        { question: "【テクノロジ】公開鍵の正当性を第三者が証明する認証局と、その証明となる電子証明書の組み合わせはどれですか？", choices: ["ハイブリッド暗号方式", "デジタル署名", "ハッシュ関数", "認証局とデジタル証明書"], correctIndex: 3, hint: "第三者認証機関のCAと公開鍵の正当性を示す証明書だよ。", explanation: "認証局（CA）が発行するデジタル証明書により、公開鍵が正当な持ち主のものであることを確認できます。" },
+        { question: "【テクノロジ】一定期間変更や削除ができない状態で保管し、暗号化被害から守るバックアップはどれですか？", choices: ["フルバックアップ", "差分バックアップ", "増分バックアップ", "ランサムウェア対策のイミュータブルバックアップ"], correctIndex: 3, hint: "一定期間変更や削除ができない状態で守るバックアップだよ。", explanation: "イミュータブルバックアップは不変領域に保存することで、ランサムウェア等による上書きや削除を防ぎやすくします。" },
+        { question: "【テクノロジ】脆弱性を塞ぐため修正プログラムを適切に適用し、最新状態へ保つ管理はどれですか？", choices: ["サンドボックス", "脆弱性管理とセキュリティパッチ", "フォールスネガティブとフォールスポジティブ", "ゼロトラストセキュリティ"], correctIndex: 1, hint: "修正プログラムを適用し脆弱性を塞ぐ管理だよ。", explanation: "セキュリティパッチの迅速かつ計画的な適用は、既知の脆弱性を突かれるリスクを下げる基本対策です。" },
+        { question: "【テクノロジ】検知や認証における見逃し（偽陰性）と誤検知・誤受入（偽陽性）の誤りの対はどれですか？", choices: ["CIA", "ACID特性", "フォールスネガティブとフォールスポジティブ", "UIとUX"], correctIndex: 2, hint: "見逃しがフォールスネガティブ、誤検知・誤受入がフォールスポジティブだよ。", explanation: "検知感度を高めると見逃しは減りやすくなりますが、誤検知が増えるトレードオフが生じる場合があります。" },
+        { question: "【テクノロジ】値を保持する変数と、同型の複数要素を添字でまとめて扱う配列の組み合わせはどれですか？", choices: ["スタックとキュー", "変数と配列", "二分探索", "線形探索"], correctIndex: 1, hint: "単一の値を保持する変数と、同型要素を添字で扱う配列だよ。", explanation: "変数は1つの値を格納し、配列は同じ型のデータを連続した要素として添字で扱えます。" },
+        { question: "【テクノロジ】後入れ先出しのスタックと、先入れ先出しのキューというデータ構造の組み合わせはどれですか？", choices: ["変数と配列", "スタックとキュー", "線形探索", "バブルソート"], correctIndex: 1, hint: "LIFOのスタックとFIFOのキューだよ。", explanation: "スタックは最後に入れたものを最初に取り出し、キューは最初に入れたものを最初に取り出します。" },
+        { question: "【テクノロジ】整列済みデータの中央と探索値を比較し、範囲を半分ずつ絞る探索法はどれですか？", choices: ["線形探索", "二分探索", "バブルソート", "再帰処理"], correctIndex: 1, hint: "整列済み配列の中央値と比較し探索範囲を半分ずつ絞る方法だよ。", explanation: "二分探索はデータが整列済みであることが前提で、要素数nに対しておおよそlog2(n)回程度で探索できます。" },
+        { question: "【テクノロジ】データの先頭から順番に目的の値を探していく基本的な探索法はどれですか？", choices: ["二分探索", "線形探索", "バブルソート", "計算量"], correctIndex: 1, hint: "先頭から順番に1つずつ比較して探す基本的な探索法だよ。", explanation: "線形探索はデータが整列されていなくても適用でき、最大で要素数n回の比較が必要です。" },
+        { question: "【テクノロジ】隣り合う要素を比較して順序を整える交換を繰り返す整列アルゴリズムはどれですか？", choices: ["線形探索", "二分探索", "バブルソート", "再帰処理"], correctIndex: 2, hint: "隣り合う要素を比較し必要なら入れ替える整列アルゴリズムだよ。", explanation: "バブルソートは隣接要素の比較・交換を繰り返し、昇順や降順に整列する基本的なソート手法です。" },
+        { question: "【テクノロジ】1行ずつ逐次解釈・実行するインタプリタと、一括変換するコンパイラの組み合わせはどれですか？", choices: ["変数と配列", "スタックとキュー", "インタプリタとコンパイラ", "構造化プログラミングの基本3構造"], correctIndex: 2, hint: "逐次解釈・実行のインタプリタと一括変換のコンパイラだよ。", explanation: "インタプリタはソースコードを逐次解釈して実行し、コンパイラは事前に機械語等へ一括変換します。" },
+        { question: "【テクノロジ】順次・選択（分岐）・反復（繰り返し）の3つの基本制御構造はどれですか？", choices: ["オブジェクト指向", "構造化プログラミングの基本3構造", "インタプリタとコンパイラ", "計算量"], correctIndex: 1, hint: "順次・選択・反復の3つの制御構造だよ。", explanation: "構造化プログラミングでは順次・選択・反復の組み合わせによって処理の流れを明確に記述します。" },
+        { question: "【テクノロジ】データと処理をまとめた設計図のクラスと、そこから生成される実体のインスタンスを軸とする考え方はどれですか？", choices: ["構造化プログラミングの基本3構造", "オブジェクト指向", "カプセル化", "継承"], correctIndex: 1, hint: "クラスとインスタンスを軸にデータと処理をまとめる考え方だよ。", explanation: "オブジェクト指向は対象をモノ（オブジェクト）として捉え、データと処理をひとまとまりにして扱います。" },
+        { question: "【テクノロジ】内部のデータや実装を隠蔽し、定められた窓口経由で操作させる仕組みはどれですか？", choices: ["継承", "ポリモーフィズム", "カプセル化", "オブジェクト指向"], correctIndex: 2, hint: "内部データや実装を隠蔽し公開窓口経由で操作させる仕組みだよ。", explanation: "カプセル化により、外部から不正な直接変更を防ぎつつ内部実装の変更影響を局所化しやすくなります。" },
+        { question: "【テクノロジ】既存のクラスの性質や機能を引き継いで新しいクラスを作る仕組みはどれですか？", choices: ["カプセル化", "継承", "ポリモーフィズム", "変数と配列"], correctIndex: 1, hint: "親クラスの性質や機能を引き継いで子クラスを作る仕組みだよ。", explanation: "継承を活用することで、共通機能の再利用や拡張を効率的に行えます。" },
+        { question: "【テクノロジ】同じ操作や呼び出しに対して、対象に応じて異なる振る舞いをする性質はどれですか？", choices: ["カプセル化", "継承", "ポリモーフィズム", "オブジェクト指向"], correctIndex: 2, hint: "同じ呼び出しや操作に対し対象ごとに異なる動作をする性質だよ。", explanation: "ポリモーフィズム（多態性）により、呼び出し側が個別の型を意識せずに共通の操作で扱えます。" },
+        { question: "【テクノロジ】利用者とシステムの接点となるUIと、利用を通じて得られる体験全体のUXの組み合わせはどれですか？", choices: ["CIA", "ACID特性", "UIとUX", "RGBとCMYK"], correctIndex: 2, hint: "画面や操作接点のUIと、利用体験全体のUXだよ。", explanation: "UIはユーザーインターフェース、UXはユーザーエクスペリエンスを指し、両者を連携して設計することが重要です。" },
+        { question: "【テクノロジ】ネットワーク通信機能を階層化して整理したTCP/IPの4階層モデル等の概念はどれですか？", choices: ["Pingコマンド", "プロトコルスタック", "MACアドレス", "ポート番号"], correctIndex: 1, hint: "通信機能を階層化して整理したモデルや構造だよ。", explanation: "階層化することで各層の役割分担が明確になり、仕様変更や実装の独立性を高めやすくなります。" },
+        { question: "【テクノロジ】指定した宛先へ応答要求を送り、ネットワーク上の到達性や疎通を確認するコマンドはどれですか？", choices: ["Pingコマンド", "プロトコルスタック", "MACアドレス", "ポート番号"], correctIndex: 0, hint: "宛先への疎通や応答時間を確認するネットワークコマンドだよ。", explanation: "PingコマンドはICMPエコー要求と応答などを利用し、通信経路上の到達性や遅延を確認できます。" },
+        { question: "【テクノロジ】ネットワーク機器などに固有に割り当てられる物理的な識別アドレスはどれですか？", choices: ["IPアドレス", "MACアドレス", "ポート番号", "サブネットマスク"], correctIndex: 1, hint: "ネットワーク機器やNICに割り当てられる物理アドレスだよ。", explanation: "MACアドレスはデータリンク層等で機器を識別するために用いられる48ビット等の識別子です。" },
+        { question: "【テクノロジ】通信におけるアプリケーションやサービスを識別するための番号はどれですか？", choices: ["IPアドレス", "MACアドレス", "ポート番号", "サブネットマスク"], correctIndex: 2, hint: "通信先のアプリやサービスを識別する番号だよ。", explanation: "ポート番号は同一ホスト内でどのアプリケーションやサービス宛ての通信かを識別する番号です。" },
+        { question: "【テクノロジ】LANケーブルを通じてデータ通信と電力供給を同時に行う技術はどれですか？", choices: ["PoE", "メッシュWi-Fi", "WPA3", "Bluetooth"], correctIndex: 0, hint: "LANケーブルで通信と電力供給を同時に行う技術だよ。", explanation: "PoE（Power over Ethernet）はLANケーブル経由でデータ通信と同時に機器へ電力を供給する技術です。" },
+        { question: "【テクノロジ】複数のアクセスポイントを網の目状に連携させ、通信範囲や安定性を高める仕組みはどれですか？", choices: ["PoE", "メッシュWi-Fi", "WPA3", "テザリング"], correctIndex: 1, hint: "複数中継機を網の目状に連携させ範囲を広げる仕組みだよ。", explanation: "メッシュWi-Fiは複数のアクセスポイントが相互に通信・連携し、広い範囲で途切れにくい無線環境を作る仕組みです。" },
+        { question: "【テクノロジ】無線LANにおける暗号化や認証の安全性を高めたセキュリティ規格はどれですか？", choices: ["メッシュWi-Fi", "PoE", "WPA3", "SSL/TLS"], correctIndex: 2, hint: "無線LANの暗号化や認証を強化した規格だよ。", explanation: "WPA3はWPA2の後継となる無線LANセキュリティ規格で、認証や暗号化方式の強化により安全性が高められています。" },
+        { question: "【テクノロジ】メールサーバーが第三者の踏み台として不正中継されるのを防ぐ対策はどれですか？", choices: ["オープンリレーの防止", "SPF / DKIM / DMARC", "WAF", "IDS / IPS"], correctIndex: 0, hint: "メールサーバーの不正な踏み台中継を防ぐ対策だよ。", explanation: "オープンリレー（第三者中継）を制限・防止することで、スパムメール送信の踏み台にされるリスクを防ぎます。" },
+        { question: "【テクノロジ】送信元ドメインの認証などにより、なりすましメールを検知・対策する仕組みはどれですか？", choices: ["オープンリレーの防止", "SPF / DKIM / DMARC", "SSL/TLS", "デジタル署名"], correctIndex: 1, hint: "なりすましメール対策となる送信ドメイン認証技術だよ。", explanation: "SPFやDKIM、DMARCは送信元ドメインの正当性検証や認証失敗時の扱い方針により、なりすましメール対策に役立ちます。" },
+        { question: "【テクノロジ】画像を構成する画素の総数と、単位長さあたりの点の密度を表す解像度の組み合わせはどれですか？", choices: ["画像解像度と画素数", "通信速度の単位", "クロック周波数", "RGBとCMYK"], correctIndex: 0, hint: "画素の総数と点の密度を表す解像度だよ。", explanation: "画素数は画像を構成する総ピクセル数、解像度は単位長さあたりの画素密度や表示細かさの指標です。" },
+        { question: "【テクノロジ】1秒間に転送できるビット数などで通信速度を表す単位群はどれですか？", choices: ["画像解像度と画素数", "通信速度の単位", "クロック周波数", "サンプリング・量子化・符号化"], correctIndex: 1, hint: "1秒あたりの転送ビット数などで表す通信速度単位だよ。", explanation: "通信速度はbps（bit per second）やKbps・Mbps・Gbpsなどの単位で表されます。" },
+        { question: "【テクノロジ】CPUなどの動作タイミングを制御する信号の1秒あたりの周期・回数はどれですか？", choices: ["通信速度の単位", "画像解像度と画素数", "クロック周波数", "UPS"], correctIndex: 2, hint: "1秒あたりの動作基準信号の周期を表す周波数だよ。", explanation: "クロック周波数はHz（MHzやGHzなど）で表され、同期信号が1秒間に刻む回数・周期を示します。" },
+        { question: "【テクノロジ】発光表示向けのRGBと、印刷などの色表現に用いられるCMYKの組み合わせはどれですか？", choices: ["画像解像度と画素数", "RGBとCMYK", "サンプリング・量子化・符号化", "文字コード"], correctIndex: 1, hint: "画面表示向けのRGBと色材・印刷向けのCMYKだよ。", explanation: "RGBは光の三原色（赤・緑・青）による加法混色系、CMYKはシアン・マゼンタ・イエロー・キープレートによる減法混色系です。" },
+        { question: "【テクノロジ】アナログ音声などをデジタル化する際の標本化・量子化・符号化の段階はどれですか？", choices: ["RGBとCMYK", "サンプリング・量子化・符号化", "文字コード", "非可逆圧縮 / 可逆圧縮"], correctIndex: 1, hint: "アナログ信号をデジタル化する標本化・量子化・符号化だよ。", explanation: "サンプリング（一定時間間隔での値抽出）→量子化（段階的な数値化）→符号化（2進数等のビット列化）でデジタル化します。" },
+        { question: "【テクノロジ】文字をコンピュータで扱うための符号体系と、Unicodeの符号化方式UTF-8の組み合わせはどれですか？", choices: ["RGBとCMYK", "サンプリング・量子化・符号化", "文字コード", "ファイル拡張子"], correctIndex: 2, hint: "文字を数値対応させる符号体系とUTF-8方式だよ。", explanation: "文字コードは文字と数値の対応付け体系であり、UnicodeやUTF-8などにより多言語の文字を扱えます。" },
+        { question: "【テクノロジ】電源投入時にハードウェアの初期化やOS起動処理を担う基本ファームウェアはどれですか？", choices: ["BIOS / UEFI", "ファームウェア", "ドライバ", "UPS"], correctIndex: 0, hint: "起動時にハード初期化やOS起動を担う基本制御だよ。", explanation: "BIOSやUEFIは起動時にハードウェアの初期化やセルフテストを行い、OSのブートローダへ処理を引き継ぎます。" },
+        { question: "【テクノロジ】停電や電圧異常時にバッテリーから電力を供給し、安全停止や継続を支える装置はどれですか？", choices: ["BIOS / UEFI", "UPS", "PUE", "分散処理"], correctIndex: 1, hint: "停電時に電力を供給して安全停止等を支える装置だよ。", explanation: "UPS（無停電電源装置）は停電や電圧変動時にバッテリーから電力を供給し、安全シャットダウンや一時稼働を支えます。" },
+        { question: "【テクノロジ】データセンター全体の消費電力をIT機器の消費電力で割った効率指標はどれですか？", choices: ["UPS", "PUE", "分散処理", "ROI"], correctIndex: 1, hint: "施設全体の消費電力をIT機器消費電力で割る指標だよ。", explanation: "PUEはデータセンター全体の消費電力をIT機器の消費電力で除した値で、1.0に近いほど空調や電源ロスが少なく効率的です。" },
+        { question: "【テクノロジ】複数のコンピュータやノードに処理を分けて並列・協調実行する方式はどれですか？", choices: ["バッチ処理", "分散処理", "PUE", "UPS"], correctIndex: 1, hint: "複数機器に処理を分けて実行する処理方式だよ。", explanation: "分散処理は複数のコンピュータやノードがネットワーク等で連携し、処理を分担して実行する方式です。" },
+        { question: "【テクノロジ】量子力学的な性質を利用して計算を行う次世代の計算方式・装置はどれですか？", choices: ["量子コンピュータ", "耐量子計算機暗号", "分散処理", "GPU"], correctIndex: 0, hint: "量子ビットなどを用いる次世代計算方式・装置だよ。", explanation: "量子コンピュータは重ね合わせや量子もつれ等の量子力学的性質を利用し、特定の計算問題で高速化が期待されます。" },
+        { question: "【テクノロジ】量子コンピュータでも解読が困難となるよう設計された次世代暗号技術はどれですか？", choices: ["量子コンピュータ", "耐量子計算機暗号", "公開鍵暗号方式", "ハイブリッド暗号方式"], correctIndex: 1, hint: "量子計算機時代を見据えた解読困難な暗号技術だよ。", explanation: "耐量子計算機暗号（PQC）は量子コンピュータのアルゴリズムでも解読が困難となるよう設計された暗号方式です。" },
+        { question: "【テクノロジ】分散型技術などを活用し、中央集権に偏らないWebのあり方や概念はどれですか？", choices: ["ブロックチェーン", "Web3.0", "NFT", "メタバース"], correctIndex: 1, hint: "分散型技術などを活用する次世代Webの概念だよ。", explanation: "Web3.0はブロックチェーン等の分散型技術を活用し、仲介者や中央集権への依存を減らすWebの概念や取り組みを指します。" },
+        { question: "【テクノロジ】ブロックチェーン上で唯一性や所有履歴などを扱える非代替性トークンはどれですか？", choices: ["ブロックチェーン", "Web3.0", "NFT", "メタバース"], correctIndex: 2, hint: "唯一性や履歴などを扱える非代替性トークンだよ。", explanation: "NFTは代替不可能なデジタル資産の証明や所有・取引履歴をブロックチェーン上で扱える仕組みです。" },
+        { question: "【テクノロジ】ネットワーク上に構築された仮想空間で交流や活動などができる場・サービスはどれですか？", choices: ["AR / VR", "デジタルツイン", "メタバース", "Web3.0"], correctIndex: 2, hint: "仮想空間上で交流や活動などができる場・サービスだよ。", explanation: "メタバースはネットワーク上に形成された3D等の仮想空間で、アバター等を通じて他者と交流・活動できる空間やサービスです。" },
+        { question: "【テクノロジ】学習したデータをもとに、文章や画像・音声などの新たなコンテンツを生成するAIはどれですか？", choices: ["生成AI", "LLM", "RAG", "ディープフェイク"], correctIndex: 0, hint: "文章や画像などの新しい出力を生成するAIだよ。", explanation: "生成AIは学習データからパターンを捉え、テキストや画像、音声、コードなどの新しいコンテンツを生成するAI技術です。" },
+        { question: "【テクノロジ】大規模なテキストデータで学習し、言語処理や文章生成などを行うモデルはどれですか？", choices: ["生成AI", "LLM", "RAG", "説明可能なAI"], correctIndex: 1, hint: "大規模テキストで学習する言語モデルだよ。", explanation: "LLM（大規模言語モデル）は膨大なテキストデータで学習し、文章の理解や生成、翻訳・要約などを行う言語モデルです。" },
+        { question: "【テクノロジ】外部情報や知識を検索して取り込みながら、回答や文章を生成する手法はどれですか？", choices: ["生成AI", "LLM", "RAG", "プロンプトエンジニアリング"], correctIndex: 2, hint: "外部知識を検索・参照しながら回答生成する手法だよ。", explanation: "RAGは関連する外部文書やデータベースを検索して文脈に取り込み、根拠に基づく回答生成を支援する手法です。" },
+        { question: "【テクノロジ】AI技術を用いて人物の映像や音声などを精巧に合成・改変する技術はどれですか？", choices: ["生成AI", "ハルシネーション", "ディープフェイク", "説明可能なAI"], correctIndex: 2, hint: "AIで映像や音声などを精巧に合成・改変する技術だよ。", explanation: "ディープフェイクは深層学習等の技術を用いて人物の顔や声・映像などを精巧に合成・改変する技術です。" },
+        { question: "【テクノロジ】AIの判断や予測の根拠・理由を人間が理解しやすい形で示す技術や考え方はどれですか？", choices: ["生成AI", "LLM", "ディープフェイク", "説明可能なAI"], correctIndex: 3, hint: "AIの判断根拠や理由を説明・提示する技術だよ。", explanation: "説明可能なAI（XAI）はAIがなぜその出力や判定に至ったのかの根拠や要因を人間が理解しやすい形で示す技術・考え方です。" },
+        { question: "【テクノロジ】入力規模の増加に対する処理時間やメモリ量の増え方を表す指標はどれですか？", choices: ["アルゴリズム", "計算量", "再帰処理", "二分探索"], correctIndex: 1, hint: "データ量増加に対する処理時間等の増え方の指標だよ。", explanation: "計算量は入力データ数nの増加に対して必要な演算回数やメモリ使用量がどのように増えるかを表す指標です。" },
+        { question: "【テクノロジ】関数や処理の定義の中で自分自身を呼び出して問題を解く手法はどれですか？", choices: ["アルゴリズム", "計算量", "再帰処理", "構造化プログラミングの基本3構造"], correctIndex: 2, hint: "処理の中で自分自身を呼び出す手法だよ。", explanation: "再帰処理は関数や手続きの実行中に自分自身を呼び出し、部分問題へ分解しながら解を求める手法です。" },
+        { question: "【テクノロジ】文字コードの不一致などにより文字が正しく表示されない現象と対策のテーマはどれですか？", choices: ["文字コード", "文字化けの原因と対策", "ファイル拡張子", "非可逆圧縮 / 可逆圧縮"], correctIndex: 1, hint: "文字コード不一致等による表示崩れと対策だよ。", explanation: "文字化けは保存時と読み込み・表示時で異なる文字コードが解釈されること等で起き、文字コードの統一や指定により防ぎます。" },
+        { question: "【テクノロジ】複数ファイルをまとめ、可逆圧縮などでサイズを抑えて扱える形式の代表例はどれですか？", choices: ["非可逆圧縮 / 可逆圧縮", "圧縮ファイル", "ファイル拡張子", "文字コード"], correctIndex: 1, hint: "複数ファイルをまとめ可逆圧縮などで扱う形式だよ。", explanation: "ZIP形式などの圧縮ファイルは複数ファイルやフォルダをまとめ、可逆圧縮等で容量を削減して配布・保管しやすくします。" },
+        { question: "【テクノロジ】ファイル名の末尾につけられ、種類や関連付けの判別に使われる文字列はどれですか？", choices: ["圧縮ファイル", "ファイル拡張子", "文字コード", "文字化けの原因と対策"], correctIndex: 1, hint: "ファイルの種類や扱いを識別する末尾の文字列だよ。", explanation: "ファイル拡張子はドット以降につけられる文字列で、ファイル形式や対応アプリケーションの判別などに利用されます。" }
+    ];
+
+    // 用語集データ（quizListの正解用語を自動集約＋重要用語を網羅）
+    const glossaryData = (() => {
+        const seen = new Set();
+        const items = [];
+        const catMeta = {
+            "【ストラテジ】": { cat: "ストラテジ", cls: "tag-st" },
+            "【マネジメント】": { cat: "マネジメント", cls: "tag-mg" },
+            "【テクノロジ】": { cat: "テクノロジ", cls: "tag-tc" }
+        };
+        quizList.forEach(q => {
+            const term = q.choices[q.correctIndex];
+            if (!term || seen.has(term)) return;
+            seen.add(term);
+            let meta = { cat: "共通", cls: "tag-st" };
+            for (const prefix of Object.keys(catMeta)) {
+                if (q.question.startsWith(prefix)) {
+                    meta = catMeta[prefix];
+                    break;
+                }
+            }
+            items.push({
+                cat: meta.cat,
+                cls: meta.cls,
+                term: term,
+                desc: q.explanation
+            });
+        });
+        return items;
+    })();
+
+    function syncUiCounts() {
+        document.getElementById("lbl-start-subtitle").textContent =
+            `全${quizList.length}問＆全${glossaryData.length}語収録！学習スタイルや分野別に選んで学べます。`;
+        document.getElementById("btn-glossary-start").textContent =
+            `📖 用語集を見る（全${glossaryData.length}語・検索対応）`;
+        document.getElementById("lbl-glossary-title").textContent =
+            `ITパスポート頻出 用語集（全${glossaryData.length}語）`;
+    }
+
+    syncUiCounts();
+
+    let currentMode = 'normal';
+    let playList = [];
+    let currentQuizIndex = 0;
+    let correctCount = 0;
+    let testQuestions = [];
+    let isFullTest = false;
+    let remainingSeconds = 0;
+    let timerInterval = null;
+
+    function stopTimer() {
+        if (timerInterval !== null) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+    }
+
+    function formatTime(totalSec) {
+        const safeSec = Math.max(0, totalSec);
+        const mins = Math.floor(safeSec / 60);
+        const secs = safeSec % 60;
+        return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    function updateTimerDisplay() {
+        const lblTimer = document.getElementById("lbl-test-timer");
+        const timerBar = document.getElementById("test-timer-bar");
+        lblTimer.textContent = formatTime(remainingSeconds);
+        if (remainingSeconds <= 300) {
+            timerBar.classList.add("timer-warning");
+        } else {
+            timerBar.classList.remove("timer-warning");
+        }
+    }
+
+    function renderGlossary(filterText = "") {
+        const container = document.getElementById("glossary-list-container");
+        container.innerHTML = "";
+        const keyword = filterText.trim().toLowerCase();
+
+        const filtered = glossaryData.filter(item =>
+            !keyword ||
+            item.term.toLowerCase().includes(keyword) ||
+            item.desc.toLowerCase().includes(keyword) ||
+            item.cat.toLowerCase().includes(keyword)
+        );
+
+        if (filtered.length === 0) {
+            container.innerHTML = `<p style="text-align:center; color:#888; margin-top:20px;">該当する用語が見つかりませんでした。</p>`;
+            return;
+        }
+
+        filtered.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "glossary-item";
+            div.innerHTML = `
+                <div class="glossary-term">
+                    <span class="glossary-tag ${item.cls}">${item.cat}</span>
+                    ${item.term}
+                </div>
+                <p class="glossary-desc">${item.desc}</p>
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    function filterGlossary() {
+        const text = document.getElementById("input-glossary-search").value;
+        renderGlossary(text);
+    }
+
+    function showStartScreen() {
+        stopTimer();
+        document.getElementById("screen-start").classList.remove("hidden");
+        document.getElementById("screen-quiz").classList.add("hidden");
+        document.getElementById("screen-test").classList.add("hidden");
+        document.getElementById("screen-end").classList.add("hidden");
+        window.scrollTo(0, 0);
+    }
+
+    function shuffleArray(array) {
+        const copy = [...array];
+        for (let i = copy.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = copy[i];
+            copy[i] = copy[j];
+            copy[j] = temp;
+        }
+        return copy;
+    }
+
+    function startQuiz(mode) {
+        stopTimer();
+        currentMode = mode;
+        currentQuizIndex = 0;
+        correctCount = 0;
+
+        let filteredList = quizList;
+
+        if (mode === 'strategy') {
+            filteredList = quizList.filter(q => q.question.includes("【ストラテジ】"));
+            document.getElementById("lbl-mode-badge").textContent = "🏢 ストラテジ系";
+        } else if (mode === 'management') {
+            filteredList = quizList.filter(q => q.question.includes("【マネジメント】"));
+            document.getElementById("lbl-mode-badge").textContent = "📊 マネジメント系";
+        } else if (mode === 'technology') {
+            filteredList = quizList.filter(q => q.question.includes("【テクノロジ】"));
+            document.getElementById("lbl-mode-badge").textContent = "💻 テクノロジ系";
+        } else if (mode === 'normal') {
+            document.getElementById("lbl-mode-badge").textContent = "10問チャレンジ";
+        } else {
+            document.getElementById("lbl-mode-badge").textContent = "🔥 エンドレスモード";
+        }
+
+        const shuffled = shuffleArray(filteredList);
+
+        if (mode === 'normal' || mode === 'strategy' || mode === 'management' || mode === 'technology') {
+            playList = shuffled.slice(0, 10);
+        } else {
+            playList = shuffled;
+        }
+
+        document.getElementById("screen-start").classList.add("hidden");
+        document.getElementById("screen-quiz").classList.remove("hidden");
+        document.getElementById("screen-test").classList.add("hidden");
+        document.getElementById("screen-end").classList.add("hidden");
+
+        showQuiz();
+    }
+
+    function showQuiz() {
+        if (currentQuizIndex < playList.length) {
+            const currentQuiz = playList[currentQuizIndex];
+            
+        if (!currentQuiz._choicesShuffled) {
+            const indexed = currentQuiz.choices.map((text, idx) => ({
+                text,
+                isCorrect: idx === currentQuiz.correctIndex
+            }));
+            const shuffled = shuffleArray(indexed);
+            currentQuiz.choices = shuffled.map(item => item.text);
+            currentQuiz.correctIndex = shuffled.findIndex(item => item.isCorrect);
+            currentQuiz._choicesShuffled = true;
+        }
+
+            if (currentMode === 'normal' || currentMode === 'strategy' || currentMode === 'management' || currentMode === 'technology') {
+                document.getElementById("lbl-progress").textContent = `第 ${currentQuizIndex + 1} 問 / 全 ${playList.length} 問`;
+            } else {
+                document.getElementById("lbl-progress").textContent = `🔥 エンドレス（第 ${currentQuizIndex + 1} 問 / 正解数: ${correctCount}）`;
+            }
+
+            document.getElementById("lbl-question").textContent = currentQuiz.question;
+
+            const hintBox = document.getElementById("lbl-hint");
+            hintBox.textContent = "";
+            hintBox.classList.add("hidden");
+
+            const expBox = document.getElementById("lbl-explanation");
+            expBox.textContent = "";
+            expBox.classList.add("hidden");
+
+            const choiceButtons = document.querySelectorAll(".btn-choice");
+            choiceButtons.forEach((button, index) => {
+                button.textContent = `${index + 1}. ${currentQuiz.choices[index]}`;
+                button.disabled = false;
+                button.style.backgroundColor = "#ffffff";
+                button.style.color = "#007bff";
+            });
+
+            document.getElementById("lbl-result").textContent = "";
+            const btnNext = document.getElementById("btn-next");
+            btnNext.disabled = true;
+            btnNext.textContent = "次の問題へ";
+        }
+    }
+
+    function showHint() {
+        const currentQuiz = playList[currentQuizIndex];
+        const hintBox = document.getElementById("lbl-hint");
+        hintBox.textContent = `💡 ヒント: ${currentQuiz.hint}`;
+        hintBox.classList.remove("hidden");
+    }
+
+    function selectChoice(selectedIndex) {
+        const currentQuiz = playList[currentQuizIndex];
+        const choiceButtons = document.querySelectorAll(".btn-choice");
+        const btnNext = document.getElementById("btn-next");
+        const expBox = document.getElementById("lbl-explanation");
+        const correctLabel = `${currentQuiz.correctIndex + 1}. ${currentQuiz.choices[currentQuiz.correctIndex]}`;
+        const selectedLabel = `${selectedIndex + 1}. ${currentQuiz.choices[selectedIndex]}`;
+
+        choiceButtons.forEach(btn => btn.disabled = true);
+
+        if (selectedIndex === currentQuiz.correctIndex) {
+            document.getElementById("lbl-result").textContent = "⭕ 正解！素晴らしい！";
+            document.getElementById("lbl-result").style.color = "#28a745";
+            choiceButtons[selectedIndex].style.backgroundColor = "#28a745";
+            choiceButtons[selectedIndex].style.color = "#ffffff";
+            correctCount++;
+            expBox.textContent = `📘 解説\n正解は「${correctLabel}」です。\n${currentQuiz.explanation}`;
+        } else {
+            document.getElementById("lbl-result").textContent = `❌ 残念！正解は ${currentQuiz.correctIndex + 1} です。`;
+            document.getElementById("lbl-result").style.color = "#dc3545";
+            choiceButtons[selectedIndex].style.backgroundColor = "#dc3545";
+            choiceButtons[selectedIndex].style.color = "#ffffff";
+            choiceButtons[currentQuiz.correctIndex].style.backgroundColor = "#28a745";
+            choiceButtons[currentQuiz.correctIndex].style.color = "#ffffff";
+            expBox.textContent = `📘 解説\nあなたが選んだ「${selectedLabel}」ではなく、正解は「${correctLabel}」です。\n${currentQuiz.explanation}`;
+        }
+
+        expBox.classList.remove("hidden");
+        btnNext.disabled = false;
+    }
+
+    function nextQuestion() {
+        currentQuizIndex++;
+
+        if (currentMode === 'endless' && currentQuizIndex >= playList.length) {
+            playList = shuffleArray(quizList);
+            currentQuizIndex = 0;
+        }
+
+        if (currentQuizIndex < playList.length) {
+            showQuiz();
+        } else {
+            endQuizScreen();
+        }
+    }
+
+    function endQuizScreen() {
+        document.getElementById("screen-quiz").classList.add("hidden");
+        document.getElementById("screen-end").classList.remove("hidden");
+
+        document.getElementById("lbl-end-title").textContent = "クイズ終了！";
+        document.getElementById("lbl-final-score").textContent =
+            `お疲れ様でした！\n\nあなたの成績：${playList.length}問中 ${correctCount}問 正解！`;
+    }
+
+function extractCategoryPrefix(questionText) {
+        const match = questionText.match(/^【[^】]+】/);
+        return match ? match[0] : "";
+    }
+
+    function shuffleChoices(choices, correctIndex) {
+        const indexed = choices.map((text, idx) => ({
+            text,
+            isCorrect: idx === correctIndex
+        }));
+
+        for (let i = indexed.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indexed[i], indexed[j]] = [indexed[j], indexed[i]];
+        }
+
+        return {
+            choices: indexed.map(item => item.text),
+            correctIndex: indexed.findIndex(item => item.isCorrect)
+        };
+    }
+
+    function buildReverseTestQuestion(targetQ, allQuestions) {
+        const prefix = extractCategoryPrefix(targetQ.question);
+        const term = targetQ.choices[targetQ.correctIndex];
+        const sameCatPool = allQuestions.filter(
+            q => q !== targetQ && extractCategoryPrefix(q.question) === prefix
+        );
+        const fallbackPool = allQuestions.filter(q => q !== targetQ);
+        const candidates = sameCatPool.length >= 3 ? sameCatPool : fallbackPool;
+
+        const distractors = shuffleArray(candidates)
+            .slice(0, 3)
+            .map(q => q.explanation);
+
+        const shuffled = shuffleChoices([targetQ.explanation, ...distractors], 0);
+
+        return {
+            question: `${prefix}「${term}」の説明または役割として最も適切なものはどれですか？`,
+            choices: shuffled.choices,
+            correctIndex: shuffled.correctIndex,
+            explanation: targetQ.explanation,
+            qType: "逆引き"
+        };
+    }
+
+    function buildScenarioTestQuestion(targetQ) {
+        const prefix = extractCategoryPrefix(targetQ.question);
+        const core = targetQ.question
+            .replace(/^【[^】]+】/, "")
+            .replace(/はどれですか？$/, "");
+        const shuffled = shuffleChoices(targetQ.choices, targetQ.correctIndex);
+
+        return {
+            question: `${prefix}次の条件や状況に該当する用語・手法として最も適切なものを選んでください：${core}`,
+            choices: shuffled.choices,
+            correctIndex: shuffled.correctIndex,
+            explanation: targetQ.explanation,
+            qType: "条件・場面"
+        };
+    }
+
+    function buildTestQuestion(rawQ, allQuestions) {
+        const roll = Math.random();
+        if (roll < 0.45) {
+            return buildReverseTestQuestion(rawQ, allQuestions);
+        }
+        if (roll < 0.75) {
+            return buildScenarioTestQuestion(rawQ);
+        }
+        const shuffled = shuffleChoices(rawQ.choices, rawQ.correctIndex);
+        return {
+            question: rawQ.question,
+            choices: shuffled.choices,
+            correctIndex: shuffled.correctIndex,
+            explanation: rawQ.explanation,
+            qType: "正引き"
+        };
+    }
+
+    function startTestMode(questionCount, withTimer) {
+        stopTimer();
+        isFullTest = withTimer;
+        testQuestions = shuffleArray(quizList)
+            .slice(0, Math.min(questionCount, quizList.length))
+            .map(q => buildTestQuestion(q, quizList));
+
+        const container = document.getElementById("test-questions-container");
+        container.innerHTML = "";
+
+        document.getElementById("lbl-test-title").textContent = withTimer
+            ? `本格テスト（全${testQuestions.length}問・制限時間120分）`
+            : `模擬テスト（全${testQuestions.length}問）`;
+
+        document.getElementById("lbl-test-notice").textContent = withTimer
+            ? `⚠️ 本格テスト中はヒントおよび用語集を使用できません。正引き・逆引き・条件/場面問題がランダム出題されます（制限時間120分）。`
+            : `⚠️ テスト中はヒントおよび用語集を使用できません。正引き・逆引き・条件/場面問題がランダム出題されます。`;
+
+        const timerBar = document.getElementById("test-timer-bar");
+        if (withTimer) {
+            remainingSeconds = 120 * 60;
+            timerBar.classList.remove("hidden");
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                remainingSeconds--;
+                updateTimerDisplay();
+                if (remainingSeconds <= 0) {
+                    stopTimer();
+                    alert("制限時間（120分）が終了しました。現在の回答で採点します。");
+                    gradeTestMode(true);
+                }
+            }, 1000);
+        } else {
+            timerBar.classList.add("hidden");
+        }
+
+        document.getElementById("test-result-area").classList.add("hidden");
+        document.getElementById("test-result-area").innerHTML = "";
+        document.getElementById("btn-submit-test-top").classList.remove("hidden");
+        document.getElementById("btn-test-back-top").classList.add("hidden");
+        document.getElementById("btn-test-quit-top").classList.remove("hidden");
+        document.getElementById("btn-submit-test").classList.remove("hidden");
+        document.getElementById("btn-test-back").classList.add("hidden");
+
+        testQuestions.forEach((q, qIdx) => {
+            const itemDiv = document.createElement("div");
+            itemDiv.className = "test-item";
+            itemDiv.id = `test-item-${qIdx}`;
+
+            let choicesHtml = "";
+            q.choices.forEach((choice, cIdx) => {
+                choicesHtml += `
+                    <label class="test-choice-label" id="test-label-${qIdx}-${cIdx}">
+                        <input type="radio" name="test-q-${qIdx}" value="${cIdx}">
+                        ${cIdx + 1}. ${choice}
+                    </label>
+                `;
+            });
+
+            itemDiv.innerHTML = `
+                <div class="test-q-title">第 ${qIdx + 1} 問 [${q.qType}]</div>
+                <div class="test-q-text">${q.question}</div>
+                <div>${choicesHtml}</div>
+                <div id="test-fb-${qIdx}" class="test-feedback hidden"></div>
+                <div id="test-exp-${qIdx}" class="explanation-box hidden"></div>
+            `;
+            container.appendChild(itemDiv);
+        });
+
+        document.getElementById("screen-start").classList.add("hidden");
+        document.getElementById("screen-quiz").classList.add("hidden");
+        document.getElementById("screen-test").classList.remove("hidden");
+        document.getElementById("screen-end").classList.add("hidden");
+        window.scrollTo(0, 0);
+    }
+
+    function gradeTestMode(forceSubmit = false) {
+        if (!forceSubmit) {
+            let unanswered = [];
+            for (let i = 0; i < testQuestions.length; i++) {
+                const selected = document.querySelector(`input[name="test-q-${i}"]:checked`);
+                if (!selected) {
+                    unanswered.push(i + 1);
+                }
+            }
+
+            if (unanswered.length > 0) {
+                if (isFullTest) {
+                    const proceed = confirm(`第 ${unanswered.join(", ")} 問が未回答です。このまま採点しますか？`);
+                    if (!proceed) return;
+                } else {
+                    alert(`第 ${unanswered.join(", ")} 問が未回答です。すべての問題に回答してから採点してください。`);
+                    return;
+                }
+            }
+        }
+
+        stopTimer();
+
+        let score = 0;
+        const total = testQuestions.length;
+        testQuestions.forEach((q, qIdx) => {
+            const selected = document.querySelector(`input[name="test-q-${qIdx}"]:checked`);
+            const userAns = selected ? parseInt(selected.value, 10) : null;
+            const fbDiv = document.getElementById(`test-fb-${qIdx}`);
+            const expDiv = document.getElementById(`test-exp-${qIdx}`);
+            const correctLabel = `${q.correctIndex + 1}. ${q.choices[q.correctIndex]}`;
+
+            const radios = document.querySelectorAll(`input[name="test-q-${qIdx}"]`);
+            radios.forEach(r => r.disabled = true);
+
+            if (userAns === q.correctIndex) {
+                score++;
+                fbDiv.textContent = "⭕ 正解！";
+                fbDiv.className = "test-feedback fb-correct";
+                document.getElementById(`test-label-${qIdx}-${userAns}`).style.backgroundColor = "#d4edda";
+                document.getElementById(`test-label-${qIdx}-${userAns}`).style.borderColor = "#28a745";
+            } else {
+                fbDiv.textContent = userAns !== null
+                    ? `❌ 不正解（正解は ${correctLabel}）`
+                    : `❌ 未回答（正解は ${correctLabel}）`;
+                fbDiv.className = "test-feedback fb-wrong";
+                if (userAns !== null) {
+                    document.getElementById(`test-label-${qIdx}-${userAns}`).style.backgroundColor = "#f8d7da";
+                    document.getElementById(`test-label-${qIdx}-${userAns}`).style.borderColor = "#dc3545";
+                }
+                document.getElementById(`test-label-${qIdx}-${q.correctIndex}`).style.backgroundColor = "#d4edda";
+                document.getElementById(`test-label-${qIdx}-${q.correctIndex}`).style.borderColor = "#28a745";
+            }
+
+            expDiv.textContent = `📘 解説（正解：${correctLabel}）\n${q.explanation}`;
+            expDiv.classList.remove("hidden");
+        });
+
+        const percentage = Math.round((score / total) * 100);
+        const resultArea = document.getElementById("test-result-area");
+        const passMsg = percentage >= 60
+            ? "🎉 合格ライン（60%以上）達成！応用的な聞かれ方にも対応できています！"
+            : "📚 あと少し！各問題の解説を見直して、用語の意味と区別を固めよう！";
+        resultArea.innerHTML = `
+            <h2 style="margin:0 0 10px 0; color:#333;">採点結果：${total}問中 ${score} 問正解（${percentage}点）</h2>
+            <p style="margin:0; font-weight:bold; color:${percentage >= 60 ? '#28a745' : '#dc3545'};">${passMsg}</p>
+        `;
+        resultArea.classList.remove("hidden");
+
+        document.getElementById("btn-submit-test-top").classList.add("hidden");
+        document.getElementById("btn-test-back-top").classList.remove("hidden");
+        document.getElementById("btn-test-quit-top").classList.add("hidden");
+        document.getElementById("btn-submit-test").classList.add("hidden");
+        document.getElementById("btn-test-back").classList.remove("hidden");
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openGlossary() {
+        document.getElementById("input-glossary-search").value = "";
+        renderGlossary();
+        document.getElementById("modal-glossary").classList.remove("hidden");
+    }
+
+    function closeGlossary() {
+        document.getElementById("modal-glossary").classList.add("hidden");
+    }
+    const STATS_STORAGE_KEY = "it_passport_quiz_stats_v2";
+
+    function loadQuizStats() {
+        try {
+            return JSON.parse(localStorage.getItem(STATS_STORAGE_KEY)) || {};
+        } catch (e) {
+            return {};
+        }
+    }
+
+    function saveQuizStats(stats) {
+        localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(stats));
+    }
+
+    function recordQuestionResult(questionText, isCorrect) {
+        if (!questionText) return;
+        const stats = loadQuizStats();
+        const prev = stats[questionText] || { attempts: 0, correct: 0, wrongStreak: 0 };
+        prev.attempts += 1;
+        if (isCorrect) {
+            prev.correct += 1;
+            prev.wrongStreak = 0;
+        } else {
+            prev.wrongStreak += 1;
+        }
+        stats[questionText] = prev;
+        saveQuizStats(stats);
+    }
+
+    function resetQuizStats() {
+        if (confirm("これまでの問題ごとの正解率・挑戦記録をすべて削除しますか？")) {
+            localStorage.removeItem(STATS_STORAGE_KEY);
+            alert("成績データをリセットしました。");
+            if (!document.getElementById("screen-review").classList.contains("hidden")) {
+                renderReviewList();
+            }
+        }
+    }
+
+    function getWeaknessSortedQuestions() {
+        const stats = loadQuizStats();
+        return quizList
+            .map(q => {
+                const r = stats[q.question];
+                if (!r || r.attempts === 0) {
+                    return { q, priority: 50 };
+                }
+                const rate = r.correct / r.attempts;
+                const priority = (1 - rate) * 100 + (r.wrongStreak || 0) * 15;
+                return { q, priority };
+            })
+            .sort((a, b) => b.priority - a.priority || Math.random() - 0.5)
+            .map(item => item.q);
+    }
+
+    function openReviewScreen() {
+        stopTimer();
+        document.getElementById("screen-start").classList.add("hidden");
+        document.getElementById("screen-quiz").classList.add("hidden");
+        document.getElementById("screen-test").classList.add("hidden");
+        document.getElementById("screen-end").classList.add("hidden");
+        document.getElementById("screen-review").classList.remove("hidden");
+        renderReviewList();
+        window.scrollTo(0, 0);
+    }
+
+    function renderReviewList() {
+        const keyword = (document.getElementById("input-review-search")?.value || "").trim().toLowerCase();
+        const filterType = document.getElementById("select-review-filter")?.value || "all";
+        const stats = loadQuizStats();
+        const container = document.getElementById("review-list-container");
+        container.innerHTML = "";
+
+        const list = quizList.filter(q => {
+            const r = stats[q.question];
+            const answer = q.choices[q.correctIndex];
+            const matchesKeyword = !keyword ||
+                q.question.toLowerCase().includes(keyword) ||
+                answer.toLowerCase().includes(keyword) ||
+                q.explanation.toLowerCase().includes(keyword);
+            if (!matchesKeyword) return false;
+
+            if (filterType === "unanswered") {
+                return !r || r.attempts === 0;
+            }
+            if (filterType === "weak") {
+                if (!r || r.attempts === 0) return false;
+                return (r.correct / r.attempts) < 0.6 || (r.wrongStreak || 0) > 0;
+            }
+            return true;
+        });
+
+        list.forEach((q, idx) => {
+            const r = stats[q.question];
+            const statLabel = (!r || r.attempts === 0)
+                ? "未回答"
+                : `${r.correct}/${r.attempts}回正解（${Math.round((r.correct / r.attempts) * 100)}%）`;
+            const card = document.createElement("div");
+            card.className = "test-item";
+            card.innerHTML = `
+                <div class="test-q-title">Q${idx + 1} ｜ ${statLabel}</div>
+                <div class="test-q-text">${q.question}</div>
+                <div style="font-weight:bold; color:#155724; margin-bottom:6px;">正解：${q.choices[q.correctIndex]}</div>
+                <div class="explanation-box" style="margin:0;">${q.explanation}</div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // 既存関数に成績保存・弱点克服モード・画面切り替えを後付け連携
+    const _origShowStartScreen = showStartScreen;
+    showStartScreen = function() {
+        document.getElementById("screen-review").classList.add("hidden");
+        _origShowStartScreen();
+    };
+
+    const _origStartQuiz = startQuiz;
+    startQuiz = function(mode) {
+        if (mode === "weakness") {
+            stopTimer();
+            currentMode = "weakness";
+            currentQuizIndex = 0;
+            correctCount = 0;
+            playList = getWeaknessSortedQuestions().slice(0, 10);
+            document.getElementById("lbl-mode-badge").textContent = "🎯 弱点克服モード";
+            document.getElementById("screen-start").classList.add("hidden");
+            document.getElementById("screen-quiz").classList.remove("hidden");
+            document.getElementById("screen-test").classList.add("hidden");
+            document.getElementById("screen-end").classList.add("hidden");
+            document.getElementById("screen-review").classList.add("hidden");
+            showQuiz();
+            return;
+        }
+        document.getElementById("screen-review").classList.add("hidden");
+        _origStartQuiz(mode);
+    };
+
+    const _origSelectChoice = selectChoice;
+    selectChoice = function(selectedIndex) {
+        const targetQ = playList[currentQuizIndex];
+        if (targetQ) {
+            recordQuestionResult(targetQ.question, selectedIndex === targetQ.correctIndex);
+        }
+        _origSelectChoice(selectedIndex);
+    };
+
+    const _origGradeTestMode = gradeTestMode;
+    gradeTestMode = function(forceSubmit = false) {
+        const beforeDisabled = document.querySelector(`input[name="test-q-0"]`)?.disabled;
+        _origGradeTestMode(forceSubmit);
+        const afterDisabled = document.querySelector(`input[name="test-q-0"]`)?.disabled;
+        if (!beforeDisabled && afterDisabled && Array.isArray(testQuestions)) {
+            testQuestions.forEach((q, qIdx) => {
+                const selected = document.querySelector(`input[name="test-q-${qIdx}"]:checked`);
+                const userAns = selected ? parseInt(selected.value, 10) : null;
+                recordQuestionResult(q.question, userAns === q.correctIndex);
+            });
+        }
+    };
+</script>
+
+</body>
+</html>
